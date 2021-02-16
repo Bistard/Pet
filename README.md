@@ -2,6 +2,6 @@
 Group project for Solution Challenge 2021.
 Group member:
 - Chris Li (Sihan Li)
-- waiting...
-- waiting...
-- waiting...
+- Haolin Liu
+- Liam Xue (Yiping Xue)
+- Linda Wang
