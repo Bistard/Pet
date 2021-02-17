@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Pet</string>
+    <string name="choose_a_name_for_your_pet">Choose a name for your Pet!</string>
+    <string name="name">Name</string>
 </resources>
