@@ -25,7 +25,6 @@ public class set_up3 extends AppCompatActivity {
         // initial datePicker
         initDatePicker();
         datePickerButton = findViewById(R.id.datePickerButton);
-        datePickerButton.setText(getTodaysDate());
 
         // TODO: to the set up page#3
         /*
