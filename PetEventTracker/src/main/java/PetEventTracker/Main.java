@@ -1,21 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package PetEventTracker;
 
-/**
- *
- * @author 30714
- */
 public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Goal g1 = new Goal("Goal 1","Discription 1",20210219);
+        new Task("Task 1","Task Discription",20210218,g1);
+        System.out.println(Event.getTasks(20210218).get(0).getDiscription());
     }
     
 }
