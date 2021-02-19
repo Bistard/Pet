@@ -27,7 +27,7 @@ public class set_up1 extends AppCompatActivity {
 
     }
 
-    // setUp page button click method
+    // TODO: store the name
     public void buttonClick (View view) {
         TextView setupText = findViewById(R.id.setUpText1);
         EditText petName = findViewById(R.id.setUpEnterBox1);
