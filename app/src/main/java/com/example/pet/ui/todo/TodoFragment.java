@@ -1,4 +1,4 @@
-package com.example.pet.ui.dashboard;
+package com.example.pet.ui.todo;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.pet.R;
 
-public class DashboardFragment extends Fragment {
+public class TodoFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private TodoViewModel todoViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        todoViewModel =
+                new ViewModelProvider(this).get(TodoViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_todo, container, false);
+        final TextView textView = root.findViewById(R.id.text_todo);
+        todoViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

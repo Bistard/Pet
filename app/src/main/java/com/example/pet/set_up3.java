@@ -110,7 +110,6 @@ public class set_up3 extends AppCompatActivity {
 
     }
 
-    // TODO: homeActivity
     public void openHomeActivity() {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
