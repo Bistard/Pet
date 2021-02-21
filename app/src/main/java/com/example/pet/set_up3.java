@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,16 +27,14 @@ public class set_up3 extends AppCompatActivity {
         initDatePicker();
         datePickerButton = findViewById(R.id.datePickerButton);
 
-        // TODO: to the set up page#3
-        /*
-        Button nextButton = (Button)findViewById(R.id.setUpButton2);
+        // open next activity
+        Button nextButton = (Button)findViewById(R.id.setUpButton3);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openHomeActivity();
             }
         });
-         */
 
     }
 
@@ -113,6 +112,7 @@ public class set_up3 extends AppCompatActivity {
 
     // TODO: homeActivity
     public void openHomeActivity() {
-
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 }
