@@ -1,6 +1,0 @@
-PetEventTracker/Main.java
- PetEventTracker.Main
-PetEventTracker/Event.java
- PetEventTracker.Event
- PetEventTracker.Goal
- PetEventTracker.Task
