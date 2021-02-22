@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Task firstTask = todaysTasks.get(0);
 
         TextView myTV = findViewById(R.id.textLog);
-        myTV.setText(firstTask.name+": "+firstTask.description);
+        myTV.setText(firstTask.name + ": " + firstTask.description);
 
         myTV.setWidth(1000);
         myTV.setHeight(1000);

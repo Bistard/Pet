@@ -1,7 +1,7 @@
-com/example/petevent/BuildConfig.java
- com.example.petevent.BuildConfig
 com/example/petevent/Goal.java
  com.example.petevent.Goal
+com/example/petevent/BuildConfig.java
+ com.example.petevent.BuildConfig
 com/example/petevent/User.java
  com.example.petevent.User
 com/example/petevent/DataManager.java

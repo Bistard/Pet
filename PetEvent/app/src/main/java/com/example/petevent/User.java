@@ -39,16 +39,6 @@ public class User {
         return newGoal;
     }
 
-
-    /**
-     * Find all the goals that is set for the inputted date.
-     *
-     * @param date The date to be searched in YYYYMMDD
-     *             If date ends with XXXX0000, return all goals in that year;
-     *             If date ends with XXXXXX00, return all goals in that month;
-     *             If date ends with XXXXXXXX, return all goals in that day.
-     * @return An arraylist of goals happening at the specified time.
-     */
     public ArrayList<Goal> getGoals(int date) {
         ArrayList<Goal> lst = new ArrayList<>();
         lst.add(goalList.get(0));
@@ -82,17 +72,6 @@ public class User {
         return addTask(name, description, startDate, startDate, "Once", parent.ID);
     }
 
-
-    /**
-     * Find all the goals that is set for the inputted date.
-     *
-     * @param date The date to be searched in YYYYMMDD
-     *             If date ends with XXXX0000, return all goals in that year;
-     *             If date ends with XXXXXX00, return all goals in that month;
-     *             If date ends with XXXXXXXX, return all goals in that day.
-     * @return An arraylist of goals happening at the specified time.
-     * Recurring task would only appear once.
-     */
     public ArrayList<Task> getTasks(int date) {
         ArrayList<Task> lst = new ArrayList<>();
         lst.add(taskList.get(0));

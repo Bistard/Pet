@@ -48,9 +48,9 @@ public class DataManager {
         return 1;
     }
 
-    static List<Goal> LoadGoals(String filename) throws Exception{
+    static List<Goal> LoadGoals(String filename) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        List<Goal> lst = Arrays.asList(mapper.readValue(new File(path, filename),Goal[].class));
+        List<Goal> lst = Arrays.asList(mapper.readValue(new File(path, filename), Goal[].class));
         return lst;
     }
 
@@ -64,9 +64,9 @@ public class DataManager {
         return 1;
     }
 
-    static List<Task> LoadTasks(String filename) throws Exception{
+    static List<Task> LoadTasks(String filename) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        List<Task> lst = Arrays.asList(mapper.readValue(new File(path, filename),Task[].class));
+        List<Task> lst = Arrays.asList(mapper.readValue(new File(path, filename), Task[].class));
         return lst;
     }
 }

@@ -43,11 +43,22 @@ public class Goal {
     }
 
     public void remove() {
-        // code goes here
+        ArrayList<Task> toRemove = getChild();
+        for (Task t : toRemove) {
+            t.remove();
+        }
+        User.goalList.remove(this);
+        DataManager.StoreGoals("Goals.json", User.goalList);
+        DataManager.StoreTasks("Tasks.json", User.taskList);
     }
 
     public ArrayList<Task> getChild() {
-        // code goes here
+        ArrayList<Task> lst = new ArrayList<>();
+        for (Task t : User.taskList) {
+            if (t.parentGoalID == this.ID) {
+                lst.add(t);
+            }
+        }
         return null;
     }
 
