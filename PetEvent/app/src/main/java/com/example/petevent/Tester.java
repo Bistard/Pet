@@ -25,7 +25,6 @@ public class Tester {
         int goal2ID = user.addGoal("Goal 2","",20210220,20210329,1).ID;
         user.addTask("Task 3","For goal 2",20210220,20210320,"Weekly",goal2ID);  // none of the recurring rule is implemented yet
 
-        user.SaveFiles();
         return user;
     }
 }

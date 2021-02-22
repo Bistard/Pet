@@ -15,7 +15,8 @@ public class User {
     public int nextGoalID = 0;
     public static ArrayList<Task> taskList = new ArrayList<>();
 
-    public User() {}
+    public User() {
+    }
 
     public static User Initialize() {
         if (!initialized) {
@@ -27,10 +28,14 @@ public class User {
         }
     }
 
-    public Goal addGoal(String name, String description, int startDate, int endDate, int type) {
+    public Goal addGoal(String name, String description, int startDate, int endDate, int type) throws IllegalArgumentException {
+        if (endDate < startDate || endDate > longTermGoalDDL){
+            throw new IllegalArgumentException("Time is incorrect.");
+        }
         Goal newGoal = new Goal(name, description, startDate, endDate, type, nextGoalID);
         nextGoalID++;
         goalList.add(newGoal);
+        SaveFiles();
         return newGoal;
     }
 
@@ -45,29 +50,35 @@ public class User {
      * @return An arraylist of goals happening at the specified time.
      */
     public ArrayList<Goal> getGoals(int date) {
-
+        ArrayList<Goal> lst = new ArrayList<>();
+        lst.add(goalList.get(0));
         // need the logic
 
-        return null;
+        return lst;
     }
 
     public Task addTask(String name, String description, int startDate, int endDate,
-                        String recurringRule, int parentID) {
+                        String recurringRule, int parentID) throws IllegalArgumentException {
+        Goal parent = Goal.getGoalByID(parentID);
+        if (endDate < startDate || startDate < parent.startDate || endDate > parent.endDate) {
+            throw new IllegalArgumentException("Time is incorrect.");
+        }
         Task newTask = new Task(name, description, startDate, endDate, recurringRule, parentID);
         taskList.add(newTask);
+        SaveFiles();
         return newTask;
     }
 
     public Task addTask(String name, String description, int startDate, int endDate,
-                        String recurringRule, Goal parent) {
+                        String recurringRule, Goal parent) throws IllegalArgumentException {
         return addTask(name, description, startDate, endDate, recurringRule, parent.ID);
     }
 
-    public Task addTask(String name, String description, int startDate, int parentID) {
+    public Task addTask(String name, String description, int startDate, int parentID) throws IllegalArgumentException {
         return addTask(name, description, startDate, startDate, "Once", parentID);
     }
 
-    public Task addTask(String name, String description, int startDate, Goal parent) {
+    public Task addTask(String name, String description, int startDate, Goal parent) throws IllegalArgumentException {
         return addTask(name, description, startDate, startDate, "Once", parent.ID);
     }
 
@@ -82,11 +93,12 @@ public class User {
      * @return An arraylist of goals happening at the specified time.
      * Recurring task would only appear once.
      */
-    public static ArrayList<Task> getTasks(int date) {
+    public ArrayList<Task> getTasks(int date) {
+        ArrayList<Task> lst = new ArrayList<>();
+        lst.add(taskList.get(0));
+        // need the logic
 
-        // need logic
-
-        return null;
+        return lst;
     }
 
     public void SaveFiles() {
@@ -96,10 +108,11 @@ public class User {
     }
 
     public void LoadFiles() {
-        try{
+        try {
             goalList = new ArrayList<>(DataManager.LoadGoals("Goals.json"));
             taskList = new ArrayList<>(DataManager.LoadTasks("Tasks.json"));
-        } catch (Exception e){}
+        } catch (Exception e) {
+        }
 
     }
 }

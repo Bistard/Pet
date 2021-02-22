@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.util.Log;
 import android.widget.TextView;
 
 import java.io.File;
@@ -22,9 +21,11 @@ public class MainActivity extends AppCompatActivity {
 
         User user = Tester.makeCustomUser(getFilesDir());
 
+        ArrayList<Task> todaysTasks = user.getTasks(20210221);
+        Task firstTask = todaysTasks.get(0);
 
         TextView myTV = findViewById(R.id.textLog);
-        myTV.setText(User.goalList.toString()+User.taskList.toString());
+        myTV.setText(firstTask.name+": "+firstTask.description);
 
         myTV.setWidth(1000);
         myTV.setHeight(1000);
