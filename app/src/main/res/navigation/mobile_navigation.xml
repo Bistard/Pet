@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/navigation_calendar"
+        android:name="com.example.pet.ui.calendar.CalendarFragment"
+        android:label="@string/title_calendar"
+        tools:layout="@layout/fragment_calendar" />
+
+    <fragment
         android:id="@+id/navigation_statistics"
         android:name="com.example.pet.ui.statistics.StatisticsFragment"
         android:label="@string/title_statistics"
