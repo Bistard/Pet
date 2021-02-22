@@ -27,4 +27,9 @@ public class Tester {
 
         return user;
     }
+
+    static User readCustomUser(){
+        User user = User.Initialize();
+        return user;
+    }
 }

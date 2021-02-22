@@ -42,26 +42,39 @@ public class Goal {
         this.type = type;
     }
 
+    /**
+     * Removes the goal object from the goalList, and removes all its child tasks.
+     */
     public void remove() {
-        ArrayList<Task> toRemove = getChild();
+        ArrayList<Task> toRemove = gChildren();
         for (Task t : toRemove) {
             t.remove();
         }
         User.goalList.remove(this);
         DataManager.StoreGoals("Goals.json", User.goalList);
-        DataManager.StoreTasks("Tasks.json", User.taskList);
     }
 
-    public ArrayList<Task> getChild() {
+    /**
+     * Get all its children
+     *
+     * @return ArrayList of tasks
+     */
+    public ArrayList<Task> gChildren() {
         ArrayList<Task> lst = new ArrayList<>();
         for (Task t : User.taskList) {
             if (t.parentGoalID == this.ID) {
                 lst.add(t);
             }
         }
-        return null;
+        return lst;
     }
 
+    /**
+     * find the object using its id.
+     *
+     * @param targetID the ID of the goal
+     * @return the goal object, null if couldn't find any, which should not happen.
+     */
     public static Goal getGoalByID(int targetID) {
         for (Goal goal : User.goalList) {
             if (goal.ID == targetID) {

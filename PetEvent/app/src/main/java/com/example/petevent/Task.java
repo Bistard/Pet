@@ -72,22 +72,42 @@ public class Task {
         updateRecurringList();
     }
 
+    /**
+     * Removes the task object from the taskList.
+     */
     public void remove() {
         User.taskList.remove(this);
         DataManager.StoreTasks("Tasks.json", User.taskList);
     }
 
+    /**
+     * Find the value of its parent's type attribute.
+     *
+     * @return an integer indicating the parent's type.
+     */
     public int parentType() {
-        return getParentGoal().type;
+        return gParentGoal().type;
     }
 
-    public Goal getParentGoal() {
+    /**
+     * Find the parent of this task.
+     *
+     * @return Goal object.
+     */
+    public Goal gParentGoal() {
         return Goal.getGoalByID(this.parentGoalID);
     }
 
+    /**
+     * Generates a list of dates according to the recurring rule.
+     * Can be called to update the list when the recurring rule has been updated.
+     */
     private void updateRecurringList() {
         if (isRecurring) {
             recurringDate.add(eventDate);
+            recurringDate.add(eventDate + 1);
+            recurringDate.add(eventDate + 2);
+            recurringDate.add(eventDate + 3);
             // need logic
 
         } else {
@@ -98,10 +118,6 @@ public class Task {
     /**
      * Increment date according to calendar rules.
      * For instance incrementDate(20200227,7) should return 20200305
-     *
-     * @param date
-     * @param increment
-     * @return
      */
     private int incrementDate(int date, int increment) {
         return -1;
