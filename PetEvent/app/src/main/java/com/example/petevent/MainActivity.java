@@ -3,6 +3,12 @@ package com.example.petevent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.util.Log;
+import android.widget.TextView;
+
+import java.io.File;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,28 +16,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // initialize the DataManager class
+        DataManager.init(getFilesDir());
+
+        User user = Tester.makeCustomUser(getFilesDir());
+
+
+        TextView myTV = findViewById(R.id.textLog);
+        myTV.setText(User.goalList.toString()+User.taskList.toString());
+
+        myTV.setWidth(1000);
+        myTV.setHeight(1000);
+
     }
 }
-
-/*
-package PetEventTracker;
-
-import java.util.ArrayList;
-
-public class Main {
-    public static void main(String[] args) {
-        Goal g1 = new Goal("Goal 1","Description 1","FEB 18 2021");
-        new Task("Task 1","Task 1 Description","FEB 18 2021",g1);
-        new Task("Task 2","Task 2 Description","FEB 18 2021",g1,"FEB 30 2021","Weekly");
-        new Task("Task 3","Task 3 Description","FEB 25 2021",g1);
-        new Task("Task 4","Task 4 Description","MAR 18 2021",g1);
-
-        Goal.getGoals("FEB 18 2021");
-
-        ArrayList<Task> lst = Task.getTasks("FEB 18 2021");
-        System.out.println(lst);
-    }
-
-}
-
- */
