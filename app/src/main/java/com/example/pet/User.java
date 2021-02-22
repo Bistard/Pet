@@ -49,7 +49,7 @@ public class User {
      */
     public Goal addGoal(String name, String description, int startDate, int endDate, int type)
             throws IllegalArgumentException {
-        if (endDate < startDate || endDate > longTermGoalDDL) {
+        if (endDate < startDate) {
             throw new IllegalArgumentException("Time is incorrect.");
         }
         Goal newGoal = new Goal(name, description, startDate, endDate, type, nextGoalID);
