@@ -26,7 +26,10 @@ public class HomeActivity extends AppCompatActivity {
                 R.id.navigation_statistics)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        /**
+         *  This line of code causes crashes when applied a change on "NoActionBar"
+         */
+        // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
         DataManager.init(getFilesDir());
