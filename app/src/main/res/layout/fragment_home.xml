@@ -99,6 +99,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
             android:text="Today's Date"
+            android:fontFamily="sans-serif-medium"
             android:textColor="@color/white"
             android:textSize="40sp" />
 
