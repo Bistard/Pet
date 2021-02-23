@@ -14,6 +14,11 @@ public class HomeViewModel extends ViewModel {
     public HomeViewModel() {
 
         /**
+         * Date Display
+         */
+
+
+        /**
          * Tester for I/O
          */
         mText = new MutableLiveData<>();
