@@ -36,27 +36,27 @@ public class Task {
         updateRecurringList();
     }
 
-    public void setName(String name) {
+    public void changeName(String name) {
         this.name = name;
     }
 
-    public void setDescription(String description) {
+    public void changeDescription(String description) {
         this.description = description;
     }
 
-    public void setEventDate(int eventDate) {
-        this.eventDate = eventDate;
+    public void changeEventDate(int year, int month, int day) {
+        this.eventDate = year * 10000 + month * 100 + day;
     }
 
-    public void setEndDate(int endDate) {
-        this.endDate = endDate;
+    public void changeEndDate(int year, int month, int day) {
+        this.endDate = year * 10000 + month * 100 + day;
     }
 
-    public void setParent(int parentGoalID) {
+    public void changeParent(int parentGoalID) {
         this.parentGoalID = parentGoalID;
     }
 
-    public void setParent(Goal parentGoal) {
+    public void changeParent(Goal parentGoal) {
         this.parentGoalID = parentGoal.ID;
     }
 
