@@ -89,7 +89,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/blue">
+        android:background="@drawable/fragment_home_gradient">
 
         <TextView
             android:id="@+id/fragment_home_top_date"
