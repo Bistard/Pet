@@ -29,6 +29,10 @@ public class HomeActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
+        DataManager.init(getFilesDir());
+        User user = User.Initialize();
+        Goal g = user.addGoal("","",20210220,20210222,0);
+
     }
 
 }
