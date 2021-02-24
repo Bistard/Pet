@@ -21,7 +21,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        // Set the status bar transparent
         makeStatusBarTransparent(this);
 
         setContentView(R.layout.activity_home);
@@ -35,9 +35,7 @@ public class HomeActivity extends AppCompatActivity {
                 R.id.navigation_statistics)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        /**
-         *  This line of code causes crashes when applied a change on "NoActionBar"
-         */
+        // The below line of code causes crashes when applied a change on "NoActionBar"
         // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
