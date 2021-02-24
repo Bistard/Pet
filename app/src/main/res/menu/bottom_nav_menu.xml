@@ -13,17 +13,22 @@
 
     <item
         android:id="@+id/navigation_todo"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_baseline_create_24"
+        android:title="@string/title_todo" />
+
+    <item
+        android:id="@+id/navigation_add"
+        android:icon="@drawable/ic_baseline_control_point_24"
         android:title="@string/title_todo" />
 
     <item
         android:id="@+id/navigation_calendar"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_baseline_calendar_today_24"
         android:title="@string/title_calendar" />
 
     <item
         android:id="@+id/navigation_statistics"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_baseline_grade_24"
         android:title="@string/title_statistics" />
 
 </menu>
