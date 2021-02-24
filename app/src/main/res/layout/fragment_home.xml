@@ -96,14 +96,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="25dp"
             android:layout_marginStart="10dp"
             android:text="Today's Date"
             android:fontFamily="sans-serif-medium"
             android:textColor="@color/white"
             android:textSize="40sp" />
-
     </FrameLayout>
+
 
 
     <ScrollView
@@ -120,32 +120,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical">
-
-            <Button
-                android:id="@+id/pet"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="This is a Pet Button"
-                android:textColor="#fff" />
-
-            <Button
-                android:id="@+id/pe1"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="This is a Pet Button"
-                android:textColor="#fff" />
-            <Button
-                android:id="@+id/pe3"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="This is a Pet Button"
-                android:textColor="#fff" />
 
         </LinearLayout>
 
