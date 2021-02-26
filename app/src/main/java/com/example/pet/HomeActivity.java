@@ -9,6 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -39,6 +40,14 @@ public class HomeActivity extends AppCompatActivity {
         // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
+        // nav bar UI
+        com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx nav_view = (BottomNavigationViewEx) findViewById(R.id.nav_view);
+        // nav_view.enableAnimation(false);
+        nav_view.setTextVisibility(true);
+        nav_view.enableShiftingMode(false);
+        nav_view.enableItemShiftingMode(false);
+
+        // Data initializing
         DataManager.init(getFilesDir());
     }
 
