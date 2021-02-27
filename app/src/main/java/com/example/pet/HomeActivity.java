@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -53,7 +56,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // link add button to a new activity
         // to the AddTaskActivity
-        BottomNavigationItemView addTask = findViewById(R.id.navigation_add);
+        FloatingActionButton addTask = findViewById(R.id.fab);
         addTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

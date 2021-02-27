@@ -17,9 +17,8 @@
         android:title="@string/title_todo" />
 
     <item
-        android:id="@+id/navigation_add"
-        android:icon="@drawable/ic_baseline_control_point_24"
-        android:title=""/>
+        android:id="@+id/i_empty"
+        android:title="" />
 
     <item
         android:id="@+id/navigation_calendar"
