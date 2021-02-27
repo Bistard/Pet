@@ -1,13 +1,16 @@
 package com.example.pet;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
@@ -36,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
                 R.id.navigation_statistics)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+
         // The below line of code causes crashes when applied a change on "NoActionBar"
         // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
@@ -46,6 +50,16 @@ public class HomeActivity extends AppCompatActivity {
         nav_view.setTextVisibility(true);
         nav_view.enableShiftingMode(false);
         nav_view.enableItemShiftingMode(false);
+
+        // link add button to a new activity
+        // to the AddTaskActivity
+        BottomNavigationItemView addTask = findViewById(R.id.navigation_add);
+        addTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAddTaskPage();
+            }
+        });
 
         // Data initializing
         DataManager.init(getFilesDir());
@@ -68,6 +82,15 @@ public class HomeActivity extends AppCompatActivity {
         } else {
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
+    }
+
+    /**
+     * Open the AddTaskActivity
+     */
+    public void openAddTaskPage() {
+        // TODO: temp
+        Intent intent = new Intent(this, AddTaskActivity.class);
+        startActivity(intent);
     }
 
 

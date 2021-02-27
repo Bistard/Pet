@@ -9,17 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pet">
+        <activity android:name=".AddTaskActivity"></activity>
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home">
-
-        </activity>
-        <activity android:name=".set_up3">
-
-        </activity>
-        <activity android:name=".set_up2">
-
-        </activity>
+            android:label="@string/title_activity_home"></activity>
+        <activity android:name=".set_up3"></activity>
+        <activity android:name=".set_up2"></activity>
         <activity android:name=".set_up1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
