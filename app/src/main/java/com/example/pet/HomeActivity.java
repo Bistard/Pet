@@ -1,5 +1,6 @@
 package com.example.pet;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
@@ -24,6 +26,11 @@ import androidx.navigation.ui.NavigationUI;
 
 
 public class HomeActivity extends AppCompatActivity {
+
+    // fab animation
+    FloatingActionButton fabMain, fab1, fab2;
+    ObjectAnimator fabAnim;
+    boolean fabAnimationFlag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,15 +61,50 @@ public class HomeActivity extends AppCompatActivity {
         nav_view.enableShiftingMode(false);
         nav_view.enableItemShiftingMode(false);
 
-        // link add button to a new activity
-        // to the AddTaskActivity
-        FloatingActionButton addTask = findViewById(R.id.fab);
-        addTask.setOnClickListener(new View.OnClickListener() {
+        // fab animation
+        fabMain = (FloatingActionButton) findViewById(R.id.fab);
+
+        fab1 = (FloatingActionButton) findViewById(R.id.fab_add_task);
+        fab2 = (FloatingActionButton) findViewById(R.id.fab_add_goal);
+        fabMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openAddTaskPage();
+                if (fabAnimationFlag) {
+                    fab1.show();
+                    fab2.show();
+                    fabAnimation(fabAnim, fabMain, "rotation", 45, 250);
+                    fabAnimation(fabAnim, fab1, "translationX", -fabMain.getHeight(), 250);
+                    fabAnimation(fabAnim, fab1, "translationY", -fabMain.getHeight(), 250);
+                    fabAnimation(fabAnim, fab2, "translationX",  fabMain.getHeight(), 250);
+                    fabAnimation(fabAnim, fab2, "translationY", -fabMain.getHeight(), 250);
+                    fabAnimationFlag = false;
+                } else {
+                    fabAnimation(fabAnim, fabMain, "rotation", 0, 250);
+                    fabAnimation(fabAnim, fab1, "translationX", 0, 250);
+                    fabAnimation(fabAnim, fab1, "translationY", 0, 250);
+                    fabAnimation(fabAnim, fab2, "translationX", 0, 250);
+                    fabAnimation(fabAnim, fab2, "translationY", 0, 250);
+                    fab1.hide();
+                    fab2.hide();
+                    fabAnimationFlag = true;
+                }
             }
         });
+
+        // link add button to a new activity
+        // to the AddTaskActivity
+        /**
+         *
+         FloatingActionButton fab = findViewById(R.id.fab);
+         fab.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+        expand();
+        }
+        });
+         */
+
+
 
         // Data initializing
         DataManager.init(getFilesDir());
@@ -94,6 +136,12 @@ public class HomeActivity extends AppCompatActivity {
         // TODO: temp
         Intent intent = new Intent(this, AddTaskActivity.class);
         startActivity(intent);
+    }
+
+    public void fabAnimation(ObjectAnimator anim, FloatingActionButton fab, String propertyName, int value, int duration) {
+        anim = ObjectAnimator.ofFloat(fab, propertyName, value);
+        anim.setDuration(duration);
+        anim.start();
     }
 
 

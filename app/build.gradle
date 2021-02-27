@@ -51,4 +51,5 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.8.5'
 
     implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
+    // implementation 'com.getbase:floatingactionbutton:1.10.1'
 }
