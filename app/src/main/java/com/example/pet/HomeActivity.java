@@ -62,48 +62,22 @@ public class HomeActivity extends AppCompatActivity {
         nav_view.enableItemShiftingMode(false);
 
         // fab animation
-        fabMain = (FloatingActionButton) findViewById(R.id.fab);
-
-        fab1 = (FloatingActionButton) findViewById(R.id.fab_add_task);
-        fab2 = (FloatingActionButton) findViewById(R.id.fab_add_goal);
-        fabMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (fabAnimationFlag) {
-                    fab1.show();
-                    fab2.show();
-                    fabAnimation(fabAnim, fabMain, "rotation", 45, 250);
-                    fabAnimation(fabAnim, fab1, "translationX", -fabMain.getHeight(), 250);
-                    fabAnimation(fabAnim, fab1, "translationY", -fabMain.getHeight(), 250);
-                    fabAnimation(fabAnim, fab2, "translationX",  fabMain.getHeight(), 250);
-                    fabAnimation(fabAnim, fab2, "translationY", -fabMain.getHeight(), 250);
-                    fabAnimationFlag = false;
-                } else {
-                    fabAnimation(fabAnim, fabMain, "rotation", 0, 250);
-                    fabAnimation(fabAnim, fab1, "translationX", 0, 250);
-                    fabAnimation(fabAnim, fab1, "translationY", 0, 250);
-                    fabAnimation(fabAnim, fab2, "translationX", 0, 250);
-                    fabAnimation(fabAnim, fab2, "translationY", 0, 250);
-                    fab1.hide();
-                    fab2.hide();
-                    fabAnimationFlag = true;
-                }
-            }
-        });
+        init_fab_animation();
 
         // link add button to a new activity
         // to the AddTaskActivity
-        /**
-         *
-         FloatingActionButton fab = findViewById(R.id.fab);
-         fab.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-        expand();
-        }
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAddTaskPage();
+            }
         });
-         */
-
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAddTaskPage();
+            }
+        });
 
 
         // Data initializing
@@ -130,6 +104,52 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     /**
+     * initialize animation of fab
+     */
+    public void init_fab_animation() {
+        fabMain = (FloatingActionButton) findViewById(R.id.fab);
+        fab1 = (FloatingActionButton) findViewById(R.id.fab_add_task);
+        fab2 = (FloatingActionButton) findViewById(R.id.fab_add_goal);
+        fabMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (fabAnimationFlag) {
+                    fab1.show();
+                    fab2.show();
+                    fabAnimation(fabAnim, fabMain, "rotation", 45, 250);
+                    fabAnimation(fabAnim, fab1, "translationX", -fabMain.getHeight(), 250);
+                    fabAnimation(fabAnim, fab1, "translationY", -fabMain.getHeight(), 250);
+                    fabAnimation(fabAnim, fab2, "translationX",  fabMain.getHeight(), 250);
+                    fabAnimation(fabAnim, fab2, "translationY", -fabMain.getHeight(), 250);
+                    fabAnimationFlag = false;
+                } else {
+                    fabAnimation(fabAnim, fabMain, "rotation", 0, 250);
+                    fabAnimation(fabAnim, fab1, "translationX", 0, 250);
+                    fabAnimation(fabAnim, fab1, "translationY", 0, 250);
+                    fabAnimation(fabAnim, fab2, "translationX", 0, 250);
+                    fabAnimation(fabAnim, fab2, "translationY", 0, 250);
+                    fab1.hide();
+                    fab2.hide();
+                    fabAnimationFlag = true;
+                }
+            }
+        });
+    }
+
+    /**
+     * @param anim ObjectAnimator
+     * @param fab view
+     * @param propertyName the property you want to change
+     * @param value the change value
+     * @param duration time duration
+     */
+    public void fabAnimation(ObjectAnimator anim, FloatingActionButton fab, String propertyName, int value, int duration) {
+        anim = ObjectAnimator.ofFloat(fab, propertyName, value);
+        anim.setDuration(duration);
+        anim.start();
+    }
+
+    /**
      * Open the AddTaskActivity
      */
     public void openAddTaskPage() {
@@ -137,14 +157,6 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AddTaskActivity.class);
         startActivity(intent);
     }
-
-    public void fabAnimation(ObjectAnimator anim, FloatingActionButton fab, String propertyName, int value, int duration) {
-        anim = ObjectAnimator.ofFloat(fab, propertyName, value);
-        anim.setDuration(duration);
-        anim.start();
-    }
-
-
 
 
 
