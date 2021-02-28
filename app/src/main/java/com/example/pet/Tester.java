@@ -15,7 +15,7 @@ public class Tester {
 
         user.isFirstTime = false;
         user.longTermGoal = "Finish this app";
-        user.longTermGoalDDL = 20210331;  // YYYYMMDD
+        user.longTermGoalEnd = 20210331;  // YYYYMMDD
 
         Goal goal1 = user.addGoal("Goal 1", "",2021,02,20,2021,02,22,0);
         user.addTask("Task 1","This is for goal 1", 2021,02,21, goal1.ID);

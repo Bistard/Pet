@@ -5,12 +5,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class User {
-    public static boolean initialized = false;
-
     public boolean isFirstTime = true;
 
     public String longTermGoal;
-    public int longTermGoalDDL;
+    public String longTermGoalType;
+    public int longTermGoalStart;
+    public int longTermGoalEnd;
+
+    public Pet pet;
 
     public static ArrayList<Goal> goalList = new ArrayList<>();
     public int nextGoalID = 0;
@@ -29,24 +31,29 @@ public class User {
      * @return the initialized user object
      */
     public static User Initialize() {
-        if (!initialized) {
-            User user = new User();
-            try {
-                user = DataManager.LoadUser("User.json");
-            } catch (Exception e) {
-                user = new User();
-                return user;
-            }
-            user.LoadFiles();
+        User user;
+        try {
+            user = DataManager.LoadUser("User.json");
+        } catch (Exception e) {
+            user = new User();
             return user;
-        } else {
-            throw new IllegalStateException("Do not currently support multiple users");
         }
+        user.LoadFiles();
+        return user;
     }
 
     public void passedTutorial(boolean passed) {
         this.isFirstTime = !passed;
         SaveFiles();
+    }
+
+    public Pet addPet(String name) {
+        this.pet = new Pet(name);
+        return this.pet;
+    }
+
+    public String getPetName(){
+        return this.pet.name;
     }
 
     /**
@@ -116,8 +123,9 @@ public class User {
                         int parentID) throws IllegalArgumentException {
         int startDate = startYear * 10000 + startMonth * 100 + startDay;
         int endDate = endYear * 10000 + endMonth * 100 + endDay;
-        if (endDate < startDate || startDate < Goal.getGoalByID(parentID).startDate ||
-                endDate > Goal.getGoalByID(parentID).endDate) {
+        Goal parentGoal = Goal.getGoalByID(parentID);
+        if (endDate < startDate || startDate < parentGoal.startDate ||
+                endDate > parentGoal.endDate) {
             throw new IllegalArgumentException("Time is incorrect.");
         }
         Task newTask = new Task(name, description, startDate, endDate, recurringRule, parentID);
