@@ -35,67 +35,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.676" />
 
-    <ScrollView
-        android:id="@+id/verticalScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-
-        app:layout_constraintBottom_toTopOf="@+id/fragment_home_text1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="-16dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/pet"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="This is a Pet Button"
-                android:textColor="#fff" />
-
-            <Button
-                android:id="@+id/test5"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="This is a test Button#5"
-                android:textColor="#fff" />
-            <Button
-                android:id="@+id/test6"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="This is a test Button#6"
-                android:textColor="#fff" />
-            <Button
-                android:id="@+id/test7"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="This is a test Button#7"
-                android:textColor="#fff" />
-            <Button
-                android:id="@+id/test8"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="This is a test Button#8"
-                android:textColor="#fff" />
-
-        </LinearLayout>
-
-    </ScrollView>
-
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
@@ -143,5 +82,59 @@
         </LinearLayout>
     </HorizontalScrollView>
 
+    <FrameLayout
+        android:id="@+id/fragment_home_top"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/fragment_home_gradient">
+
+        <TextView
+            android:id="@+id/fragment_home_top_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:text="Today's Date"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white"
+            android:textSize="40sp" />
+    </FrameLayout>
+
+
+
+    <ScrollView
+        android:id="@+id/HomeVerticalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/fragment_home_text1"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_home_top"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/PetImage"
+        android:layout_width="323dp"
+        android:layout_height="315dp"
+        android:src="@mipmap/ic_temp_pet_foreground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

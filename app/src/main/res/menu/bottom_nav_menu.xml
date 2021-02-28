@@ -8,22 +8,26 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/title_home" />
 
     <item
         android:id="@+id/navigation_todo"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_baseline_create_24"
         android:title="@string/title_todo" />
 
     <item
+        android:id="@+id/i_empty"
+        android:title="" />
+
+    <item
         android:id="@+id/navigation_calendar"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_baseline_calendar_today_24"
         android:title="@string/title_calendar" />
 
     <item
         android:id="@+id/navigation_statistics"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_baseline_grade_24"
         android:title="@string/title_statistics" />
 
 </menu>
