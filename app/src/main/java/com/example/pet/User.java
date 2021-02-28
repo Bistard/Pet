@@ -1,5 +1,7 @@
 package com.example.pet;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class User {
@@ -28,7 +30,13 @@ public class User {
      */
     public static User Initialize() {
         if (!initialized) {
-            User user = DataManager.LoadUser("User.json");
+            User user = new User();
+            try {
+                user = DataManager.LoadUser("User.json");
+            } catch (Exception e) {
+                user = new User();
+                return user;
+            }
             user.LoadFiles();
             return user;
         } else {
@@ -36,19 +44,31 @@ public class User {
         }
     }
 
+    public void passedTutorial(boolean passed) {
+        this.isFirstTime = !passed;
+        SaveFiles();
+    }
+
     /**
      * Call this method to add goals.
      *
      * @param name        Name of the goal
      * @param description description of the goal
-     * @param startDate   startDate of the goal in YYYYMMDD, inclusive
-     * @param endDate     endDate of the goal in YYYYMMDD, inclusive
+     * @param startYear   Starting year of the goal, in YYYY
+     * @param startMonth  Starting month of the goal, in MM
+     * @param startDay    Starting day of the goal, in DD, inclusive
+     * @param endYear     Ending year of the goal, in YYYY
+     * @param endMonth    Ending month of the goal, in MM
+     * @param endDay      Ending day of the goal, in DD, inclusive
      * @param type        type of the goal
      * @return the newly created goal object
      * @throws IllegalArgumentException
      */
-    public Goal addGoal(String name, String description, int startDate, int endDate, int type)
+    public Goal addGoal(String name, String description, int startYear, int startMonth,
+                        int startDay, int endYear, int endMonth, int endDay, int type)
             throws IllegalArgumentException {
+        int startDate = startYear * 10000 + startMonth * 100 + startDay;
+        int endDate = endYear * 10000 + endMonth * 100 + endDay;
         if (endDate < startDate) {
             throw new IllegalArgumentException("Time is incorrect.");
         }
@@ -65,7 +85,8 @@ public class User {
      * @param date
      * @return ArrayList of Goals
      */
-    public ArrayList<Goal> getGoals(int date) {
+    public ArrayList<Goal> getGoals(int year, int month, int day) {
+        int date = year * 10000 + month * 100 + day;
         ArrayList<Goal> lst = new ArrayList<>();
         lst.add(goalList.get(0));
         // need the logic
@@ -73,26 +94,30 @@ public class User {
         return lst;
     }
 
+
     /**
-     * Call this method to add tasks.
-     *
-     * @param name          name of the task
-     * @param description   description of the task
-     * @param startDate     starting date of the task
-     *                      OR
-     *                      the event date if the task is not recurring
-     * @param endDate       end date of the task if the task is recurring
-     * @param recurringRule how the tasks will be recurring. Supports:
-     *                      "Once", "Weekly", TBD...
-     * @param parentID      the ID of its parent
-     * @param parent        the parent object
+     * @param name             name of the task
+     * @param description      description of the task
+     * @param startYear        Starting year of the task, in YYYY
+     * @param startMonth       Starting month of the task, in MM
+     * @param startDay         Starting day of the task, in DD, inclusive
+     * @param endYear          Ending year of the task, in YYYY, optional if recurring
+     * @param endMonth         Ending month of the task, in MM, optional if recurring
+     * @param endDay           Ending day of the task, in DD, optional if recurring, inclusive
+     * @param recurringRulehow the tasks will be recurring. Supports:
+     *                         "Once", "Weekly", TBD...
+     * @param parentID         the ID of its parent
+     * @param parent           the parent object
      * @return the newly created goal object
      * @throws IllegalArgumentException
      */
-    public Task addTask(String name, String description, int startDate, int endDate,
-                        String recurringRule, int parentID) throws IllegalArgumentException {
-        Goal parent = Goal.getGoalByID(parentID);
-        if (endDate < startDate || startDate < parent.startDate || endDate > parent.endDate) {
+    public Task addTask(String name, String description, int startYear, int startMonth,
+                        int startDay, int endYear, int endMonth, int endDay, String recurringRule,
+                        int parentID) throws IllegalArgumentException {
+        int startDate = startYear * 10000 + startMonth * 100 + startDay;
+        int endDate = endYear * 10000 + endMonth * 100 + endDay;
+        if (endDate < startDate || startDate < Goal.getGoalByID(parentID).startDate ||
+                endDate > Goal.getGoalByID(parentID).endDate) {
             throw new IllegalArgumentException("Time is incorrect.");
         }
         Task newTask = new Task(name, description, startDate, endDate, recurringRule, parentID);
@@ -101,19 +126,23 @@ public class User {
         return newTask;
     }
 
-    public Task addTask(String name, String description, int startDate, int endDate,
-                        String recurringRule, Goal parent) throws IllegalArgumentException {
-        return addTask(name, description, startDate, endDate, recurringRule, parent.ID);
+    public Task addTask(String name, String description, int startYear, int startMonth,
+                        int startDay, int endYear, int endMonth, int endDay, String recurringRule,
+                        Goal parent) throws IllegalArgumentException {
+        return addTask(name, description, startYear, startMonth, startDay, endYear, endMonth,
+                endDay, recurringRule, parent.ID);
     }
 
-    public Task addTask(String name, String description, int startDate, int parentID)
-            throws IllegalArgumentException {
-        return addTask(name, description, startDate, startDate, "Once", parentID);
+    public Task addTask(String name, String description, int startYear, int startMonth,
+                        int startDay, int parentID) throws IllegalArgumentException {
+        return addTask(name, description, startYear, startMonth, startDay, startYear, startMonth,
+                startDay, "Once", parentID);
     }
 
-    public Task addTask(String name, String description, int startDate, Goal parent)
-            throws IllegalArgumentException {
-        return addTask(name, description, startDate, startDate, "Once", parent.ID);
+    public Task addTask(String name, String description, int startYear, int startMonth,
+                        int startDay, Goal parent) throws IllegalArgumentException {
+        return addTask(name, description, startYear, startMonth, startDay, startYear, startMonth,
+                startDay, "Once", parent.ID);
     }
 
     /**
@@ -122,7 +151,8 @@ public class User {
      * @param date
      * @return ArrayList of Goals
      */
-    public ArrayList<Task> getTasks(int date) {
+    public ArrayList<Task> getTasks(int year, int month, int day) {
+        int date = year * 10000 + month * 100 + day;
         ArrayList<Task> lst = new ArrayList<>();
         lst.add(taskList.get(0));
         // need the logic
@@ -136,7 +166,8 @@ public class User {
      * @param date search events due before this date, exclusive
      * @return ArrayList of Goals
      */
-    public ArrayList<Task> getUnfinishedTasks(int date) {
+    public ArrayList<Task> getUnfinishedTasks(int year, int month, int day) {
+        int date = year * 10000 + month * 100 + day;
         return null;
     }
 
@@ -153,12 +184,20 @@ public class User {
     /**
      * Loads goalList and taskList
      */
-    public void LoadFiles() {
+    private void LoadFiles() {
         try {
             goalList = new ArrayList<>(DataManager.LoadGoals("Goals.json"));
             taskList = new ArrayList<>(DataManager.LoadTasks("Tasks.json"));
         } catch (Exception e) {
+            PanicDeleteAllFiles();
         }
 
+    }
+
+    private void PanicDeleteAllFiles() {
+        File path = DataManager.path;
+        new File(path, "User.json").delete();
+        new File(path, "Goals.json").delete();
+        new File(path, "Tasks.json").delete();
     }
 }

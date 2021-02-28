@@ -25,15 +25,9 @@ public class DataManager {
         return 0;
     }
 
-    static User LoadUser(String filename) {
+    static User LoadUser(String filename) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        User obj = new User();
-        try {
-            obj = mapper.readValue(new File(path, filename), User.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return obj;
+        return mapper.readValue(new File(path, filename), User.class);
     }
 
     static int StoreGoals(String filename, ArrayList<Goal> lst) {
