@@ -75,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openAddTaskPage();
+                openAddGoalPage();
             }
         });
 
@@ -153,8 +153,15 @@ public class HomeActivity extends AppCompatActivity {
      * Open the AddTaskActivity
      */
     public void openAddTaskPage() {
-        // TODO: temp
         Intent intent = new Intent(this, AddTaskActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Open the AddGoalActivity
+     */
+    public void openAddGoalPage() {
+        Intent intent = new Intent(this, AddGoalActivity.class);
         startActivity(intent);
     }
 
