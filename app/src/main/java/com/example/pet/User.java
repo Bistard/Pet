@@ -1,10 +1,19 @@
 package com.example.pet;
 
+import android.util.Log;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class User {
+    public static boolean IsInitialized = false;
+    public static User self;
+
     public boolean isFirstTime = true;
 
     public String longTermGoal;
@@ -12,7 +21,7 @@ public class User {
     public int longTermGoalStart;
     public int longTermGoalEnd;
 
-    public Pet pet;
+    public Pet pet = new Pet("");
 
     public static ArrayList<Goal> goalList = new ArrayList<>();
     public int nextGoalID = 0;
@@ -31,17 +40,23 @@ public class User {
      * @return the initialized user object
      */
     public static User Initialize() {
-        User user;
-        try {
-            user = DataManager.LoadUser("User.json");
-        } catch (Exception e) {
-            user = new User();
-            return user;
+        if (!IsInitialized) {
+            try {
+                self = DataManager.LoadUser("User.json");
+            } catch (Exception e) {
+                Log.i(null, "wrong   " + e.toString());
+                self = new User();
+                return self;
+            }
+            self.LoadFiles();
         }
-        user.LoadFiles();
-        return user;
+        return self;
     }
 
+    /**
+     * Change if it is the first time for the user
+     * @param passed
+     */
     public void passedTutorial(boolean passed) {
         this.isFirstTime = !passed;
         SaveFiles();
@@ -52,7 +67,12 @@ public class User {
         return this.pet;
     }
 
-    public String getPetName(){
+    /**
+     * get the name of the pet
+     * @return name in String
+     */
+    @JsonIgnore
+    public String getPetName() {
         return this.pet.name;
     }
 
@@ -87,96 +107,126 @@ public class User {
     }
 
     /**
-     * Fetches a list of goals that takes place at the specified date.
+     * Fetches a list of goals that takes place at the specified date
      *
-     * @param date
+     * @param year  search events due this date
+     * @param month search events due this date
+     * @param day   search events due this date
      * @return ArrayList of Goals
      */
+    @JsonIgnore
     public ArrayList<Goal> getGoals(int year, int month, int day) {
         int date = year * 10000 + month * 100 + day;
         ArrayList<Goal> lst = new ArrayList<>();
-        lst.add(goalList.get(0));
-        // need the logic
-
+        for (Goal g : goalList) {
+            if (g.startDate >= date && g.endDate <= date) {
+                lst.add(g);
+            }
+        }
         return lst;
+    }
+
+    /**
+     * Find the finished rate of a certain goal
+     *
+     * @param goal
+     * @return
+     */
+    public double goalFinishPercent(Goal goal) {
+        int total = 0;
+        int done = 0;
+        for (Task t : taskList) {
+            if (t.parentGoalID == goal.ID) {
+                for (int state : t.finished) {
+                    total++;
+                    if (state != 0) {
+                        done++;
+                    }
+                }
+            }
+        }
+        return (double) done / (double) total;
     }
 
 
     /**
-     * @param name             name of the task
-     * @param description      description of the task
-     * @param startYear        Starting year of the task, in YYYY
-     * @param startMonth       Starting month of the task, in MM
-     * @param startDay         Starting day of the task, in DD, inclusive
-     * @param endYear          Ending year of the task, in YYYY, optional if recurring
-     * @param endMonth         Ending month of the task, in MM, optional if recurring
-     * @param endDay           Ending day of the task, in DD, optional if recurring, inclusive
-     * @param recurringRulehow the tasks will be recurring. Supports:
-     *                         "Once", "Weekly", TBD...
-     * @param parentID         the ID of its parent
-     * @param parent           the parent object
+     * @param name          name of the task
+     * @param description   description of the task
+     * @param startYear     Starting year of the task, in YYYY
+     * @param startMonth    Starting month of the task, in MM
+     * @param startDay      Starting day of the task, in DD, inclusive
+     * @param endYear       Ending year of the task, in YYYY, optional if recurring
+     * @param endMonth      Ending month of the task, in MM, optional if recurring
+     * @param endDay        Ending day of the task, in DD, optional if recurring, inclusive
+     * @param recurringRule the tasks will be recurring. Supports:
+     *                      "Once", "Weekly", TBD...
+     * @param parentID      the ID of its parent
+     * @param parent        the parent object
      * @return the newly created goal object
      * @throws IllegalArgumentException
      */
     public Task addTask(String name, String description, int startYear, int startMonth,
                         int startDay, int endYear, int endMonth, int endDay, String recurringRule,
-                        int parentID) throws IllegalArgumentException {
+                        Goal parent) throws IllegalArgumentException {
         int startDate = startYear * 10000 + startMonth * 100 + startDay;
         int endDate = endYear * 10000 + endMonth * 100 + endDay;
-        Goal parentGoal = Goal.getGoalByID(parentID);
-        if (endDate < startDate || startDate < parentGoal.startDate ||
-                endDate > parentGoal.endDate) {
+        if (endDate < startDate || startDate < parent.startDate || endDate > parent.endDate) {
             throw new IllegalArgumentException("Time is incorrect.");
         }
-        Task newTask = new Task(name, description, startDate, endDate, recurringRule, parentID);
+        Task newTask = new Task(name, description, startDate, endDate, recurringRule, parent.ID);
         taskList.add(newTask);
         SaveFiles();
-        return newTask;
+        return newTask.makeChild(startDate);
     }
 
     public Task addTask(String name, String description, int startYear, int startMonth,
-                        int startDay, int endYear, int endMonth, int endDay, String recurringRule,
-                        Goal parent) throws IllegalArgumentException {
-        return addTask(name, description, startYear, startMonth, startDay, endYear, endMonth,
-                endDay, recurringRule, parent.ID);
-    }
-
-    public Task addTask(String name, String description, int startYear, int startMonth,
-                        int startDay, int parentID) throws IllegalArgumentException {
-        return addTask(name, description, startYear, startMonth, startDay, startYear, startMonth,
-                startDay, "Once", parentID);
-    }
-
-    public Task addTask(String name, String description, int startYear, int startMonth,
-                        int startDay, Goal parent) throws IllegalArgumentException {
-        return addTask(name, description, startYear, startMonth, startDay, startYear, startMonth,
-                startDay, "Once", parent.ID);
+                        int startDay, String recurringRule, Goal parent) throws IllegalArgumentException {
+        return addTask(name, description, startYear, startMonth, startDay, parent.endYear(),
+                parent.endMonth(), parent.endDay(), recurringRule, parent);
     }
 
     /**
      * Fetches a list of tasks that takes place at the specified date.
      *
-     * @param date
-     * @return ArrayList of Goals
+     * @param year  search events due this date
+     * @param month search events due this date
+     * @param day   search events due this date
+     * @return ArrayList of Tasks
      */
+    @JsonIgnore
     public ArrayList<Task> getTasks(int year, int month, int day) {
         int date = year * 10000 + month * 100 + day;
         ArrayList<Task> lst = new ArrayList<>();
-        lst.add(taskList.get(0));
-        // need the logic
-
+        for (Task t : taskList) {
+            for (int d : t.recurringDates) {
+                if (d == date) {
+                    lst.add(t.makeChild(date));
+                }
+            }
+        }
         return lst;
     }
 
     /**
      * Fetches a list of goals that should be finished before the specified date but was not finished.
      *
-     * @param date search events due before this date, exclusive
-     * @return ArrayList of Goals
+     * @param year  search events due before this date, exclusive
+     * @param month search events due before this date, exclusive
+     * @param day   search events due before this date, exclusive
+     * @return ArrayList of Tasks
      */
+    @JsonIgnore
     public ArrayList<Task> getUnfinishedTasks(int year, int month, int day) {
+        ArrayList<Task> lst = new ArrayList<>();
         int date = year * 10000 + month * 100 + day;
-        return null;
+        for (Task t : taskList) {
+            for (int d : t.recurringDates) {
+                if (d < date && t.finished.get(t.recurringDates.indexOf(d)) == 0) {
+                    lst.add(t.makeChild(d));
+                }
+            }
+        }
+        return lst;
     }
 
     /**
@@ -202,6 +252,9 @@ public class User {
 
     }
 
+    /**
+     * Start from fresh in case of fatal error due to lost of files
+     */
     private void PanicDeleteAllFiles() {
         File path = DataManager.path;
         new File(path, "User.json").delete();

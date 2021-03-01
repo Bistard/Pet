@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -82,6 +83,16 @@ public class HomeActivity extends AppCompatActivity {
 
         // Data initializing
         DataManager.init(getFilesDir());
+
+        /*
+        Testing only!!!
+         */
+        //User user = User.Initialize();
+        //User user = Tester.makeCustomUser(getFilesDir());
+        //user.SaveFiles();
+        //Log.i(null,user.getUnfinishedTasks(2021,1,1).toString());
+        // end testing
+
     }
 
     /**
