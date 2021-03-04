@@ -1,6 +1,7 @@
 package com.example.pet;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Task {
 
@@ -120,10 +121,70 @@ public class Task {
      * For instance incrementDate(20200227,7) should return 20200305
      */
     private int incrementDate(int date, int increment) {
-        return -1;
-    }
 
-    private int incrementDate(int date) {
-        return incrementDate(date, 1);
+        // seperate out the year,month and day from given date
+        int year = date / 1000;
+        int rest = date - (year * 10000);
+        int month = rest / 100;
+        int day = rest - (month * 100);
+        boolean leap_year = false; // if the year have 366 days
+
+        //define the months with 31, 30 or feb
+        Integer[] thirty_one_days = {1, 3, 5, 7, 8, 10, 12};
+        Integer[] thirty_days = {4, 6, 9, 11};
+        int special_month = 2;
+        int feb_days = 28;
+
+        //check leap_year
+
+        if ((year % 4).intValue() == 0) {
+            leap_year = true;
+            feb_days = 29;
+        }
+
+        // check how many days is in the month
+        String check_31 = Arrays.toString(thirty_one_days);
+        boolean is_thirty_one_days = check_31.contains(Integer.toString(month));
+
+        String check_30 = Arrays.toString(thirty_days);
+        boolean is_thirty_days = check_30.contains(Integer.toString(month));
+
+
+        //increment the date
+        day += increment;
+
+        while (increment > 365) {
+            //check if need to update the month
+            if (is_thirty_one_days) {
+                System.out.println(" 31 days month");
+                if (day > 31) {
+                    month += 1;
+                    day -= 31;
+                }
+
+            } else if (is_thirty_days) {
+                System.out.println(" 30 days month");
+                {
+                    if (day > 30) {
+                        month += 1;
+                        day -= 30;
+                    }
+                }
+            } else {
+                System.out.println(" feb");
+                if (day > feb_days) {
+                    month += 1;
+                    day -= feb_days;
+                }
+            }
+
+            //check if need to update year
+            if (month > 12) {
+                month -= 12;
+                year += 1;
+            }
+
+        }
+        return year * 10000 + month * 1000 + day;
     }
 }
