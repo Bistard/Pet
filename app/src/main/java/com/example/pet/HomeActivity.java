@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -75,13 +76,23 @@ public class HomeActivity extends AppCompatActivity {
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openAddTaskPage();
+                openAddGoalPage();
             }
         });
 
 
         // Data initializing
         DataManager.init(getFilesDir());
+
+        /*
+        Testing only!!!
+         */
+        //User user = User.Initialize();
+        //User user = Tester.makeCustomUser(getFilesDir());
+        //user.SaveFiles();
+        //Log.i(null,user.getUnfinishedTasks(2021,1,1).toString());
+        // end testing
+
     }
 
     /**
@@ -153,8 +164,15 @@ public class HomeActivity extends AppCompatActivity {
      * Open the AddTaskActivity
      */
     public void openAddTaskPage() {
-        // TODO: temp
         Intent intent = new Intent(this, AddTaskActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Open the AddGoalActivity
+     */
+    public void openAddGoalPage() {
+        Intent intent = new Intent(this, AddGoalActivity.class);
         startActivity(intent);
     }
 
