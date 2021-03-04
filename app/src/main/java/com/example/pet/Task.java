@@ -1,11 +1,15 @@
 package com.example.pet;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
 
 public class Task {
 
@@ -278,6 +282,26 @@ public class Task {
      * For instance incrementDate(20200227,7) should return 20200305, in YYYYMMDD
      */
     private int incrementDate(int date, int increment) {
-        return date += increment;
+
+        //convert date to string and set the date format
+        String oldDate = Integer.toString(date);
+        //System.out.println("Date before Addition: "+ oldDate);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        Calendar c = Calendar.getInstance();
+
+        try{
+            //Setting the date to the given date
+            c.setTime(sdf.parse(oldDate));
+        }catch(ParseException e){
+            e.printStackTrace();
+        }
+
+        //increment date
+        c.add(Calendar.DAY_OF_MONTH, increment);
+        //Date after adding the days to the given date
+        String newDate = sdf.format(c.getTime());
+        int result = Integer.parseInt(newDate);
+
+        return result;
     }
 }
