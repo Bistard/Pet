@@ -20,14 +20,13 @@ public class HomeViewModel extends ViewModel {
 
         /**
          * Tester for I/O
-
+         */
         mText = new MutableLiveData<>();
         User user = User.Initialize();
         Goal g = user.addGoal("","",2021,02,20,2021,02,22,0);
-        user.addTask("Task 1","This is for goal 1", 2021,02,21, g.ID);
+        user.addTask("Task 1","This is for goal 1", 2021,02,21, "Once", g);
         ArrayList<Task> tasks = user.getTasks(2021,02,21);
-        mText.setValue(tasks.get(0).name);
-        */
+        mText.setValue(tasks.get(0).name());
     }
 
     public LiveData<String> getText() {

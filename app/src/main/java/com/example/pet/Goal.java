@@ -1,5 +1,7 @@
 package com.example.pet;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 
 public class Goal {
@@ -65,6 +67,13 @@ public class Goal {
     public int endDay() {
         return this.endDate % 100;
     }
+
+    @JsonIgnore
+    public String name(){return this.name;}
+
+    public String description(){return this.description;}
+
+    public int type(){return this.type;}
 
     /**
      * Removes the goal object from the goalList, and removes all its child tasks.

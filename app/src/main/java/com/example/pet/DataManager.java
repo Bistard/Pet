@@ -1,5 +1,7 @@
 package com.example.pet;
 
+import android.util.Log;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
@@ -15,14 +17,13 @@ public class DataManager {
         DataManager.path = path;
     }
 
-    static int StoreUser(String filename, User obj) {
+    static void StoreUser(String filename, User obj) {
         ObjectMapper mapper = new ObjectMapper();
         try {
             mapper.writeValue(new File(path, filename), obj);
         } catch (IOException e) {
-            return -1;
+            Log.i("", e.toString());
         }
-        return 0;
     }
 
     static User LoadUser(String filename) throws IOException {
@@ -30,14 +31,13 @@ public class DataManager {
         return mapper.readValue(new File(path, filename), User.class);
     }
 
-    static int StoreGoals(String filename, ArrayList<Goal> lst) {
+    static void StoreGoals(String filename, ArrayList<Goal> lst) {
         ObjectMapper mapper = new ObjectMapper();
         try {
             mapper.writeValue(new File(path, filename), lst);
         } catch (IOException e) {
-            return 0;
+            Log.i("", e.toString());
         }
-        return 1;
     }
 
     static List<Goal> LoadGoals(String filename) throws Exception {
@@ -46,19 +46,58 @@ public class DataManager {
         return lst;
     }
 
-    static int StoreTasks(String filename, ArrayList<Task> lst) {
+    static void StoreTasks(String filename, ArrayList<Task> lst) {
+        ArrayList<TaskData> toStore= new ArrayList<>();
+        for (Task t : lst) {
+            toStore.add(new TaskData(t));
+        }
         ObjectMapper mapper = new ObjectMapper();
         try {
-            mapper.writeValue(new File(path, filename), lst);
+            mapper.writeValue(new File(path, filename), toStore);
         } catch (IOException e) {
-            return 0;
+            Log.i(null, e.toString());
         }
-        return 1;
     }
 
     static List<Task> LoadTasks(String filename) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        List<Task> lst = Arrays.asList(mapper.readValue(new File(path, filename), Task[].class));
-        return lst;
+        List<TaskData> lst = Arrays.asList(mapper.readValue(new File(path, filename), TaskData[].class));
+        List<Task> ans = new ArrayList<>();
+        for (TaskData td:lst){
+            ans.add(new Task(td));
+        }
+        return ans;
+    }
+
+
+}
+
+/**
+ * Extra class used to store task data
+ */
+class TaskData {
+    public String name;
+    public String description;
+    public int eventDate;
+    public int parentGoalID;
+    public boolean isRecurring = false;
+    public String recurringRule;
+    public int endDate;
+    public ArrayList<Integer> finished = new ArrayList<>();
+    public ArrayList<Integer> recurringDates = new ArrayList<>();
+
+    TaskData() {
+    }
+
+    TaskData(Task t) {
+        this.name = t.name;
+        this.description = t.description;
+        this.eventDate = t.eventDate;
+        this.parentGoalID = t.parentGoalID;
+        this.isRecurring = t.isRecurring;
+        this.recurringRule = t.recurringRule;
+        this.endDate = t.endDate;
+        this.finished = t.finished;
+        this.recurringDates = t.recurringDates;
     }
 }
