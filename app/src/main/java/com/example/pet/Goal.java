@@ -2,6 +2,7 @@ package com.example.pet;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Goal {
@@ -69,11 +70,17 @@ public class Goal {
     }
 
     @JsonIgnore
-    public String name(){return this.name;}
+    public String name() {
+        return this.name;
+    }
 
-    public String description(){return this.description;}
+    public String description() {
+        return this.description;
+    }
 
-    public int type(){return this.type;}
+    public int type() {
+        return this.type;
+    }
 
     /**
      * Removes the goal object from the goalList, and removes all its child tasks.
@@ -100,6 +107,34 @@ public class Goal {
             }
         }
         return lst;
+    }
+
+    /**
+     * Find the finished rate of a certain goal
+     *
+     * @return
+     */
+    public String finishPercentString() {
+        DecimalFormat df = new DecimalFormat("##0.0");
+        return df.format(finishPercent() * 100.0);
+    }
+
+    public double finishPercent() {
+        int total = 0;
+        int done = 0;
+        for (Task t : gChildren()) {
+            for (int state : t.finished) {
+                total++;
+                if (state != 0) {
+                    done++;
+                }
+            }
+        }
+        if (total == 0){
+            return 1;
+        }
+            return (double) done / (double) total;
+
     }
 
     /**
