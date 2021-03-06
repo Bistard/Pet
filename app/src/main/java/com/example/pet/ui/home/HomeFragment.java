@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment {
         dateDisplay.setText(date);
 
         /**
-         * Tester for I/o
+         * Tester for I/O
          */
         final TextView textView = root.findViewById(R.id.test1);
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {

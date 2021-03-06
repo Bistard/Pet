@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pet">
-        <activity android:name=".AddGoalActivity"></activity>
+        <activity android:name=".AddGoalActivity">
+        </activity>
         <activity android:name=".AddTaskActivity" />
         <activity
             android:name=".HomeActivity"

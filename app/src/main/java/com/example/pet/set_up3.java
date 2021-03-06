@@ -32,6 +32,7 @@ public class set_up3 extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 openHomeActivity();
             }
         });
