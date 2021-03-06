@@ -90,8 +90,8 @@ public class HomeActivity extends AppCompatActivity {
         User user = User.Initialize();
         //User user = Tester.makeCustomUser(getFilesDir());
         //user.SaveFiles();
-        Log.i(null,User.goalList.toString());
-        Log.i(null,user.getUnfinishedTasks(2021,1,1).toString());
+        //Log.i(null,User.goalList.toString());
+        //Log.i(null,user.getUnfinishedTasks(2021,1,1).toString());
         // end testing
 
     }
