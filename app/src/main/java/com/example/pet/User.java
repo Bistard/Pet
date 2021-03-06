@@ -119,35 +119,12 @@ public class User {
         int date = year * 10000 + month * 100 + day;
         ArrayList<Goal> lst = new ArrayList<>();
         for (Goal g : goalList) {
-            if (g.startDate >= date && g.endDate <= date) {
+            if (g.startDate <= date && g.endDate >= date) {
                 lst.add(g);
             }
         }
         return lst;
     }
-
-    /**
-     * Find the finished rate of a certain goal
-     *
-     * @param goal
-     * @return
-     */
-    public double goalFinishPercent(Goal goal) {
-        int total = 0;
-        int done = 0;
-        for (Task t : taskList) {
-            if (t.parentGoalID == goal.ID) {
-                for (int state : t.finished) {
-                    total++;
-                    if (state != 0) {
-                        done++;
-                    }
-                }
-            }
-        }
-        return (double) done / (double) total;
-    }
-
 
     /**
      * @param name          name of the task
