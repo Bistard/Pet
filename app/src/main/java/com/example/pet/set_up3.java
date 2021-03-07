@@ -16,8 +16,8 @@ import java.util.Calendar;
 public class set_up3 extends AppCompatActivity {
 
     // DatePicker attributes
-    private DatePickerDialog datePickerDialog;
-    private Button datePickerButton;
+    public DatePickerDialog datePickerDialog;
+    public Button datePickerButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

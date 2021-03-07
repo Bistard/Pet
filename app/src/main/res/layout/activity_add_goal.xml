@@ -154,8 +154,9 @@
         android:layout_width="112dp"
         android:layout_height="45dp"
         android:ems="10"
-        android:inputType="date"
-        android:text="Feb 27 2021"
+        android:inputType="none"
+        android:text="Jan 01 2021"
+        android:textSize="15dp"
         android:textColor="@color/grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -165,11 +166,12 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/startDateButton"
         android:layout_width="49dp"
         android:layout_height="45dp"
         android:background="@drawable/roundcorner"
         android:backgroundTint="@color/dark_green"
+        android:onClick="openStartDataPicker"
         android:padding="5dp"
         android:scaleType="fitCenter"
         android:tint="@color/white"
@@ -179,7 +181,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/addGoalStartTime"
         app:layout_constraintTop_toTopOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.047"
+        app:layout_constraintVertical_bias="0.039"
         app:srcCompat="@drawable/ic_baseline_date_range_24" />
 
     <TextView
@@ -203,18 +205,19 @@
         android:layout_width="112dp"
         android:layout_height="45dp"
         android:ems="10"
-        android:inputType="date"
-        android:text="Feb 27 2021"
+        android:inputType="none"
+        android:text="Jan 01 2021"
+        android:textSize="15dp"
         android:textColor="@color/grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.205"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintStart_toEndOf="@+id/startDateButton"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/endDateButton"
         android:layout_width="49dp"
         android:layout_height="45dp"
         android:background="@drawable/roundcorner"
@@ -222,6 +225,7 @@
         android:padding="5dp"
         android:scaleType="fitCenter"
         android:tint="@color/white"
+        android:onClick="openEndDataPicker"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
