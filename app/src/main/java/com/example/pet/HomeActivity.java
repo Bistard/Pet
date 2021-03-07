@@ -86,6 +86,7 @@ public class HomeActivity extends AppCompatActivity {
         DataManager.init(getFilesDir());
         // TODO: test only
         User user = Tester.makeCustomUser();
+
         // User user = User.Initialize();
 
 
@@ -135,7 +136,7 @@ public class HomeActivity extends AppCompatActivity {
                     fabAnimation(fabAnim, fabMain, "rotation", 45, 250);
                     fabAnimation(fabAnim, fab1, "translationX", -fabMain.getHeight(), 250);
                     fabAnimation(fabAnim, fab1, "translationY", -fabMain.getHeight(), 250);
-                    fabAnimation(fabAnim, fab2, "translationX",  fabMain.getHeight(), 250);
+                    fabAnimation(fabAnim, fab2, "translationX", fabMain.getHeight(), 250);
                     fabAnimation(fabAnim, fab2, "translationY", -fabMain.getHeight(), 250);
                     fabAnimationFlag = false;
                 } else {
@@ -153,11 +154,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     /**
-     * @param anim ObjectAnimator
-     * @param fab view
+     * @param anim         ObjectAnimator
+     * @param fab          view
      * @param propertyName the property you want to change
-     * @param value the change value
-     * @param duration time duration
+     * @param value        the change value
+     * @param duration     time duration
      */
     public void fabAnimation(ObjectAnimator anim, FloatingActionButton fab, String propertyName, int value, int duration) {
         anim = ObjectAnimator.ofFloat(fab, propertyName, value);
@@ -180,7 +181,6 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AddGoalActivity.class);
         startActivity(intent);
     }
-
 
 
 }
