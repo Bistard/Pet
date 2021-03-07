@@ -1,11 +1,13 @@
 package com.example.pet.ui.home;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -42,7 +44,7 @@ public class HomeFragment extends Fragment {
     private LinearLayout.LayoutParams params;
     private int WIDTH;
     // Linear layout for upComing
-    public LinearLayout upcoming;
+    public LinearLayout upcomingLayout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -52,7 +54,6 @@ public class HomeFragment extends Fragment {
 
         // user initialize
         User user = User.Initialize();
-
         /*
          * fragment_home_top Initialize
          */
@@ -63,14 +64,12 @@ public class HomeFragment extends Fragment {
                 advanceGoalIndex();
             }
         });
-
         /*
         date display
          */
         TextView dateDisplay = root.findViewById(R.id.fragment_home_top_date);
         String date = new SimpleDateFormat("MMMM dd", Locale.getDefault()).format(new Date());
         dateDisplay.setText(date);
-
         /*
         progressBar & goalName display
          */
@@ -82,15 +81,22 @@ public class HomeFragment extends Fragment {
         int currentMonth = Integer.parseInt(new SimpleDateFormat("M", Locale.getDefault()).format(new Date()));
         int currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new Date()));
         WIDTH = Resources.getSystem().getDisplayMetrics().widthPixels;
-
         currentGoals = user.getGoals(currentYear, currentMonth, currentDate);
-
         advanceGoalIndex();
 
         /*
         upcoming tasks
         */
-
+        final int MAX_DISPLAY_WINDOW = 10;
+        upcomingLayout = root.findViewById(R.id.upComingTasks);
+        int WINDOW_NUMBER = Math.min(MAX_DISPLAY_WINDOW, User.goalList.size());
+        if (WINDOW_NUMBER != 0) {
+            for (int i = 0; i < WINDOW_NUMBER; i++) {
+                createUpComingWindow(root, upcomingLayout, User.goalList.get(i).name);
+            }
+        } else {
+            // TODO: shows some messages
+        }
 
 
         /*
@@ -122,7 +128,9 @@ public class HomeFragment extends Fragment {
         progressBar.setLayoutParams(params);
     }
 
-    public void createUpComingWindow() {
-
+    public void createUpComingWindow(View v, LinearLayout layout, String name) {
+        Button goalWindow = new Button(v.getContext());
+        goalWindow.setText(name);
+        layout.addView(goalWindow);
     }
 }

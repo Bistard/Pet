@@ -10,7 +10,7 @@ public class Tester {
         new File(path,"Tasks.json").delete();
     }
 
-    static User makeCustomUser(){
+    static public User makeCustomUser(){
         Tester.deleteAllJSON();
         User user = User.Initialize();
 
@@ -29,7 +29,7 @@ public class Tester {
         return user;
     }
 
-    static User readCustomUser(){
+    static public User readCustomUser(){
         User user = User.Initialize();
         return user;
     }

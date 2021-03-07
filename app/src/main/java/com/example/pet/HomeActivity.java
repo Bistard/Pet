@@ -84,8 +84,9 @@ public class HomeActivity extends AppCompatActivity {
 
         // Data initializing
         DataManager.init(getFilesDir());
-        User user = User.Initialize();
-        ArrayList<Goal> goals = user.getGoals(2021, 3, 29);
+        // TODO: test only
+        User user = Tester.makeCustomUser();
+        // User user = User.Initialize();
 
 
         /*
