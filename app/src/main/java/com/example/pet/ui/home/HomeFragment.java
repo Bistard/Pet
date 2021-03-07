@@ -85,7 +85,6 @@ public class HomeFragment extends Fragment {
         WIDTH = Resources.getSystem().getDisplayMetrics().widthPixels;
         currentGoals = user.getGoals(currentYear, currentMonth, currentDate);
         displayGoal();
-
         /*
         upcoming tasks
         */
@@ -99,6 +98,10 @@ public class HomeFragment extends Fragment {
         } else {
             // TODO: shows some messages
         }
+
+
+
+
 
         return root;
     }
@@ -137,8 +140,11 @@ public class HomeFragment extends Fragment {
     }
 
     public void createUpComingWindow(View v, LinearLayout layout, String name) {
-        Button goalWindow = new Button(v.getContext());
-        goalWindow.setText(name);
-        layout.addView(goalWindow);
+        Button taskWindow = new Button(v.getContext());
+        taskWindow.setText(name);
+        taskWindow.setBackgroundResource(R.drawable.home_page_task_window);
+        // TODO: set margin left
+
+        layout.addView(taskWindow);
     }
 }
