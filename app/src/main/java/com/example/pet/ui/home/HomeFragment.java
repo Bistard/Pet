@@ -98,18 +98,6 @@ public class HomeFragment extends Fragment {
             // TODO: shows some messages
         }
 
-
-        /*
-         * Tester for I/O
-         */
-        final TextView textView = root.findViewById(R.id.test1);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-
         return root;
     }
 
