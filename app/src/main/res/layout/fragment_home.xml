@@ -93,6 +93,18 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/fragment_home_top_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="200dp"
+            android:text="Today's Date"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white"
+            android:textSize="40sp"/>
+
+        <TextView
             android:id="@+id/fragment_home_top_goal_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

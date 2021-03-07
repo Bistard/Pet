@@ -55,6 +55,11 @@ public class HomeFragment extends Fragment {
                 advanceGoalIndex();
             }
         });
+
+        TextView dateDisplay = root.findViewById(R.id.fragment_home_top_date);
+        String date = new SimpleDateFormat("MMMM dd", Locale.getDefault()).format(new Date());
+        dateDisplay.setText(date);
+
         goalNameDisplay = root.findViewById(R.id.fragment_home_top_goal_name);
         percentageDisplay = root.findViewById(R.id.fragment_home_top_percentage);
         progressBar = root.findViewById(R.id.fragment_home_top_progressBar);
