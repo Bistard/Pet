@@ -103,4 +103,8 @@ public class HomeFragment extends Fragment {
         params.width = (int) ((double) WIDTH * currentGoals.get(goalIndex).finishPercent());
         progressBar.setLayoutParams(params);
     }
+
+    public void createUpComingWindow() {
+
+    }
 }

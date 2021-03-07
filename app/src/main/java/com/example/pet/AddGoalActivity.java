@@ -67,14 +67,22 @@ public class AddGoalActivity extends AppCompatActivity {
         TextView goalDeadline    = findViewById(R.id.addGoalDeadline);
 
         User user = User.Initialize();
-        // TODO: testing only
-        user.addGoal(goalName.toString(),
-                     goalDescription.toString(),
-                     2021, 3, 6,
-                     2021, 3, 30,
+        String[] startDate = goalStartTime.getText().toString().split(" ");
+        String[] endDate = goalDeadline.getText().toString().split(" ");
+        int startYear  = Integer.parseInt(startDate[2]);
+        int startMonth = Date.toNumMonthFormat(startDate[0]);
+        int startDay   = Integer.parseInt(startDate[1]);
+        int endYear    = Integer.parseInt(endDate[2]);
+        int endMonth   = Date.toNumMonthFormat(endDate[0]);
+        int endDay     = Integer.parseInt(endDate[1]);
+
+        // TODO: unfinished
+        user.addGoal(goalName.getText().toString(),
+                     goalDescription.getText().toString(),
+                     startYear, startMonth, startDay,
+                     endYear, endMonth, endDay,
                      0
         );
-
 
         finish();
     }
