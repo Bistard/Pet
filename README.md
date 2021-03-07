@@ -5,3 +5,6 @@ Group member:
 - Haolin Liu
 - Liam Xue (Yiping Xue)
 - Linda Wang
+
+#Bug
+- After creating a new goal/task, in order to show the new one, we need to switch to another fragment and switch back.
