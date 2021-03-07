@@ -18,18 +18,12 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.pet.Goal;
 import com.example.pet.R;
-<<<<<<< HEAD
-=======
 import com.example.pet.Task;
->>>>>>> Liam/ProgressBar
 import com.example.pet.User;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-<<<<<<< HEAD
-=======
 import java.util.Calendar;
->>>>>>> Liam/ProgressBar
 import java.util.Date;
 import java.util.Locale;
 
@@ -90,17 +84,9 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        User user = User.Initialize();
-        ArrayList<Goal> goals = user.getGoals(2021, 3, 30);
-
-
         return root;
     }
 
-<<<<<<< HEAD
-    public void createWindowTask(String name, String description, int ddl) {
-
-=======
     public void advanceGoalIndex() {
         int maxIndex = currentGoals.size() - 1;
         if (goalIndex >= maxIndex) {
@@ -113,6 +99,5 @@ public class HomeFragment extends Fragment {
 
         params.width = (int) ((double) WIDTH * currentGoals.get(goalIndex).finishPercent());
         progressBar.setLayoutParams(params);
->>>>>>> Liam/ProgressBar
     }
 }
