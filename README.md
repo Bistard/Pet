@@ -6,5 +6,15 @@ Group member:
 - Liam Xue (Yiping Xue)
 - Linda Wang
 
-#Bug
-- After creating a new goal/task, in order to show the new one, we need to switch to another fragment and switch back.
+# Todo
+- homeFragment.java
+  - when no upcoming, some messages needs to be shown.
+
+# Bugs
+- homeFragment.java
+  - When empty goalList reached, advanceGoalIndex() reaches error.
+  - After creating a new goal/task, in order to show the new one, we need to switch to another fragment and switch back.
+- AddGoalActicity.java
+  - check if endDate >= startDate
+- AddTaskActicity.java
+  - check if endDate >= startDate
