@@ -75,9 +75,10 @@
             android:id="@+id/fragment_home_top_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="30dp"
-            android:layout_marginStart="200dp"
+
             android:text="Today's Date"
             android:fontFamily="sans-serif-medium"
             android:textColor="@color/white"
@@ -89,11 +90,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginBottom ="10dp"
+            android:layout_gravity="bottom"
             android:fontFamily="sans-serif-medium"
             android:text="Goal Name"
             android:textColor="@color/white"
-            android:textSize="40sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/fragment_home_top_percentage"
