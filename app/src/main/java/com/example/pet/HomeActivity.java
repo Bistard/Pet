@@ -91,7 +91,6 @@ public class HomeActivity extends AppCompatActivity {
         /*
         Testing only!!!
          */
-        User user = User.Initialize();
         //User user = Tester.makeCustomUser(getFilesDir());
         //user.SaveFiles();
         Log.i(null,User.goalList.toString());
