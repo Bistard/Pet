@@ -99,12 +99,6 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onResume() {
-
-    }
-
-
     /**
      * @param activity the activity that you want the status bar to be transparent
      */
