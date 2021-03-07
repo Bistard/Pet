@@ -44,7 +44,7 @@ public class HomeFragment extends Fragment {
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        /**
+        /*
          * Initialize
          */
         User user = User.Initialize();
@@ -56,10 +56,16 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        /*
+        date display
+         */
         TextView dateDisplay = root.findViewById(R.id.fragment_home_top_date);
         String date = new SimpleDateFormat("MMMM dd", Locale.getDefault()).format(new Date());
         dateDisplay.setText(date);
 
+        /*
+        progressBar & goalName display
+         */
         goalNameDisplay = root.findViewById(R.id.fragment_home_top_goal_name);
         percentageDisplay = root.findViewById(R.id.fragment_home_top_percentage);
         progressBar = root.findViewById(R.id.fragment_home_top_progressBar);
@@ -73,7 +79,7 @@ public class HomeFragment extends Fragment {
 
         advanceGoalIndex();
 
-        /**
+        /*
          * Tester for I/O
          */
         final TextView textView = root.findViewById(R.id.test1);
