@@ -95,11 +95,8 @@ public class HomeFragment extends Fragment {
 
     public void advanceGoalIndex() {
         int maxIndex = currentGoals.size() - 1;
-        if (goalIndex >= maxIndex) {
-            goalIndex = 0;
-        } else {
-            goalIndex++;
-        }
+        goalIndex++;
+        goalIndex %= maxIndex;
         goalNameDisplay.setText(currentGoals.get(goalIndex).name());
         percentageDisplay.setText(currentGoals.get(goalIndex).finishPercentString());
 
