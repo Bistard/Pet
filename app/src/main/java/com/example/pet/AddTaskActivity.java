@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class AddTaskActivity extends AppCompatActivity {
 
@@ -28,9 +30,15 @@ public class AddTaskActivity extends AppCompatActivity {
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                createNewTask();
             }
         });
+    }
+
+    public void createNewTask() {
+        // TODO:
+
+        finish();
     }
 
 

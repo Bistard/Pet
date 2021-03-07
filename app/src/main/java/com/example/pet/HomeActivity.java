@@ -24,6 +24,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -80,9 +82,11 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
         // Data initializing
         DataManager.init(getFilesDir());
+        User user = User.Initialize();
+        ArrayList<Goal> goals = user.getGoals(2021, 3, 29);
+
 
         /*
         Testing only!!!
@@ -94,6 +98,12 @@ public class HomeActivity extends AppCompatActivity {
         // end testing
 
     }
+
+    @Override
+    protected void onResume() {
+
+    }
+
 
     /**
      * @param activity the activity that you want the status bar to be transparent

@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class AddGoalActivity extends AppCompatActivity {
 
@@ -28,10 +30,29 @@ public class AddGoalActivity extends AppCompatActivity {
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                createNewGoal();
             }
         });
 
+    }
+
+    public void createNewGoal() {
+        TextView goalName        = findViewById(R.id.addGoalName);
+        TextView goalDescription = findViewById(R.id.addGoalDescription);
+        EditText goalStartTime   = findViewById(R.id.addGoalStartTime);
+        EditText goalDeadline    = findViewById(R.id.addGoalDeadline);
+
+        User user = User.Initialize();
+        // TODO: testing only
+        user.addGoal(goalName.toString(),
+                     goalDescription.toString(),
+                     2021, 3, 6,
+                     2021, 3, 30,
+                     0
+        );
+
+
+        finish();
     }
     
 }

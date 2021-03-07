@@ -12,9 +12,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.pet.Goal;
 import com.example.pet.R;
+import com.example.pet.User;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -45,8 +48,15 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        User user = User.Initialize();
+        ArrayList<Goal> goals = user.getGoals(2021, 3, 30);
+
 
 
         return root;
+    }
+
+    public void createWindowTask(String name, String description, int ddl) {
+
     }
 }

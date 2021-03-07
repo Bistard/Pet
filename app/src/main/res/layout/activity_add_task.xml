@@ -196,7 +196,7 @@
         android:minWidth="200dp"
         android:layout_height="wrap_content"
 
-        android:text="Finish"
+        android:text="Create Task"
         android:textColor="@color/white"
         android:background="@drawable/basic_button_style"
         android:textSize="20sp"

@@ -54,31 +54,10 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:text="This is a Text Button#1"
-                android:textColor="#fff" />
+                android:textColor="#fff"
 
-            <Button
-                android:id="@+id/test2"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:text="This is a Text Button#2"
-                android:textColor="#fff" />
+                android:background="@drawable/home_page_task_window"/>
 
-            <Button
-                android:id="@+id/test3"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:text="This is a Text Button#3"
-                android:textColor="#fff" />
-
-            <Button
-                android:id="@+id/test4"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:text="This is a Text Button#4"
-                android:textColor="#fff" />
         </LinearLayout>
     </HorizontalScrollView>
 
