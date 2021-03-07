@@ -25,6 +25,7 @@ import com.example.pet.Tester;
 import com.example.pet.User;
 
 import java.lang.reflect.Array;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -34,10 +35,11 @@ import java.util.Locale;
 public class HomeFragment extends Fragment {
 
     public HomeViewModel homeViewModel;
+    private User user;
 
     // progress bar declaration
     private ArrayList<Goal> currentGoals;
-    private int goalIndex = -1;
+    private int goalIndex = Integer.MAX_VALUE;
     private TextView goalNameDisplay;
     private TextView percentageDisplay;
     private LinearLayout progressBar;
@@ -53,7 +55,7 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         // user initialize
-        User user = User.Initialize();
+        user = User.Initialize();
         /*
          * fragment_home_top Initialize
          */
@@ -61,7 +63,7 @@ public class HomeFragment extends Fragment {
         top.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                advanceGoalIndex();
+                displayGoal();
             }
         });
         /*
@@ -82,7 +84,7 @@ public class HomeFragment extends Fragment {
         int currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new Date()));
         WIDTH = Resources.getSystem().getDisplayMetrics().widthPixels;
         currentGoals = user.getGoals(currentYear, currentMonth, currentDate);
-        advanceGoalIndex();
+        displayGoal();
 
         /*
         upcoming tasks
@@ -101,19 +103,37 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-    public void advanceGoalIndex() {
-        //TODO (bug): need to consider empty goalList
+    public void displayGoal() {
         int maxIndex = currentGoals.size() - 1;
-        if (goalIndex >= maxIndex) {
+        if (goalIndex > maxIndex) {
             goalIndex = 0;
+
+            int finished = 0;
+            int total = 0;
+            for (Task t : user.getTasks()) {
+                total++;
+                if (t.isFininshed()) {
+                    finished++;
+                }
+            }
+            double finishPercent = (double) finished * 100.0 / (double) total;
+
+            goalNameDisplay.setText(user.longTermGoal);
+
+            DecimalFormat df = new DecimalFormat("##0.0");
+            percentageDisplay.setText(df.format(finishPercent));
+
+            params.width = (int) ((double) WIDTH * finishPercent);
+            progressBar.setLayoutParams(params);
         } else {
+            goalNameDisplay.setText(currentGoals.get(goalIndex).name());
+            percentageDisplay.setText(currentGoals.get(goalIndex).finishPercentString());
+
+            params.width = (int) ((double) WIDTH * currentGoals.get(goalIndex).finishPercent());
+            progressBar.setLayoutParams(params);
+
             goalIndex++;
         }
-        goalNameDisplay.setText(currentGoals.get(goalIndex).name());
-        percentageDisplay.setText(currentGoals.get(goalIndex).finishPercentString());
-
-        params.width = (int) ((double) WIDTH * currentGoals.get(goalIndex).finishPercent());
-        progressBar.setLayoutParams(params);
     }
 
     public void createUpComingWindow(View v, LinearLayout layout, String name) {

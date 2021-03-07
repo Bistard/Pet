@@ -55,6 +55,7 @@ public class User {
 
     /**
      * Change if it is the first time for the user
+     *
      * @param passed
      */
     public void passedTutorial(boolean passed) {
@@ -69,6 +70,7 @@ public class User {
 
     /**
      * get the name of the pet
+     *
      * @return name in String
      */
     @JsonIgnore
@@ -126,6 +128,11 @@ public class User {
         return lst;
     }
 
+    @JsonIgnore
+    public ArrayList<Goal> getGoals() {
+        return goalList;
+    }
+
     /**
      * @param name          name of the task
      * @param description   description of the task
@@ -179,6 +186,30 @@ public class User {
                 if (d == date) {
                     lst.add(t.makeChild(date));
                 }
+            }
+        }
+        return lst;
+    }
+
+    @JsonIgnore
+    public ArrayList<Task> getTasks(Goal goal) {
+        ArrayList<Task> lst = new ArrayList<>();
+        for (Task t : taskList) {
+            if (t.parentGoalID == goal.ID) {
+                for (int d : t.recurringDates) {
+                    lst.add(t.makeChild(d));
+                }
+            }
+        }
+        return lst;
+    }
+
+    @JsonIgnore
+    public ArrayList<Task> getTasks() {
+        ArrayList<Task> lst = new ArrayList<>();
+        for (Task t : taskList) {
+            for (int d : t.recurringDates) {
+                lst.add(t.makeChild(d));
             }
         }
         return lst;
