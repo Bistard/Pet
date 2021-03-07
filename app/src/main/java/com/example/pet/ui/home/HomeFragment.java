@@ -19,8 +19,10 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.pet.Goal;
 import com.example.pet.R;
 import com.example.pet.Task;
+import com.example.pet.Tester;
 import com.example.pet.User;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -29,8 +31,9 @@ import java.util.Locale;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    public HomeViewModel homeViewModel;
 
+    // progress bar declaration
     private ArrayList<Goal> currentGoals;
     private int goalIndex = -1;
     private TextView goalNameDisplay;
@@ -38,16 +41,21 @@ public class HomeFragment extends Fragment {
     private LinearLayout progressBar;
     private LinearLayout.LayoutParams params;
     private int WIDTH;
+    // Linear layout for upComing
+    public LinearLayout upcoming;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        /*
-         * Initialize
-         */
+        // user initialize
         User user = User.Initialize();
+
+        /*
+         * fragment_home_top Initialize
+         */
         FrameLayout top = root.findViewById(R.id.fragment_home_top);
         top.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +88,12 @@ public class HomeFragment extends Fragment {
         advanceGoalIndex();
 
         /*
+        upcoming tasks
+        */
+
+
+
+        /*
          * Tester for I/O
          */
         final TextView textView = root.findViewById(R.id.test1);
@@ -94,9 +108,13 @@ public class HomeFragment extends Fragment {
     }
 
     public void advanceGoalIndex() {
+        //TODO (bug): need to consider empty goalList
         int maxIndex = currentGoals.size() - 1;
-        goalIndex++;
-        goalIndex %= maxIndex;
+        if (goalIndex >= maxIndex) {
+            goalIndex = 0;
+        } else {
+            goalIndex++;
+        }
         goalNameDisplay.setText(currentGoals.get(goalIndex).name());
         percentageDisplay.setText(currentGoals.get(goalIndex).finishPercentString());
 
