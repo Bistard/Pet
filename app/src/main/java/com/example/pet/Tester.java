@@ -3,14 +3,15 @@ package com.example.pet;
 import java.io.File;
 
 public class Tester {
-    static void deleteAllJSON(File path){
+    static void deleteAllJSON(){
+        File path = DataManager.path;
         new File(path,"User.json").delete();
         new File(path,"Goals.json").delete();
         new File(path,"Tasks.json").delete();
     }
 
-    static User makeCustomUser(File path){
-        Tester.deleteAllJSON(path);
+    static User makeCustomUser(){
+        Tester.deleteAllJSON();
         User user = User.Initialize();
 
         user.isFirstTime = false;
