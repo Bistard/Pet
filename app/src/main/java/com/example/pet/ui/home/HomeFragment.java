@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
 
     // progress bar declaration
     private ArrayList<Goal> currentGoals;
-    private int goalIndex = 100000;
+    private int goalIndex = Integer.MAX_VALUE;
     private TextView goalNameDisplay;
     private TextView percentageDisplay;
     private LinearLayout progressBar;
