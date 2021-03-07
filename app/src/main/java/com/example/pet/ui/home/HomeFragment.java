@@ -1,5 +1,6 @@
 package com.example.pet.ui.home;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -7,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,6 +37,7 @@ public class HomeFragment extends Fragment {
     private TextView percentageDisplay;
     private LinearLayout progressBar;
     private LinearLayout.LayoutParams params;
+    private int WIDTH;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class HomeFragment extends Fragment {
         int currentYear = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date()));
         int currentMonth = Integer.parseInt(new SimpleDateFormat("M", Locale.getDefault()).format(new Date()));
         int currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new Date()));
+        WIDTH = Resources.getSystem().getDisplayMetrics().widthPixels;
 
         currentGoals = user.getGoals(currentYear, currentMonth, currentDate);
 
@@ -81,17 +83,17 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-    public void advanceGoalIndex(){
-        int maxIndex = currentGoals.size()-1;
-        if(goalIndex>=maxIndex){
+    public void advanceGoalIndex() {
+        int maxIndex = currentGoals.size() - 1;
+        if (goalIndex >= maxIndex) {
             goalIndex = 0;
-        }else {
+        } else {
             goalIndex++;
         }
         goalNameDisplay.setText(currentGoals.get(goalIndex).name());
         percentageDisplay.setText(currentGoals.get(goalIndex).finishPercentString());
 
-        params.width = (int)(1080.0*currentGoals.get(goalIndex).finishPercent());   //hard coded the width for now
+        params.width = (int) ((double) WIDTH * currentGoals.get(goalIndex).finishPercent());
         progressBar.setLayoutParams(params);
     }
 }
