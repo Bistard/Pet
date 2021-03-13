@@ -30,7 +30,7 @@ public class TodoFragment extends Fragment {
     private TodoViewModel todoViewModel;
     private User user;
 
-    private int MAX_LINE_PER_DAY = 1000;
+    private int MAX_LINE_PER_DAY = 10;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -74,69 +74,30 @@ public class TodoFragment extends Fragment {
         ArrayList<Task> todaysTasks = user.getTasks(currentYear, currentMonth, currentDate);
         makeTab("Today's Tasks",linearLayout);
 
-        LinearLayout todaysLayout = new LinearLayout(getContext());
-        todaysLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        todaysLayout.setOrientation(LinearLayout.VERTICAL);
-        todaysLayout.setBackgroundColor(0xFF0000FF);
-        linearLayout.addView(todaysLayout);
+        LinearLayout todaysLayout = makeInnerLayout(linearLayout);
 
         if (todaysTasks.size() == 0) {
-            TextView tv = new TextView(getContext());
-            tv.setText("You have finished all the tasks today!");
-            tv.setLayoutParams(new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT));
-            tv.setTextColor(0xFFFFFFFF);
-            todaysLayout.addView(tv);
+            makeTextView("You have finished all the tasks today!",todaysLayout);
         } else {
             int i = MAX_LINE_PER_DAY;
             for (Task t : todaysTasks) {
                 if (i == 0) {
-                    TextView tv = new TextView(getContext());
-                    tv.setText((todaysTasks.size() - 3) + " more...");
-                    tv.setLayoutParams(new ViewGroup.LayoutParams(
-                            ViewGroup.LayoutParams.WRAP_CONTENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT));
-                    tv.setTextColor(0xFFFFFFFF);
-                    todaysLayout.addView(tv);
+                    makeTextView((todaysTasks.size() - 3) + " more...",todaysLayout);
                     break;
                 }
                 i--;
-                TextView tv = new TextView(getContext());
-                tv.setText(t.name() + "    due:" + t.Year() + "/" + t.Month() + "/" + t.Day());
-                tv.setLayoutParams(new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT));
-                tv.setTextColor(0xFFFFFFFF);
-                todaysLayout.addView(tv);
+                makeTextView(t.name() + "    due:" + t.Year() + "/" + t.Month() + "/" + t.Day(),todaysLayout);
             }
         }
 
         for (int d = 1; d <= 7; d++) {
             ArrayList<Task> theTasks = user.getTasks(currentYear, currentMonth, currentDate + d);
-            TextView theTab = new TextView(getContext());
-            theTab.setText(d + " Days Later");
-            theTab.setLayoutParams(new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT));
-            theTab.setTextSize(25);
+            makeTab(d + " Days Later",linearLayout);
 
-            linearLayout.addView(theTab);
-
-            LinearLayout theLayout = new LinearLayout(getContext());
-            theLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            theLayout.setOrientation(LinearLayout.VERTICAL);
-            theLayout.setBackgroundColor(0xFF0000FF);
-            linearLayout.addView(theLayout);
+            LinearLayout theLayout = makeInnerLayout(linearLayout);
 
             if (theTasks.size() == 0) {
-                TextView tv = new TextView(getContext());
-                tv.setText("You have finished all the tasks today!");
-                tv.setLayoutParams(new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT));
-                tv.setTextColor(0xFFFFFFFF);
-                theLayout.addView(tv);
+                makeTextView("You have finished all the tasks today!",theLayout);
             } else {
                 int i = MAX_LINE_PER_DAY;
                 for (Task t : theTasks) {
