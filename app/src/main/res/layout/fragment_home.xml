@@ -159,7 +159,7 @@
         android:id="@+id/PetImage"
         android:layout_width="323dp"
         android:layout_height="315dp"
-        android:src="@mipmap/ic_temp_pet_foreground"
+        android:src="@mipmap/ic_side_pet_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
