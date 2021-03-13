@@ -157,8 +157,8 @@
 
     <ImageView
         android:id="@+id/PetImage"
-        android:layout_width="323dp"
-        android:layout_height="315dp"
+        android:layout_width="241dp"
+        android:layout_height="221dp"
         android:src="@mipmap/ic_side_pet_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
