@@ -1,5 +1,7 @@
 package com.example.pet;
 
+import android.util.Log;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,8 +27,8 @@ public class Task {
     public ArrayList<Integer> finished = new ArrayList<>();
     public ArrayList<Integer> recurringDates = new ArrayList<>();
 
-    private Task parent;
-    private int childDate;
+    public Task parent;
+    public int childDate;
 
     /**
      * Reserved for Jackson
@@ -257,24 +259,27 @@ public class Task {
                     case "Bi-weekly":
                         increment = 14;
                         break;
+                    default:
+                        increment = 1;
                 }
                 while (currentDate <= endDate) {
-                    recurringDates.add(currentDate);
+                    this.recurringDates.add(currentDate);
                     currentDate = incrementDate(currentDate, increment);
                 }
             }
         } else {
-            recurringDates.add(eventDate);
+            this.recurringDates.add(eventDate);
         }
         ArrayList<Integer> temp = new ArrayList<>();
         for (int i = 0; i < recurringDates.size(); i++) {
             try {
-                temp.add(finished.get(i));
+                temp.add(this.finished.get(i));
             } catch (Exception e) {
                 temp.add(0);
             }
         }
-        finished = temp;
+        this.finished = temp;
+        Log.i(null,this.finished.toString());
     }
 
     /**

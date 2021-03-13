@@ -28,6 +28,12 @@ public class Tester {
 
         Goal goal3 = user.addGoal("CS 136","target: grade of 90",2020,2,20,2021,3,29,1);
 
+        Goal goal = user.addGoal("g", " ", 2021, 2, 10, 2021, 4, 15, 1);
+        Task task1 = user.addTask("t", "", 2021, 3, 4, 2021, 4, 7, "Weekly", goal);
+        task1.parent.finished.set(0, 1);
+
+        user.SaveFiles();
+
         return user;
     }
 

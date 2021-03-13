@@ -100,9 +100,6 @@ public class HomeFragment extends Fragment {
         }
 
 
-
-
-
         return root;
     }
 
@@ -126,7 +123,7 @@ public class HomeFragment extends Fragment {
             DecimalFormat df = new DecimalFormat("##0.0");
             percentageDisplay.setText(df.format(finishPercent));
 
-            params.width = (int) ((double) WIDTH * finishPercent);
+            params.width = (int) ((double) WIDTH * finishPercent / 100.0);
             progressBar.setLayoutParams(params);
         } else {
             goalNameDisplay.setText(currentGoals.get(goalIndex).name());
