@@ -1,6 +1,7 @@
 package com.example.pet;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class Tester {
     static void deleteAllJSON(){
@@ -17,6 +18,10 @@ public class Tester {
         user.isFirstTime = false;
         user.longTermGoal = "Finish this app";
         user.longTermGoalEnd = 20220331;  // YYYYMMDD
+
+        User.goalList = new ArrayList<>();
+        user.nextGoalID = 0;
+        User.taskList = new ArrayList<>();
 
         Goal goal1 = user.addGoal("ECON 101", "\"target: grade of 80\"",2021,2,20,2021,3,22,0);
         user.addTask("Task 1","This is for goal 1", 2021,2,21, "Daily", goal1);

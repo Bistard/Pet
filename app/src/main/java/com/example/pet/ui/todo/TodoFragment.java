@@ -57,54 +57,22 @@ public class TodoFragment extends Fragment {
         ArrayList<Task> unfinishedTasks = user.getUnfinishedTasks(currentYear, currentMonth, currentDate);
 
         if (unfinishedTasks.size() > 0) {
-
-            TextView unfinishedTab = new TextView(getContext());
-            unfinishedTab.setText("Unfinished Taskes");
-            unfinishedTab.setLayoutParams(new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT));
-            unfinishedTab.setTextSize(25);
-
-            linearLayout.addView(unfinishedTab);
-
-            LinearLayout unfinishedLayout = new LinearLayout(getContext());
-            unfinishedLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            unfinishedLayout.setOrientation(LinearLayout.VERTICAL);
-            unfinishedLayout.setBackgroundColor(0xFF0000FF);
-            linearLayout.addView(unfinishedLayout);
+            makeTab("Unfinished Tasks", linearLayout);
+            LinearLayout unfinishedLayout = makeInnerLayout(linearLayout);
 
             int i = MAX_LINE_PER_DAY;
             for (Task t : unfinishedTasks) {
                 if (i == 0) {
-                    TextView tv = new TextView(getContext());
-                    tv.setText((unfinishedTasks.size() - 3) + " more...");
-                    tv.setLayoutParams(new ViewGroup.LayoutParams(
-                            ViewGroup.LayoutParams.WRAP_CONTENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT));
-                    tv.setTextColor(0xFFFFFFFF);
-                    unfinishedLayout.addView(tv);
+                    makeTextView((unfinishedTasks.size() - 3) + " more...", unfinishedLayout);
                     break;
                 }
                 i--;
-                TextView tv = new TextView(getContext());
-                tv.setText(t.name() + "    due:" + t.Year() + "/" + t.Month() + "/" + t.Day());
-                tv.setLayoutParams(new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT));
-                tv.setTextColor(0xFFFFFFFF);
-                unfinishedLayout.addView(tv);
+                makeTextView(t.name() + "    due:" + t.Year() + "/" + t.Month() + "/" + t.Day(), unfinishedLayout);
             }
         }
 
         ArrayList<Task> todaysTasks = user.getTasks(currentYear, currentMonth, currentDate);
-        TextView todaysTab = new TextView(getContext());
-        todaysTab.setText("Today's Tasks");
-        todaysTab.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
-        todaysTab.setTextSize(25);
-
-        linearLayout.addView(todaysTab);
+        makeTab("Today's Tasks",linearLayout);
 
         LinearLayout todaysLayout = new LinearLayout(getContext());
         todaysLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -145,9 +113,9 @@ public class TodoFragment extends Fragment {
         }
 
         for (int d = 1; d <= 7; d++) {
-            ArrayList<Task> theTasks = user.getTasks(currentYear, currentMonth, currentDate+d);
+            ArrayList<Task> theTasks = user.getTasks(currentYear, currentMonth, currentDate + d);
             TextView theTab = new TextView(getContext());
-            theTab.setText(d+" Days Later");
+            theTab.setText(d + " Days Later");
             theTab.setLayoutParams(new ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -195,5 +163,39 @@ public class TodoFragment extends Fragment {
         }
 
         return root;
+    }
+
+    public TextView makeTab(String text, LinearLayout parent) {
+        TextView tab = new TextView(getContext());
+        tab.setText(text);
+        tab.setLayoutParams(new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+        tab.setTextSize(25);
+
+        parent.addView(tab);
+        return tab;
+    }
+
+    public LinearLayout makeInnerLayout(LinearLayout parent) {
+        LinearLayout layout = new LinearLayout(getContext());
+        layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setBackgroundColor(0xFF0000FF);
+
+        parent.addView(layout);
+        return layout;
+    }
+
+    public TextView makeTextView(String text, LinearLayout parent) {
+        TextView tv = new TextView(getContext());
+        tv.setText(text);
+        tv.setLayoutParams(new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+        tv.setTextColor(0xFFFFFFFF);
+
+        parent.addView(tv);
+        return tv;
     }
 }
