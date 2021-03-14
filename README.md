@@ -6,6 +6,13 @@ Group member:
 - Liam Xue (Yiping Xue)
 - Linda Wang
 
+# New Feature (this branch)
+- home page (in progress)
+- User Class (completed)
+- simple IO interaction (completed)
+- navigation bar (completed)
+- widget pet (in progress)
+
 # Todo
 - homeFragment.java
   - when no upcoming, some messages needs to be shown.
