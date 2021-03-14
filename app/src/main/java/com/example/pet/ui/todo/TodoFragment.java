@@ -86,7 +86,7 @@ public class TodoFragment extends Fragment {
                     break;
                 }
                 i--;
-                makeTextView(t.name() + "    due:" + t.Year() + "/" + t.Month() + "/" + t.Day(),todaysLayout);
+                makeTextView(t.name(),todaysLayout);
             }
         }
 
@@ -102,23 +102,11 @@ public class TodoFragment extends Fragment {
                 int i = MAX_LINE_PER_DAY;
                 for (Task t : theTasks) {
                     if (i == 0) {
-                        TextView tv = new TextView(getContext());
-                        tv.setText((theTasks.size() - 3) + " more...");
-                        tv.setLayoutParams(new ViewGroup.LayoutParams(
-                                ViewGroup.LayoutParams.WRAP_CONTENT,
-                                ViewGroup.LayoutParams.WRAP_CONTENT));
-                        tv.setTextColor(0xFFFFFFFF);
-                        theLayout.addView(tv);
+                        makeTextView((theTasks.size() - 3) + " more...",theLayout);
                         break;
                     }
                     i--;
-                    TextView tv = new TextView(getContext());
-                    tv.setText(t.name() + "    due:" + t.Year() + "/" + t.Month() + "/" + t.Day());
-                    tv.setLayoutParams(new ViewGroup.LayoutParams(
-                            ViewGroup.LayoutParams.WRAP_CONTENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT));
-                    tv.setTextColor(0xFFFFFFFF);
-                    theLayout.addView(tv);
+                    makeTextView(t.name(),theLayout);
                 }
             }
         }
