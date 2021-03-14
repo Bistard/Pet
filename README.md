@@ -6,4 +6,5 @@ Group member:
 - waiting...
 - waiting...
 
-This is a intial project with Hello World!
+# New Features (this branch)
+- This is a intial project with Hello World!
