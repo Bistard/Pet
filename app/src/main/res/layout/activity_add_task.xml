@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddTaskActivity">
+    tools:context=".AddTaskActivity"
+    android:background="#D5DFFF">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/returnTask"
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:background="@color/white_transparent"
@@ -28,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create New Task"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="28sp"
 
         android:textStyle="bold"
@@ -36,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/returnTask"
         app:layout_constraintVertical_bias="0.019" />
 
     <TextView
@@ -44,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Task Name"
-        android:textColor="@color/dark_green"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
 
@@ -63,7 +64,8 @@
         android:ems="10"
         android:inputType="textPersonName"
 
-        android:textColor="@color/grey"
+        android:textColor="#96989E"
+        android:text="Task Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
@@ -79,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Description"
-        android:textColor="@color/dark_green"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
 
@@ -97,7 +99,8 @@
         android:ems="10"
         android:inputType="textPersonName"
 
-        android:textColor="@color/grey"
+        android:textColor="#96989E"
+        android:text="Description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
@@ -112,7 +115,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date"
-        android:textColor="@color/dark_green"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
 
@@ -130,7 +133,7 @@
         android:ems="10"
         android:inputType="date"
         android:text="Feb 27 2021"
-        android:textColor="@color/grey"
+        android:textColor="#96989E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.051"
@@ -144,7 +147,7 @@
         android:layout_width="49dp"
         android:layout_height="45dp"
         android:background="@drawable/roundcorner"
-        android:backgroundTint="@color/dark_green"
+        android:backgroundTint="#A2A8F1"
         android:padding="5dp"
         android:scaleType="fitCenter"
         android:tint="@color/white"
@@ -162,7 +165,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Repeat"
-        android:textColor="@color/dark_green"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
 
@@ -179,7 +182,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="148dp"
         android:text="Reminder"
-        android:textColor="@color/dark_green"
+        android:textColor="@color/white"
         android:textSize="20sp"
 
         android:textStyle="bold"
@@ -189,6 +192,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switchRepeat"
         app:layout_constraintVertical_bias="0.256" />
+
+    <Button
+        android:id="@+id/finishCreateTask"
+        android:layout_width="wrap_content"
+        android:minWidth="200dp"
+        android:layout_height="wrap_content"
+
+        android:text="Create Task"
+        android:textColor="@color/white"
+        android:background="@drawable/basic_button_style"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.959" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

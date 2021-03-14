@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -23,6 +24,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -79,9 +82,23 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
         // Data initializing
         DataManager.init(getFilesDir());
+        // TODO: test only
+        User user = Tester.makeCustomUser();
+
+        // User user = User.Initialize();
+
+
+        /*
+        Testing only!!!
+         */
+        //User user = Tester.makeCustomUser(getFilesDir());
+        //user.SaveFiles();
+        //Log.i(null,User.goalList.toString());
+        //Log.i(null,user.getUnfinishedTasks(2021,1,1).toString());
+        // end testing
+
     }
 
     /**
@@ -119,7 +136,7 @@ public class HomeActivity extends AppCompatActivity {
                     fabAnimation(fabAnim, fabMain, "rotation", 45, 250);
                     fabAnimation(fabAnim, fab1, "translationX", -fabMain.getHeight(), 250);
                     fabAnimation(fabAnim, fab1, "translationY", -fabMain.getHeight(), 250);
-                    fabAnimation(fabAnim, fab2, "translationX",  fabMain.getHeight(), 250);
+                    fabAnimation(fabAnim, fab2, "translationX", fabMain.getHeight(), 250);
                     fabAnimation(fabAnim, fab2, "translationY", -fabMain.getHeight(), 250);
                     fabAnimationFlag = false;
                 } else {
@@ -137,11 +154,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     /**
-     * @param anim ObjectAnimator
-     * @param fab view
+     * @param anim         ObjectAnimator
+     * @param fab          view
      * @param propertyName the property you want to change
-     * @param value the change value
-     * @param duration time duration
+     * @param value        the change value
+     * @param duration     time duration
      */
     public void fabAnimation(ObjectAnimator anim, FloatingActionButton fab, String propertyName, int value, int duration) {
         anim = ObjectAnimator.ofFloat(fab, propertyName, value);
@@ -164,7 +181,6 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AddGoalActivity.class);
         startActivity(intent);
     }
-
 
 
 }
