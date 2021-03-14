@@ -2,61 +2,114 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fragment_home_gradient"
+    android:background="@color/light_blue_50"
     android:padding="5dp"
     android:theme="@style/ThemeOverlay.Pet.AppWidgetContainer">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="10dp"
-        android:text="TODO:"
-        android:textColor="#000"
-        android:textSize="24sp"
-        android:textStyle="bold|italic" />
 
-    <TextView
-        android:id="@+id/appwidget_todo_text0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="40dp"
-        android:text="mytext"
-        android:textColor="#000"
-        android:textSize="24sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/appwidget_todo_text1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="70dp"
-        android:text="mytext"
-        android:textColor="#000"
-        android:textSize="24sp" />
+        <RelativeLayout
+            android:layout_width="324dp"
+            android:layout_height="319dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp">
 
-    <TextView
-        android:id="@+id/appwidget_todo_text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="100dp"
-        android:text="mytext"
-        android:textColor="#000"
-        android:textSize="24sp" />
+            <TextView
+                android:id="@+id/todo"
+                android:layout_width="132dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="182dp"
+                android:layout_marginLeft="182dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="TODO"
+                android:textColor="#fdb122"
+                android:textSize="32sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/appwidget_todo_text0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/todo"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="190dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="61dp"
+                android:layout_marginRight="61dp"
+                android:text="mytext"
+                android:textColor="#fdb122"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/appwidget_todo_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/appwidget_todo_text0"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="190dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="61dp"
+                android:layout_marginRight="61dp"
+                android:text="mytext"
+                android:textColor="#fdb122"
+                android:textSize="24sp" />
 
 
-    <ImageView
-        android:id="@+id/appwidget_petImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        app:srcCompat="@mipmap/ic_temp_pet_foreground" />
+            <TextView
+                android:id="@+id/appwidget_todo_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_below="@id/appwidget_todo_text1"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="190dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="61dp"
+                android:layout_marginRight="61dp"
+                android:text="mytext"
+                android:textColor="#fdb122"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="217dp"
+                android:layout_height="191dp"
+                android:src="@drawable/snail" />
+
+        </RelativeLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnOrderPreserved="false"
+
+
+            />
+
+    </LinearLayout>
+
+
+    <!--    <ImageView-->
+<!--        android:id="@+id/appwidget_petImage"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="5dp"-->
+<!--        android:layout_marginLeft="5dp"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        app:srcCompat="@mipmap/ic_temp_pet_foreground" />-->
 </RelativeLayout>
