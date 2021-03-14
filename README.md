@@ -6,7 +6,7 @@ Group member:
 - Liam Xue (Yiping Xue)
 - Linda Wang
 
-# New Feature (this branch)
+# New Features (this branch)
 - home page (in progress)
 - User Class (completed)
 - simple IO interaction (completed)
