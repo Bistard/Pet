@@ -1,14 +1,23 @@
 # Pet
 Group project for Solution Challenge 2021.
 Group member:
-- Chris Li (Sihan Li)
-- Haolin Liu
-- Liam Xue (Yiping Xue)
-- Linda Wang
+- 🧑Chris Li (Sihan Li)
+- 👧Haolin Liu
+- 🧑Liam Xue (Yiping Xue)
+- 👧Linda Wang
+
+# New Features (this branch)
+- home page (in progress)
+- todo page (initialized)
+- ✔User Class (completed)
+- ✔simple IO interaction (completed)
+- ✔navigation bar (completed)
+- widget pet (initialized)
 
 # Todo
 - homeFragment.java
   - when no upcoming, some messages needs to be shown.
+  - UI for upcoming window
 
 # Bugs
 - homeFragment.java
