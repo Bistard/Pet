@@ -1,16 +1,16 @@
 # Pet
 Group project for Solution Challenge 2021.
 Group member:
-- Chris Li (Sihan Li)
-- Haolin Liu
-- Liam Xue (Yiping Xue)
-- Linda Wang
+- 🧑Chris Li (Sihan Li)
+- 👧Haolin Liu
+- 🧑Liam Xue (Yiping Xue)
+- 👧Linda Wang
 
 # New Features (this branch)
 - home page (in progress)
-- User Class (completed)
-- simple IO interaction (completed)
-- navigation bar (completed)
+- ✔User Class (completed)
+- ✔simple IO interaction (completed)
+- ✔navigation bar (completed)
 - widget pet (in progress)
 
 # Todo
