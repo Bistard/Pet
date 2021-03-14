@@ -16,6 +16,7 @@ Group member:
 # Todo
 - homeFragment.java
   - when no upcoming, some messages needs to be shown.
+  - UI for upcoming window
 
 # Bugs
 - homeFragment.java
