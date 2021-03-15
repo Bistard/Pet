@@ -9,9 +9,6 @@ Group member:
 # New Features (this branch)
 - home page (in progress)
 - todo page (initialized)
-- ✔User Class (completed)
-- ✔simple IO interaction (completed)
-- ✔navigation bar (completed)
 - widget pet (initialized)
 
 # Todo
