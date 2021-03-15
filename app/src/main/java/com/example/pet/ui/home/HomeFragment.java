@@ -1,9 +1,11 @@
 package com.example.pet.ui.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +17,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.loader.app.LoaderManager;
 
 import com.example.pet.Goal;
 import com.example.pet.R;
 import com.example.pet.Task;
 import com.example.pet.Tester;
 import com.example.pet.User;
+import com.example.pet.ui.todo.TodoFragment;
 
 import java.lang.reflect.Array;
 import java.text.DecimalFormat;
@@ -85,6 +91,7 @@ public class HomeFragment extends Fragment {
         WIDTH = Resources.getSystem().getDisplayMetrics().widthPixels;
         currentGoals = user.getGoals(currentYear, currentMonth, currentDate);
         displayGoal();
+
         /*
         upcoming tasks
         */
@@ -98,7 +105,6 @@ public class HomeFragment extends Fragment {
         } else {
             // TODO: shows some messages
         }
-
 
         return root;
     }
@@ -139,9 +145,16 @@ public class HomeFragment extends Fragment {
     public void createUpComingWindow(View v, LinearLayout layout, String name) {
         Button taskWindow = new Button(v.getContext());
         taskWindow.setText(name);
-        taskWindow.setBackgroundResource(R.drawable.home_page_task_window);
+        //taskWindow.setBackgroundResource(R.drawable.home_page_task_window);
+        taskWindow.setBackgroundColor(getResources().getColor(R.color.yellow_150));
         // TODO: set margin left
-
+        LinearLayout.LayoutParams paramTaskWindow =
+                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                                              LinearLayout.LayoutParams.MATCH_PARENT);
+        paramTaskWindow.gravity = Gravity.CENTER_HORIZONTAL;
+        //paramTaskWindow.leftMargin = 20;
+        //paramTaskWindow.rightMargin = 20;
+        taskWindow.setLayoutParams(paramTaskWindow);
         layout.addView(taskWindow);
     }
 }
