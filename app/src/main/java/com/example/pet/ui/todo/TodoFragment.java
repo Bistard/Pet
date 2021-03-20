@@ -30,7 +30,7 @@ public class TodoFragment extends Fragment {
     private TodoViewModel todoViewModel;
     private User user;
 
-    private int MAX_LINE_PER_DAY = 10;
+    private final int MAX_LINE_PER_DAY = 10;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -91,8 +91,13 @@ public class TodoFragment extends Fragment {
         }
 
         for (int d = 1; d <= 7; d++) {
-            ArrayList<Task> theTasks = user.getTasks(currentYear, currentMonth, currentDate + d);
-            makeTab(d + " Days Later",linearLayout);
+            int searchDate = Task.incrementDate(currentYear*10000+currentMonth*100+currentDate,d);
+            int searchYear = searchDate/10000;
+            int searchMonth = (searchDate%10000)/100;
+            int searchDay = searchDate%100;
+
+            ArrayList<Task> theTasks = user.getTasks(searchYear, searchMonth, searchDay);
+            makeTab(searchYear+"/"+searchMonth+"/"+searchDay,linearLayout);
 
             LinearLayout theLayout = makeInnerLayout(linearLayout);
 
@@ -110,6 +115,13 @@ public class TodoFragment extends Fragment {
                 }
             }
         }
+
+        //make custom empty layout
+        LinearLayout empty = new LinearLayout(getContext());
+        empty.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 200));
+        empty.setOrientation(LinearLayout.VERTICAL);
+        empty.setBackgroundColor(0x000000FF);
+        linearLayout.addView(empty);
 
         return root;
     }
