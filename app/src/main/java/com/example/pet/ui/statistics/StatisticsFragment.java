@@ -56,15 +56,20 @@ public class StatisticsFragment extends Fragment {
             }
         }
 
-        if (finishedGoals.size()==0){
+        if (finishedGoals.size() == 0) {
             makeTab("You have not finished any goals.", linearLayout);
-        }
-        for (Goal g : finishedGoals) {
-            makeTab(g.name(), linearLayout);
-            LinearLayout innerLayout = makeInnerLayout(linearLayout);
-            ArrayList<Task> tasksOfTheGoal = user.getTasks(g);
-            for (Task t : tasksOfTheGoal) {
-                makeTextView(t.name() + " " + t.Year() + "/" + t.Month() + "/" + t.Day(), innerLayout);
+        } else {
+            for (Goal g : finishedGoals) {
+                makeTab(g.name(), linearLayout);
+                LinearLayout innerLayout = makeInnerLayout(linearLayout);
+                ArrayList<Task> tasksOfTheGoal = user.getTasks(g);
+                ArrayList<Task> taskLst = new ArrayList<>();
+                for (Task t : tasksOfTheGoal) {
+                    if (!taskLst.contains(t.parent)) {
+                        taskLst.add(t.parent);
+                        makeTextView(t.name(), innerLayout);
+                    }
+                }
             }
         }
 
