@@ -39,14 +39,20 @@ public class AddGoalActivity extends AppCompatActivity {
         });
 
         // initial datePicker
+        /*
+        // TODO: datePicker needs to be completed
         startDatePickerButton = findViewById(R.id.startDateButton);
         startDateText = findViewById(R.id.addGoalStartTime);
         startDatePickerDialog = Date.initImageDatePicker(this, startDatePickerDialog, startDatePickerButton, startDateText);
+         */
 
         // TODO: check if the endDate >= startDate
+        // TODO: datePicker needs to be completed
+        /*
         endDatePickerButton = findViewById(R.id.endDateButton);
         endDateText = findViewById(R.id.addGoalDeadline);
         endDatePickerDialog = Date.initImageDatePicker(this, endDatePickerDialog, endDatePickerButton, endDateText);
+         */
 
 
         // finish button listener

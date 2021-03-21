@@ -25,6 +25,11 @@ public class Goal {
         this.ID = ID;
     }
 
+    public boolean isEnded(int year, int month, int day){
+        int date = year * 10000 + month * 100 + day;
+        return date > this.endDate;
+    }
+
     public void changeName(String name) {
         this.name = name;
     }

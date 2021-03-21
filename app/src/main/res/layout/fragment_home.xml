@@ -24,23 +24,10 @@
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toBottomOf="@+id/PetImage"
-        app:layout_constraintVertical_bias="0.755" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="More"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
-        app:layout_constraintStart_toEndOf="@+id/fragment_home_upcoming"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.676" />
-
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollUpcoming"
+    <ScrollView
+        android:id="@+id/verticalScrollUpcoming"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,11 +38,11 @@
         <LinearLayout
             android:id="@+id/upComingTasks"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <!-- here will display upcoming tasks -->
         </LinearLayout>
-    </HorizontalScrollView>
+    </ScrollView>
 
     <FrameLayout
         android:id="@+id/fragment_home_top"
@@ -75,19 +62,19 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="30dp"
 
-            android:text="Today's Date"
             android:fontFamily="sans-serif-medium"
+            android:text="Today's Date"
             android:textColor="@color/white"
-            android:textSize="40sp"/>
+            android:textSize="40sp" />
 
         <TextView
             android:id="@+id/fragment_home_top_goal_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginBottom ="10dp"
-            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
             android:fontFamily="sans-serif-medium"
             android:text="Goal Name"
             android:textColor="@color/white"
@@ -136,33 +123,16 @@
         </LinearLayout>
     </FrameLayout>
 
-    <ScrollView
-        android:id="@+id/HomeVerticalScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-
-        app:layout_constraintBottom_toTopOf="@+id/fragment_home_upcoming"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_home_top"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical">
-
-        </LinearLayout>
-
-    </ScrollView>
-
     <ImageView
         android:id="@+id/PetImage"
-        android:layout_width="323dp"
-        android:layout_height="315dp"
-        android:src="@mipmap/ic_temp_pet_foreground"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="241dp"
+        android:layout_height="221dp"
+        android:layout_marginTop="4dp"
+        android:src="@mipmap/ic_side_pet_foreground"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_home_top" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

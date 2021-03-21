@@ -279,14 +279,13 @@ public class Task {
             }
         }
         this.finished = temp;
-        Log.i(null,this.finished.toString());
     }
 
     /**
      * Increment date according to calendar rules.
      * For instance incrementDate(20200227,7) should return 20200305, in YYYYMMDD
      */
-    private int incrementDate(int date, int increment) {
+    public static int incrementDate(int date, int increment) {
 
         //convert date to string and set the date format
         String oldDate = Integer.toString(date);
