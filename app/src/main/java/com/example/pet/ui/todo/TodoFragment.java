@@ -1,6 +1,7 @@
 package com.example.pet.ui.todo;
 
 import android.annotation.SuppressLint;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +31,7 @@ public class TodoFragment extends Fragment {
     private TodoViewModel todoViewModel;
     private User user;
 
-    private final int MAX_LINE_PER_DAY = 10;
+    private final int MAX_LINE_PER_DAY = 3;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -133,7 +134,6 @@ public class TodoFragment extends Fragment {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         tab.setTextSize(25);
-
         parent.addView(tab);
         return tab;
     }
@@ -142,7 +142,10 @@ public class TodoFragment extends Fragment {
         LinearLayout layout = new LinearLayout(getContext());
         layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setBackgroundColor(0xFF0000FF);
+        layout.setBackgroundColor(0xFF7EA48F);
+        Drawable drawable = getResources().getDrawable(R.drawable.backgraound_round_corner);
+
+        layout.setBackground(drawable);
 
         parent.addView(layout);
         return layout;
@@ -155,6 +158,10 @@ public class TodoFragment extends Fragment {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         tv.setTextColor(0xFFFFFFFF);
+        tv.setTextSize(20);
+
+
+
 
         parent.addView(tv);
         return tv;
