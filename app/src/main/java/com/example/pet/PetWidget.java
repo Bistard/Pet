@@ -28,6 +28,7 @@ public class PetWidget extends AppWidgetProvider {
         int currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new Date()));
 
         ArrayList<Task> currentTasks = user.getUnfinishedTasks(currentYear, currentMonth, currentDate);
+        currentTasks.addAll(user.getTasks(currentYear, currentMonth, currentDate));
 
         int[] ids = {R.id.appwidget_todo_text0, R.id.appwidget_todo_text1, R.id.appwidget_todo_text2};
         if (currentTasks.size() == 0) {
