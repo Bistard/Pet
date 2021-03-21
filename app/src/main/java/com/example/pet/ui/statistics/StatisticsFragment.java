@@ -1,6 +1,7 @@
 package com.example.pet.ui.statistics;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,15 +48,23 @@ public class StatisticsFragment extends Fragment {
         int currentMonth = Integer.parseInt(new SimpleDateFormat("M", Locale.getDefault()).format(new Date()));
         int currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new Date()));
 
-        ArrayList<Goal> finishedGoals = user.getGoals();
-        for (Goal g : finishedGoals) {
+        ArrayList<Goal> allGoals = user.getGoals();
+        ArrayList<Goal> finishedGoals = new ArrayList<>();
+        for (Goal g : allGoals) {
             if (g.isEnded(currentYear, currentMonth, currentDate)) {
-                makeTab(g.name(), linearLayout);
-                LinearLayout innerLayout = makeInnerLayout(linearLayout);
-                ArrayList<Task> tasksOfTheGoal = user.getTasks(g);
-                for (Task t : tasksOfTheGoal) {
-                    makeTextView(t.name() + " " + t.Year() + "/" + t.Month() + "/" + t.Day(), innerLayout);
-                }
+                finishedGoals.add(g);
+            }
+        }
+
+        if (finishedGoals.size()==0){
+            makeTab("You have not finished any goals.", linearLayout);
+        }
+        for (Goal g : finishedGoals) {
+            makeTab(g.name(), linearLayout);
+            LinearLayout innerLayout = makeInnerLayout(linearLayout);
+            ArrayList<Task> tasksOfTheGoal = user.getTasks(g);
+            for (Task t : tasksOfTheGoal) {
+                makeTextView(t.name() + " " + t.Year() + "/" + t.Month() + "/" + t.Day(), innerLayout);
             }
         }
 
