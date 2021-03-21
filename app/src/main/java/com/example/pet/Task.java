@@ -279,7 +279,6 @@ public class Task {
             }
         }
         this.finished = temp;
-        Log.i(null,this.finished.toString());
     }
 
     /**
