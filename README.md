@@ -17,6 +17,8 @@ Group member:
   - UI for upcoming window
 
 # Bugs
+- Navbar
+  - floating action button animation cancellation
 - homeFragment.java
   - After creating a new goal/task, in order to show the new one, we need to switch to another fragment and switch back.
 - AddGoalActicity.java
