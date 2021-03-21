@@ -6,7 +6,6 @@
     android:padding="5dp"
     android:theme="@style/ThemeOverlay.Pet.AppWidgetContainer">
 
-<<<<<<< HEAD
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -106,69 +105,11 @@
 
 
     <!--    <ImageView-->
-<!--        android:id="@+id/appwidget_petImage"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="5dp"-->
-<!--        android:layout_marginLeft="5dp"-->
-<!--        android:layout_marginTop="5dp"-->
-<!--        app:srcCompat="@mipmap/ic_temp_pet_foreground" />-->
-=======
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="10dp"
-        android:text="TODO:"
-        android:textColor="#000"
-        android:textSize="24sp"
-        android:textStyle="bold|italic" />
-
-    <TextView
-        android:id="@+id/appwidget_todo_text0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="40dp"
-        android:text="mytext"
-        android:textColor="#000"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/appwidget_todo_text1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="70dp"
-        android:singleLine="true"
-        android:text="mytext"
-        android:textColor="#000"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/appwidget_todo_text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="100dp"
-        android:singleLine="true"
-        android:text="mytext"
-        android:textColor="#000"
-        android:textSize="24sp" />
-
-
-    <ImageView
-        android:id="@+id/appwidget_petImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        app:srcCompat="@mipmap/ic_temp_pet_foreground" />
->>>>>>> 58be4dfb245769d06e2588e0e64dab9d819bd976
+    <!--        android:id="@+id/appwidget_petImage"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="5dp"-->
+    <!--        android:layout_marginLeft="5dp"-->
+    <!--        android:layout_marginTop="5dp"-->
+    <!--        app:srcCompat="@mipmap/ic_temp_pet_foreground" />-->
 </RelativeLayout>
