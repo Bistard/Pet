@@ -38,70 +38,91 @@
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 
-    <TextView
-        android:id="@+id/appwidget_todo_text0"
-
+    <LinearLayout
+        android:id="@+id/appwidget_todo_layout0"
         android:layout_width="211dp"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_below="@id/widget_todo"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="50dp"
-
         android:layout_toEndOf="@+id/widget_img"
         android:layout_toRightOf="@+id/widget_img"
-        android:singleLine="true"
-        android:text="mytext"
-        android:textColor="@color/yellow_150"
-        android:textSize="15sp" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/appwidget_todo_text1"
+        <ImageView
+            android:id="@+id/appwidget_todo_checkbox0"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_baseline_check_box_24" />
+        <ImageView
+            android:id="@+id/appwidget_todo_icon0"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/education_icon" />
 
-        android:layout_width="206dp"
+        <TextView
+            android:id="@+id/appwidget_todo_text0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="mytext"
+            android:textColor="@color/yellow_150"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/appwidget_todo_layout1"
+        android:layout_width="211dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/appwidget_todo_text0"
+        android:layout_below="@id/appwidget_todo_layout0"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-
+        android:layout_marginRight="50dp"
         android:layout_toEndOf="@+id/widget_img"
-        android:layout_toRightOf="@+id/widget_img"
-        android:singleLine="true"
-        android:text="mytext"
-        android:textColor="@color/yellow_150"
-        android:textSize="15sp" />
+        android:layout_toRightOf="@+id/widget_img">
 
-    <TextView
-        android:id="@+id/appwidget_todo_text2"
-        android:layout_width="206dp"
+        <TextView
+            android:id="@+id/appwidget_todo_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="mytext"
+            android:textColor="@color/yellow_150"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/appwidget_todo_layout2"
+        android:layout_width="211dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/appwidget_todo_text1"
+        android:layout_below="@id/appwidget_todo_layout1"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-
+        android:layout_marginRight="50dp"
         android:layout_toEndOf="@+id/widget_img"
-        android:layout_toRightOf="@+id/widget_img"
-        android:singleLine="true"
-        android:text="mytext"
-        android:textColor="@color/yellow_150"
-        android:textSize="15sp" />
+        android:layout_toRightOf="@+id/widget_img">
 
+        <TextView
+            android:id="@+id/appwidget_todo_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="mytext"
+            android:textColor="@color/yellow_150"
+            android:textSize="15sp" />
+    </LinearLayout>
 
 </RelativeLayout>
