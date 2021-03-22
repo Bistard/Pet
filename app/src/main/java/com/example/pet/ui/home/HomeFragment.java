@@ -211,7 +211,7 @@ public class HomeFragment extends Fragment {
 
         ImageView checkMark = new ImageView(getContext());
         checkMark.setLayoutParams(new LinearLayout.LayoutParams(80, 80));
-        checkMark.setImageResource(R.drawable.snail);  //TODO: make it a checkmark
+        checkMark.setImageResource(R.drawable.ic_baseline_check_box_24);
         checkMark.setScaleType(ImageView.ScaleType.FIT_XY);
         checkMark.setOnClickListener(new View.OnClickListener() {
             @Override
