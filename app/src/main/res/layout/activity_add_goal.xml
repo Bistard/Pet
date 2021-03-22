@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddGoalActivity"
-    android:background="#F7CEAC">
+    android:background="#C2D4DD">
 
     <ImageButton
         android:id="@+id/returnGoal"

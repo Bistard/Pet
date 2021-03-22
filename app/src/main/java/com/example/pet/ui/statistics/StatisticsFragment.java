@@ -111,7 +111,7 @@ public class StatisticsFragment extends Fragment {
         LinearLayout.LayoutParams tparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         tparams.setMargins(20, 0, 0, 0);
         tv.setLayoutParams(tparams);
-        tv.setTextColor(0xFFFFFFFF);
+        tv.setTextColor(0xFF424949);
         tv.setTextSize(25);
 
         layout.addView(tv);

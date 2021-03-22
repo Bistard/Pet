@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.calendar.CalendarFragment"
-    android:background="#FEF9E7">
+    android:background="#F5F3FF">
 
     <RelativeLayout
         android:id="@+id/calendar_top_layout"

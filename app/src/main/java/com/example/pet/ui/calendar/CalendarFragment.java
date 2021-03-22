@@ -1,6 +1,7 @@
 package com.example.pet.ui.calendar;
 
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -144,7 +145,8 @@ public class CalendarFragment extends Fragment {
         int dayNum = 1;
         for (; indx < start_day + YearMonth.of(displayYear, displayMonth).lengthOfMonth() && indx < 35; indx++) {
             if (displayYear == currentYear && displayMonth == currentMonth && dayNum == currentDate) {
-                table_text[indx].setBackgroundColor(0xFFF8C471);
+                Drawable drawable = getResources().getDrawable(R.drawable.calendar_date);
+                table_text[indx].setBackground(drawable);
             } else {
                 table_text[indx].setBackgroundColor(0x00000000);
             }

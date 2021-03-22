@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.statistics.StatisticsFragment">
+    tools:context=".ui.statistics.StatisticsFragment"
+    android:background="#CEEDDC">
 
     <ScrollView
         android:id="@+id/statistics_scrollview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginRight="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="40dp"
-        android:background="#CEEDDC">
+        android:layout_width="413dp"
+        android:layout_height="571dp"
+        android:background="#CEEDDC"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:layout_editor_absoluteX="-1dp">
 
         <LinearLayout
             android:id="@+id/statistics_main_layout"
@@ -24,4 +23,21 @@
             android:background="#CEEDDC"
             android:orientation="vertical" />
     </ScrollView>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="408dp"
+        android:layout_height="54dp"
+        android:gravity="center"
+        android:text="Achieved Goals"
+        android:textColor="#4B6655"
+        android:textSize="28sp"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.041" />
 </androidx.constraintlayout.widget.ConstraintLayout>
