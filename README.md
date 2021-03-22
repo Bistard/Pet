@@ -12,17 +12,13 @@ Group member:
 - widget pet (initialized)
 
 # Todo
-- homeFragment.java
-  - when no upcoming, some messages needs to be shown.
-  - UI for upcoming window
+- Beautify Calendar
+- Add pet dialog
 
 # Bugs
 - Navbar
   - floating action button animation cancellation
 - homeFragment.java
   - After creating a new goal/task, in order to show the new one, we need to switch to another fragment and switch back.
-- AddGoalActicity.java
-  - datePicker needs to be updated
-  - check if endDate >= startDate
-- AddTaskActicity.java
-  - check if endDate >= startDate
+- Setup page is still showing up on second use
+- Page did not update themselves after goal/task is added
