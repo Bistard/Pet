@@ -1,5 +1,6 @@
 package com.example.pet.ui.statistics;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,13 +36,6 @@ public class StatisticsFragment extends Fragment {
                 new ViewModelProvider(this).get(StatisticsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_statistics, container, false);
         LinearLayout linearLayout = root.findViewById(R.id.statistics_main_layout);
-//        final TextView textView = root.findViewById(R.id.text_statistics);
-//        statisticsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
 
         user = User.Initialize();
         int currentYear = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date()));
@@ -62,6 +56,8 @@ public class StatisticsFragment extends Fragment {
             for (Goal g : finishedGoals) {
                 makeTab(g.name(), linearLayout);
                 LinearLayout innerLayout = makeInnerLayout(linearLayout);
+                makeEmptyLine(innerLayout, 30);
+                
                 ArrayList<Task> tasksOfTheGoal = user.getTasks(g);
                 ArrayList<Task> taskLst = new ArrayList<>();
                 for (Task t : tasksOfTheGoal) {
@@ -70,9 +66,12 @@ public class StatisticsFragment extends Fragment {
                         makeTextView(t.name(), innerLayout);
                     }
                 }
+                makeEmptyLine(innerLayout, 30);
             }
         }
 
+        //make custom empty layout
+        makeEmptyLine(linearLayout, 200);
 
         return root;
     }
@@ -80,33 +79,46 @@ public class StatisticsFragment extends Fragment {
     public TextView makeTab(String text, LinearLayout parent) {
         TextView tab = new TextView(getContext());
         tab.setText(text);
-        tab.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(30, 30, 30, 10);
+        tab.setLayoutParams(params);
         tab.setTextSize(25);
-
         parent.addView(tab);
         return tab;
     }
 
     public LinearLayout makeInnerLayout(LinearLayout parent) {
         LinearLayout layout = new LinearLayout(getContext());
-        layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(30, 0, 30, 0);
+        layout.setLayoutParams(params);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setBackgroundColor(0xFF0000FF);
+        layout.setBackgroundColor(0xFF7EA48F);
+        Drawable drawable = getResources().getDrawable(R.drawable.backgraound_round_corner);
+
+        layout.setBackground(drawable);
 
         parent.addView(layout);
         return layout;
     }
 
+    public LinearLayout makeEmptyLine(LinearLayout parent, int height) {
+        LinearLayout empty = new LinearLayout(getContext());
+        empty.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height));
+        empty.setOrientation(LinearLayout.VERTICAL);
+        empty.setBackgroundColor(0x000000FF);
+        parent.addView(empty);
+        return empty;
+    }
+
     public TextView makeTextView(String text, LinearLayout parent) {
         TextView tv = new TextView(getContext());
         tv.setText(text);
-        tv.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(75, 20, 70, 20);
+        tv.setLayoutParams(params);
         tv.setTextColor(0xFFFFFFFF);
-
+        tv.setTextSize(20);
         parent.addView(tv);
         return tv;
     }

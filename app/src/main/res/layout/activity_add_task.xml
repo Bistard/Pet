@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddTaskActivity"
-    android:background="#D5DFFF">
+    android:background="#F7CEAC">
 
     <ImageButton
         android:id="@+id/returnTask"
@@ -147,7 +147,7 @@
         android:layout_width="49dp"
         android:layout_height="45dp"
         android:background="@drawable/roundcorner"
-        android:backgroundTint="#A2A8F1"
+        android:backgroundTint="#F7994B"
         android:padding="5dp"
         android:scaleType="fitCenter"
         android:tint="@color/white"
