@@ -81,7 +81,7 @@ public class StatisticsFragment extends Fragment {
         return root;
     }
 
-    public TextView makeTab(String text, LinearLayout parent) {
+    private TextView makeTab(String text, LinearLayout parent) {
         TextView tab = new TextView(getContext());
         tab.setText(text);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -92,7 +92,7 @@ public class StatisticsFragment extends Fragment {
         return tab;
     }
 
-    public TextView makeTab(Goal g, LinearLayout parent) {
+    private TextView makeTab(Goal g, LinearLayout parent) {
         LinearLayout layout = new LinearLayout(getContext());
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.setMargins(30, 30, 30, 10);
@@ -119,7 +119,7 @@ public class StatisticsFragment extends Fragment {
         return tv;
     }
 
-    public LinearLayout makeInnerLayout(LinearLayout parent) {
+    private LinearLayout makeInnerLayout(LinearLayout parent) {
         LinearLayout layout = new LinearLayout(getContext());
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.setMargins(30, 0, 30, 0);
@@ -134,7 +134,7 @@ public class StatisticsFragment extends Fragment {
         return layout;
     }
 
-    public LinearLayout makeEmptyLine(LinearLayout parent, int height) {
+    private LinearLayout makeEmptyLine(LinearLayout parent, int height) {
         LinearLayout empty = new LinearLayout(getContext());
         empty.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height));
         empty.setOrientation(LinearLayout.VERTICAL);
@@ -143,7 +143,7 @@ public class StatisticsFragment extends Fragment {
         return empty;
     }
 
-    public TextView makeTextView(String text, LinearLayout parent) {
+    private TextView makeTextView(String text, LinearLayout parent) {
         TextView tv = new TextView(getContext());
         tv.setText(text);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
