@@ -8,6 +8,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/pet_widget_layout"
         android:layout_width="361dp"
         android:layout_height="181dp"
         android:layout_marginLeft="20dp"
