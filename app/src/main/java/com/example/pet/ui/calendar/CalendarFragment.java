@@ -209,7 +209,7 @@ public class CalendarFragment extends Fragment {
     /**
      * @param min
      * @param max
-     * @param maxPosition -1 for center at min, 0 for center at center, +1 for center at max
+     * @param centerPosition -1 for center at min, 0 for center at center, +1 for center at max
      * @param intensity
      * @return
      */
