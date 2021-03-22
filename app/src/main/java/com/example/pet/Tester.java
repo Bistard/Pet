@@ -48,7 +48,7 @@ public class Tester {
         }
 
 
-        Goal goal2 = user.addGoal("Lose Weight", "Reduce my body weight to 10kg", 2020, 9, 1, 2021, 8, 31, 1);
+        Goal goal2 = user.addGoal("Lose Weight", "Reduce my body weight to 10kg", 2020, 9, 1, 2021, 8, 31, 2);
         t = user.addTask("Jogging", "", 2020, 9, 1, 2021, 8, 31, "Daily", goal2);
         t = t.parent;
         for (int i = 0; i < t.finished.size(); i++) {
