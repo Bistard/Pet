@@ -29,7 +29,7 @@
     <ScrollView
         android:id="@+id/verticalScrollUpcoming"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_home_upcoming"
         app:layout_constraintVertical_bias="0.117"
@@ -37,7 +37,7 @@
 
         <LinearLayout
             android:id="@+id/upComingTasks"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <!-- here will display upcoming tasks -->
@@ -151,7 +151,7 @@
         android:id="@+id/PetImage"
         android:layout_width="241dp"
         android:layout_height="221dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="75dp"
         android:src="@mipmap/ic_side_pet_foreground"
 
         app:layout_constraintEnd_toEndOf="parent"

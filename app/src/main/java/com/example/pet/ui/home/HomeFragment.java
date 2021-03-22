@@ -3,6 +3,7 @@ package com.example.pet.ui.home;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -105,13 +106,21 @@ public class HomeFragment extends Fragment {
         */
         final int MAX_DISPLAY_WINDOW = 10;
         upcomingLayout = root.findViewById(R.id.upComingTasks);
-        int WINDOW_NUMBER = Math.min(MAX_DISPLAY_WINDOW, User.goalList.size());
+        ArrayList<Task> upcomingTasks = user.getUnfinishedTasks(currentYear,currentMonth,currentDate);
+        for (Task t: user.getTasks(currentYear,currentMonth,currentDate)){
+            if(!t.isFininshed()){
+                upcomingTasks.add(t);
+            }
+        }
+        int WINDOW_NUMBER = Math.min(MAX_DISPLAY_WINDOW, upcomingTasks.size());
         if (WINDOW_NUMBER != 0) {
             for (int i = 0; i < WINDOW_NUMBER; i++) {
-                createUpComingWindow(root, upcomingLayout, User.goalList.get(i).name);
+                makeTextView(upcomingTasks.get(i),makeInnerLayout(upcomingLayout));
             }
+            //make custom empty layout
+            makeEmptyLine(upcomingLayout, 50);
         } else {
-            // TODO: shows some messages
+            makeTextView("You don't have anything for today.",makeInnerLayout(upcomingLayout));
         }
 
         return root;
@@ -169,5 +178,92 @@ public class HomeFragment extends Fragment {
         //paramTaskWindow.rightMargin = 20;
         taskWindow.setLayoutParams(paramTaskWindow);
         layout.addView(taskWindow);
+    }
+
+    private LinearLayout makeInnerLayout(LinearLayout parent) {
+        LinearLayout ll = new LinearLayout(getContext());
+        LinearLayout.LayoutParams llparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        llparams.setMargins(30, 10, 30, 10);
+        ll.setLayoutParams(llparams);
+        ll.setOrientation(LinearLayout.VERTICAL);
+        ll.setBackgroundColor(0x00000000);
+
+        LinearLayout layout = new LinearLayout(getContext());
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(30, 0, 30, 0);
+        layout.setLayoutParams(params);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setBackgroundColor(getResources().getColor(R.color.yellow_150));
+        //Drawable drawable = getResources().getDrawable(R.drawable.backgraound_round_corner);
+        //layout.setBackground(drawable);
+
+        ll.addView(layout);
+        parent.addView(ll);
+        return layout;
+    }
+    private TextView makeTextView(Task t, LinearLayout parent) {
+        LinearLayout layout = new LinearLayout(getContext());
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(20, 20, 20, 20);
+        layout.setLayoutParams(params);
+        layout.setOrientation(LinearLayout.HORIZONTAL);
+        layout.setBackgroundColor(0x00FFFFFF);
+
+        ImageView checkMark = new ImageView(getContext());
+        checkMark.setLayoutParams(new LinearLayout.LayoutParams(80, 80));
+        checkMark.setImageResource(R.drawable.snail);  //TODO: make it a checkmark
+        checkMark.setScaleType(ImageView.ScaleType.FIT_XY);
+        checkMark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                t.changeFinished();
+                user.SaveFiles();
+            }
+        });
+        layout.addView(checkMark);
+
+        ImageView img = new ImageView(getContext());
+        img.setLayoutParams(new LinearLayout.LayoutParams(80, 80));
+        img.setImageResource(IMAGE_SOURCE[t.parentType()]);
+        img.setScaleType(ImageView.ScaleType.FIT_XY);
+        layout.addView(img);
+
+        TextView tv = new TextView(getContext());
+        tv.setText(t.name());
+        LinearLayout.LayoutParams tparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        tparams.setMargins(20, 0, 0, 0);
+        tv.setLayoutParams(tparams);
+        tv.setTextColor(0xFFFFFFFF);
+        tv.setTextSize(20);
+
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        layout.addView(tv);
+        parent.addView(layout);
+        return tv;
+    }
+    private TextView makeTextView(String text, LinearLayout parent) {
+        TextView tv = new TextView(getContext());
+        tv.setText(text);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(75, 20, 70, 20);
+        tv.setLayoutParams(params);
+        tv.setTextColor(0xFFFFFFFF);
+        tv.setTextSize(20);
+        parent.addView(tv);
+        return tv;
+    }
+    private LinearLayout makeEmptyLine(LinearLayout parent, int height) {
+        LinearLayout empty = new LinearLayout(getContext());
+        empty.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height));
+        empty.setOrientation(LinearLayout.VERTICAL);
+        empty.setBackgroundColor(0x000000FF);
+        parent.addView(empty);
+        return empty;
     }
 }
