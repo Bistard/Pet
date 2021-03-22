@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -29,6 +30,8 @@ public class StatisticsFragment extends Fragment {
 
     private StatisticsViewModel statisticsViewModel;
     private User user;
+    private int[] IMAGE_SOURCE;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +41,8 @@ public class StatisticsFragment extends Fragment {
         LinearLayout linearLayout = root.findViewById(R.id.statistics_main_layout);
 
         user = User.Initialize();
+        IMAGE_SOURCE = new int[]{R.drawable.education_icon, R.drawable.habbit_icon, R.drawable.sport_icon, R.drawable.work_icon};
+
         int currentYear = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date()));
         int currentMonth = Integer.parseInt(new SimpleDateFormat("M", Locale.getDefault()).format(new Date()));
         int currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new Date()));
@@ -54,10 +59,10 @@ public class StatisticsFragment extends Fragment {
             makeTab("You have not finished any goals.", linearLayout);
         } else {
             for (Goal g : finishedGoals) {
-                makeTab(g.name(), linearLayout);
+                makeTab(g, linearLayout);
                 LinearLayout innerLayout = makeInnerLayout(linearLayout);
                 makeEmptyLine(innerLayout, 30);
-                
+
                 ArrayList<Task> tasksOfTheGoal = user.getTasks(g);
                 ArrayList<Task> taskLst = new ArrayList<>();
                 for (Task t : tasksOfTheGoal) {
@@ -85,6 +90,33 @@ public class StatisticsFragment extends Fragment {
         tab.setTextSize(25);
         parent.addView(tab);
         return tab;
+    }
+
+    public TextView makeTab(Goal g, LinearLayout parent) {
+        LinearLayout layout = new LinearLayout(getContext());
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(30, 30, 30, 10);
+        layout.setLayoutParams(params);
+        layout.setOrientation(LinearLayout.HORIZONTAL);
+        layout.setBackgroundColor(0x00FFFFFF);
+
+        ImageView img = new ImageView(getContext());
+        img.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+        img.setImageResource(IMAGE_SOURCE[g.type()]);
+        img.setScaleType(ImageView.ScaleType.FIT_XY);
+        layout.addView(img);
+
+        TextView tv = new TextView(getContext());
+        tv.setText(g.name());
+        LinearLayout.LayoutParams tparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        tparams.setMargins(20, 0, 0, 0);
+        tv.setLayoutParams(tparams);
+        tv.setTextColor(0xFFFFFFFF);
+        tv.setTextSize(25);
+
+        layout.addView(tv);
+        parent.addView(layout);
+        return tv;
     }
 
     public LinearLayout makeInnerLayout(LinearLayout parent) {
