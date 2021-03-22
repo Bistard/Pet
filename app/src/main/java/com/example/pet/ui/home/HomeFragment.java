@@ -47,6 +47,10 @@ public class HomeFragment extends Fragment {
 
     private int[] IMAGE_SOURCE;
 
+    private int currentYear ;
+    private int currentMonth ;
+    private int currentDate;
+
     // progress bar declaration
     private ArrayList<Goal> currentGoals;
     private int goalIndex = Integer.MAX_VALUE;
@@ -57,8 +61,10 @@ public class HomeFragment extends Fragment {
     private LinearLayout progressBar;
     private LinearLayout.LayoutParams params;
     private int WIDTH;
-    // Linear layout for upComing
-    public LinearLayout upcomingLayout;
+    //  upComing
+    private final int MAX_DISPLAY_WINDOW = 10;
+    private LinearLayout upcomingLayout;
+    private ArrayList<Task> upcomingTasks;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -94,9 +100,9 @@ public class HomeFragment extends Fragment {
         percentageDisplay = root.findViewById(R.id.fragment_home_top_percentage);
         progressBar = root.findViewById(R.id.fragment_home_top_progressBar);
         params = (LinearLayout.LayoutParams) progressBar.getLayoutParams();
-        int currentYear = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date()));
-        int currentMonth = Integer.parseInt(new SimpleDateFormat("M", Locale.getDefault()).format(new Date()));
-        int currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new Date()));
+        currentYear = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date()));
+        currentMonth = Integer.parseInt(new SimpleDateFormat("M", Locale.getDefault()).format(new Date()));
+        currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new Date()));
         WIDTH = Resources.getSystem().getDisplayMetrics().widthPixels;
         currentGoals = user.getGoals(currentYear, currentMonth, currentDate);
         displayGoal();
@@ -104,9 +110,15 @@ public class HomeFragment extends Fragment {
         /*
         upcoming tasks
         */
-        final int MAX_DISPLAY_WINDOW = 10;
         upcomingLayout = root.findViewById(R.id.upComingTasks);
-        ArrayList<Task> upcomingTasks = user.getUnfinishedTasks(currentYear,currentMonth,currentDate);
+        displayUpcomingTasks();
+
+        return root;
+    }
+
+    private void displayUpcomingTasks(){
+        upcomingLayout.removeAllViews();
+        upcomingTasks = user.getUnfinishedTasks(currentYear,currentMonth,currentDate);
         for (Task t: user.getTasks(currentYear,currentMonth,currentDate)){
             if(!t.isFininshed()){
                 upcomingTasks.add(t);
@@ -115,18 +127,16 @@ public class HomeFragment extends Fragment {
         int WINDOW_NUMBER = Math.min(MAX_DISPLAY_WINDOW, upcomingTasks.size());
         if (WINDOW_NUMBER != 0) {
             for (int i = 0; i < WINDOW_NUMBER; i++) {
-                makeTextView(upcomingTasks.get(i),makeInnerLayout(upcomingLayout));
+                makeUpcomingTextView(upcomingTasks.get(i),makeInnerLayout(upcomingLayout));
             }
             //make custom empty layout
             makeEmptyLine(upcomingLayout, 50);
         } else {
             makeTextView("You don't have anything for today.",makeInnerLayout(upcomingLayout));
         }
-
-        return root;
     }
 
-    public void displayGoal() {
+    private void displayGoal() {
         int maxIndex = currentGoals.size() - 1;
         if (goalIndex > maxIndex) {
             goalIndex = 0;
@@ -201,7 +211,7 @@ public class HomeFragment extends Fragment {
         parent.addView(ll);
         return layout;
     }
-    private TextView makeTextView(Task t, LinearLayout parent) {
+    private TextView makeUpcomingTextView(Task t, LinearLayout parent) {
         LinearLayout layout = new LinearLayout(getContext());
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.setMargins(20, 20, 20, 20);
@@ -218,6 +228,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 t.changeFinished();
                 user.SaveFiles();
+                displayUpcomingTasks();
             }
         });
         layout.addView(checkMark);
