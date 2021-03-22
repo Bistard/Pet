@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.calendar.CalendarFragment">
+    tools:context=".ui.calendar.CalendarFragment"
+    android:background="#FEF9E7">
 
     <RelativeLayout
         android:id="@+id/calendar_top_layout"
@@ -12,7 +13,8 @@
         android:layout_height="100dp"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="0dp"
+        android:background="#FEF9E7">
 
         <TextView
             android:id="@+id/calendar_top_date"
@@ -84,9 +86,10 @@
                 android:background="@drawable/border">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SUN" />
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="SUN"
+                    android:gravity="center_horizontal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -96,9 +99,10 @@
                 android:background="@drawable/border">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="MON" />
+                    android:text="MON"
+                    android:gravity="center_horizontal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -108,9 +112,10 @@
                 android:background="@drawable/border">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TUE" />
+                    android:text="TUE"
+                    android:gravity="center_horizontal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -120,9 +125,10 @@
                 android:background="@drawable/border">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="WED" />
+                    android:text="WED"
+                    android:gravity="center_horizontal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -132,9 +138,10 @@
                 android:background="@drawable/border">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="THU" />
+                    android:text="THU"
+                    android:gravity="center_horizontal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -144,9 +151,10 @@
                 android:background="@drawable/border">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="FRI" />
+                    android:text="FRI"
+                    android:gravity="center_horizontal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -156,9 +164,10 @@
                 android:background="@drawable/border">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="SAT" />
+                    android:text="SAT"
+                    android:gravity="center_horizontal"/>
             </LinearLayout>
         </TableRow>
 

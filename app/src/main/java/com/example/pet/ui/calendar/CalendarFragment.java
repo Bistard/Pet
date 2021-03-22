@@ -144,7 +144,7 @@ public class CalendarFragment extends Fragment {
         int dayNum = 1;
         for (; indx < start_day + YearMonth.of(displayYear, displayMonth).lengthOfMonth() && indx < 35; indx++) {
             if (displayYear == currentYear && displayMonth == currentMonth && dayNum == currentDate) {
-                table_text[indx].setBackgroundColor(0xFF2222FF);
+                table_text[indx].setBackgroundColor(0xFFF8C471);
             } else {
                 table_text[indx].setBackgroundColor(0x00000000);
             }
