@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -43,11 +44,14 @@ public class HomeFragment extends Fragment {
     public HomeViewModel homeViewModel;
     private User user;
 
+    private int[] IMAGE_SOURCE;
+
     // progress bar declaration
     private ArrayList<Goal> currentGoals;
     private int goalIndex = Integer.MAX_VALUE;
     private TextView goalNameDisplay;
     private TextView longTermGoalDisplay;
+    private ImageView goalType;
     private TextView percentageDisplay;
     private LinearLayout progressBar;
     private LinearLayout.LayoutParams params;
@@ -63,6 +67,7 @@ public class HomeFragment extends Fragment {
 
         // user initialize
         user = User.Initialize();
+        IMAGE_SOURCE = new int[]{R.drawable.education_icon, R.drawable.habbit_icon, R.drawable.sport_icon, R.drawable.work_icon};
         /*
          * fragment_home_top Initialize
          */
@@ -84,6 +89,7 @@ public class HomeFragment extends Fragment {
          */
         goalNameDisplay = root.findViewById(R.id.fragment_home_top_goal_name);
         longTermGoalDisplay = root.findViewById(R.id.fragment_home_top_goal_longtermgoal);
+        goalType = root.findViewById(R.id.fragment_home_top_goal_type);
         percentageDisplay = root.findViewById(R.id.fragment_home_top_percentage);
         progressBar = root.findViewById(R.id.fragment_home_top_progressBar);
         params = (LinearLayout.LayoutParams) progressBar.getLayoutParams();
@@ -131,6 +137,7 @@ public class HomeFragment extends Fragment {
             DecimalFormat df = new DecimalFormat("##0.0");
             percentageDisplay.setText(df.format(finishPercent));
             longTermGoalDisplay.setVisibility(View.VISIBLE);
+            goalType.setVisibility(View.INVISIBLE);
 
             params.width = (int) ((double) WIDTH * finishPercent / 100.0);
             progressBar.setLayoutParams(params);
@@ -138,6 +145,8 @@ public class HomeFragment extends Fragment {
             goalNameDisplay.setText(currentGoals.get(goalIndex).name());
             percentageDisplay.setText(currentGoals.get(goalIndex).finishPercentString());
             longTermGoalDisplay.setVisibility(View.INVISIBLE);
+            goalType.setVisibility(View.VISIBLE);
+            goalType.setImageResource(IMAGE_SOURCE[currentGoals.get(goalIndex).type()]);
 
             params.width = (int) ((double) WIDTH * currentGoals.get(goalIndex).finishPercent());
             progressBar.setLayoutParams(params);
