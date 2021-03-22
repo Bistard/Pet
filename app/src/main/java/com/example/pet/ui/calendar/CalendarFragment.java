@@ -152,9 +152,39 @@ public class CalendarFragment extends Fragment {
 
             table_layout[indx].removeAllViews();
             ArrayList<Task> theseTasks = user.getTasks(displayYear, displayMonth, dayNum);
-            int maxRadius = (int)((double)TABLE_X_MAX / 2.0 / theseTasks.size());
-            for (Task t : theseTasks) {
-                circle(curvedRandom(0, TABLE_X_MAX, 0, 3.0), curvedRandom(0, TABLE_Y_MAX, 0, 3.0), curvedRandom(5, maxRadius, 1, 3.0), IMAGE_SOURCE[t.parentType()], table_layout[indx]);
+            int maxRadius = (int) ((double) TABLE_X_MAX / 2.0 / theseTasks.size());
+            int[][] circles = new int[theseTasks.size()][3];
+            boolean made_circle = false;
+            for (int i = 0; i < theseTasks.size(); i++) {
+                for (int iteration = 0; iteration < 100; iteration++) {
+                    int x = curvedRandom(0, TABLE_X_MAX, 0, 5.0);
+                    int y = curvedRandom(0, TABLE_Y_MAX, 0, 5.0);
+                    int r = curvedRandom(5, maxRadius, 1, 3.0);
+                    boolean can_make_circle = true;
+                    for (int j = 0; j < i; j++) {
+                        double d = Math.pow((x - circles[j][0]) * (x - circles[j][0]) + (y - circles[j][1]) * (y - circles[j][1]), 0.5);
+                        if (d < r + circles[j][2]) {
+                            can_make_circle = false;
+                            break;
+                        }
+                    }
+                    if (can_make_circle) {
+                        circles[i][0] = x;
+                        circles[i][1] = y;
+                        circles[i][2] = r;
+                        Task t = theseTasks.get(i);
+                        circle(x, y, r, IMAGE_SOURCE[t.parentType()], table_layout[indx]);
+                        made_circle = true;
+                        break;
+                    }
+                }
+                if (!made_circle) {
+                    circles[i][0] = curvedRandom(0, TABLE_X_MAX, 0, 2.0);
+                    circles[i][1] = curvedRandom(0, TABLE_Y_MAX, 0, 2.0);
+                    circles[i][2] = curvedRandom(5, maxRadius / 2, 1, 4.0);
+                    Task t = theseTasks.get(i);
+                    circle(circles[i][0], circles[i][10], circles[i][2], IMAGE_SOURCE[t.parentType()], table_layout[indx]);
+                }
             }
 
             dayNum++;
@@ -202,7 +232,7 @@ public class CalendarFragment extends Fragment {
         } else {
             randDouble = curvedRandom(min, max + (max - min), 0, intensity);
             if (randDouble > max) {
-                randDouble = (double)max - (randDouble - (double)max);
+                randDouble = (double) max - (randDouble - (double) max);
             }
             return (int) randDouble;
         }
