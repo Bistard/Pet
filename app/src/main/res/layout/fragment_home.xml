@@ -105,6 +105,19 @@
             android:textColor="@color/white"
             android:textSize="40sp" />
 
+        <TextView
+            android:id="@+id/fragment_home_top_goal_longtermgoal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="35dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Long-term Goal:"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="5dp"

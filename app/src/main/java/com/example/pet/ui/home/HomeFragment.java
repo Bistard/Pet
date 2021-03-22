@@ -47,6 +47,7 @@ public class HomeFragment extends Fragment {
     private ArrayList<Goal> currentGoals;
     private int goalIndex = Integer.MAX_VALUE;
     private TextView goalNameDisplay;
+    private TextView longTermGoalDisplay;
     private TextView percentageDisplay;
     private LinearLayout progressBar;
     private LinearLayout.LayoutParams params;
@@ -82,6 +83,7 @@ public class HomeFragment extends Fragment {
         progressBar & goalName display
          */
         goalNameDisplay = root.findViewById(R.id.fragment_home_top_goal_name);
+        longTermGoalDisplay = root.findViewById(R.id.fragment_home_top_goal_longtermgoal);
         percentageDisplay = root.findViewById(R.id.fragment_home_top_percentage);
         progressBar = root.findViewById(R.id.fragment_home_top_progressBar);
         params = (LinearLayout.LayoutParams) progressBar.getLayoutParams();
@@ -128,12 +130,14 @@ public class HomeFragment extends Fragment {
 
             DecimalFormat df = new DecimalFormat("##0.0");
             percentageDisplay.setText(df.format(finishPercent));
+            longTermGoalDisplay.setVisibility(View.VISIBLE);
 
             params.width = (int) ((double) WIDTH * finishPercent / 100.0);
             progressBar.setLayoutParams(params);
         } else {
             goalNameDisplay.setText(currentGoals.get(goalIndex).name());
             percentageDisplay.setText(currentGoals.get(goalIndex).finishPercentString());
+            longTermGoalDisplay.setVisibility(View.INVISIBLE);
 
             params.width = (int) ((double) WIDTH * currentGoals.get(goalIndex).finishPercent());
             progressBar.setLayoutParams(params);
