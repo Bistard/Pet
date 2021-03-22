@@ -1,6 +1,7 @@
 package com.example.pet.ui.todo;
 
 import android.annotation.SuppressLint;
+import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -189,12 +190,15 @@ public class TodoFragment extends Fragment {
         layout.addView(img);
 
         TextView tv = new TextView(getContext());
-        tv.setText(t.name());
+        tv.setText(t.name()+" ");
         LinearLayout.LayoutParams tparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         tparams.setMargins(20, 0, 0, 0);
         tv.setLayoutParams(tparams);
         tv.setTextColor(0xFFFFFFFF);
         tv.setTextSize(20);
+        if(t.isFininshed()){
+            tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        }
 
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
