@@ -156,8 +156,9 @@ public class CalendarFragment extends Fragment {
             ArrayList<Task> theseTasks = user.getTasks(displayYear, displayMonth, dayNum);
             int maxRadius = (int) ((double) TABLE_X_MAX / 2.0 / theseTasks.size());
             int[][] circles = new int[theseTasks.size()][3];
-            boolean made_circle = false;
+            boolean made_circle;
             for (int i = 0; i < theseTasks.size(); i++) {
+                made_circle = false;
                 for (int iteration = 0; iteration < 100; iteration++) {
                     int x = curvedRandom(0, TABLE_X_MAX, 0, 5.0);
                     int y = curvedRandom(0, TABLE_Y_MAX, 0, 5.0);
@@ -185,7 +186,7 @@ public class CalendarFragment extends Fragment {
                     circles[i][1] = curvedRandom(0, TABLE_Y_MAX, 0, 2.0);
                     circles[i][2] = curvedRandom(5, maxRadius / 2, 1, 4.0);
                     Task t = theseTasks.get(i);
-                    circle(circles[i][0], circles[i][10], circles[i][2], IMAGE_SOURCE[t.parentType()], table_layout[indx]);
+                    circle(circles[i][0], circles[i][1], circles[i][2], IMAGE_SOURCE[t.parentType()], table_layout[indx]);
                 }
             }
 

@@ -3,8 +3,8 @@
     android:initialKeyguardLayout="@layout/pet_widget"
     android:initialLayout="@layout/pet_widget"
     android:minWidth="280dp"
-    android:minHeight="80dp"
-    android:previewImage="@mipmap/ic_temp_pet_foreground"
+    android:minHeight="36dp"
+    android:previewImage="@drawable/snail_t"
     android:resizeMode="none"
     android:updatePeriodMillis="1000"
     android:widgetCategory="home_screen" />
