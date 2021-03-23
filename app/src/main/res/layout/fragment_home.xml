@@ -158,5 +158,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_home_top" />
 
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/home_pet_bubble_layout"
+        android:layout_width="327dp"
+        android:layout_height="157dp"
+        app:layout_constraintEnd_toEndOf="@+id/PetImage"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_home_top">
+
+        <ImageView
+            android:id="@+id/home_pet_bubble"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:scaleX="-1"
+            android:src="@drawable/ic_baseline_chat_bubble_24" />
+
+        <TextView
+            android:id="@+id/home_pet_bubble_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="35dp"
+            android:text="words here" />
+
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

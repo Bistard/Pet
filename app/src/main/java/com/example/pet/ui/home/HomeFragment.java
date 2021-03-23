@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -39,6 +40,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 
 public class HomeFragment extends Fragment {
 
@@ -47,8 +49,8 @@ public class HomeFragment extends Fragment {
 
     private int[] IMAGE_SOURCE;
 
-    private int currentYear ;
-    private int currentMonth ;
+    private int currentYear;
+    private int currentMonth;
     private int currentDate;
 
     // progress bar declaration
@@ -65,6 +67,11 @@ public class HomeFragment extends Fragment {
     private final int MAX_DISPLAY_WINDOW = 10;
     private LinearLayout upcomingLayout;
     private ArrayList<Task> upcomingTasks;
+
+    //pet interaction
+    private boolean bubbleLayoutVisible = true;
+    private FrameLayout bubbleLayout;
+    private TextView bubbleText;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -113,26 +120,62 @@ public class HomeFragment extends Fragment {
         upcomingLayout = root.findViewById(R.id.upComingTasks);
         displayUpcomingTasks();
 
+        //pet bubble
+        bubbleLayout = root.findViewById(R.id.home_pet_bubble_layout);
+        bubbleText = root.findViewById(R.id.home_pet_bubble_text);
+        displayBubble();
+        final Handler refreshHandler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                double rand = new Random().nextDouble();
+                if (bubbleLayoutVisible) {
+                    if (rand > 0.3) {
+                        bubbleLayoutVisible = false;
+                        bubbleLayout.setVisibility(View.INVISIBLE);
+                    }
+                } else {
+                    if (rand > 0.1 && displayBubble()) {
+                        bubbleLayoutVisible = true;
+                        bubbleLayout.setVisibility(View.VISIBLE);
+                    }
+                }
+
+                refreshHandler.postDelayed(this, 3 * 1000);
+            }
+        };
+        refreshHandler.postDelayed(runnable, 3 * 1000);
+
         return root;
     }
 
-    private void displayUpcomingTasks(){
+    private boolean displayBubble() {
+        try {
+            bubbleText.setText(user.pet.getPhrase());
+        } catch (Exception e) {
+            Log.i("home", e.toString());
+            return false;
+        }
+        return true;
+    }
+
+    private void displayUpcomingTasks() {
         upcomingLayout.removeAllViews();
-        upcomingTasks = user.getUnfinishedTasks(currentYear,currentMonth,currentDate);
-        for (Task t: user.getTasks(currentYear,currentMonth,currentDate)){
-            if(!t.isFininshed()){
+        upcomingTasks = user.getUnfinishedTasks(currentYear, currentMonth, currentDate);
+        for (Task t : user.getTasks(currentYear, currentMonth, currentDate)) {
+            if (!t.isFininshed()) {
                 upcomingTasks.add(t);
             }
         }
         int WINDOW_NUMBER = Math.min(MAX_DISPLAY_WINDOW, upcomingTasks.size());
         if (WINDOW_NUMBER != 0) {
             for (int i = 0; i < WINDOW_NUMBER; i++) {
-                makeUpcomingTextView(upcomingTasks.get(i),makeInnerLayout(upcomingLayout));
+                makeUpcomingTextView(upcomingTasks.get(i), makeInnerLayout(upcomingLayout));
             }
             //make custom empty layout
             makeEmptyLine(upcomingLayout, 50);
         } else {
-            makeTextView("You don't have anything for today.",makeInnerLayout(upcomingLayout));
+            makeTextView("You don't have anything for today.", makeInnerLayout(upcomingLayout));
         }
     }
 
@@ -141,24 +184,13 @@ public class HomeFragment extends Fragment {
         if (goalIndex > maxIndex) {
             goalIndex = 0;
 
-            int finished = 0;
-            int total = 0;
-            for (Task t : user.getTasks()) {
-                total++;
-                if (t.isFininshed()) {
-                    finished++;
-                }
-            }
-            double finishPercent = (double) finished * 100.0 / (double) total;
-
             goalNameDisplay.setText(user.longTermGoal);
 
-            DecimalFormat df = new DecimalFormat("##0.0");
-            percentageDisplay.setText(df.format(finishPercent));
+            percentageDisplay.setText(user.longTermGoalFinishPercentString());
             longTermGoalDisplay.setVisibility(View.VISIBLE);
             goalType.setVisibility(View.INVISIBLE);
 
-            params.width = (int) ((double) WIDTH * finishPercent / 100.0);
+            params.width = (int) ((double) WIDTH * user.longTermGoalFinishPercent());
             progressBar.setLayoutParams(params);
         } else {
             goalNameDisplay.setText(currentGoals.get(goalIndex).name());
@@ -182,7 +214,7 @@ public class HomeFragment extends Fragment {
         // TODO: set margin left
         LinearLayout.LayoutParams paramTaskWindow =
                 new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                                              LinearLayout.LayoutParams.MATCH_PARENT);
+                        LinearLayout.LayoutParams.MATCH_PARENT);
         paramTaskWindow.gravity = Gravity.CENTER_HORIZONTAL;
         //paramTaskWindow.leftMargin = 20;
         //paramTaskWindow.rightMargin = 20;
@@ -211,6 +243,7 @@ public class HomeFragment extends Fragment {
         parent.addView(ll);
         return layout;
     }
+
     private TextView makeUpcomingTextView(Task t, LinearLayout parent) {
         LinearLayout layout = new LinearLayout(getContext());
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -258,6 +291,7 @@ public class HomeFragment extends Fragment {
         parent.addView(layout);
         return tv;
     }
+
     private TextView makeTextView(String text, LinearLayout parent) {
         TextView tv = new TextView(getContext());
         tv.setText(text);
@@ -269,6 +303,7 @@ public class HomeFragment extends Fragment {
         parent.addView(tv);
         return tv;
     }
+
     private LinearLayout makeEmptyLine(LinearLayout parent, int height) {
         LinearLayout empty = new LinearLayout(getContext());
         empty.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height));
