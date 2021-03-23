@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class User {
@@ -235,6 +236,23 @@ public class User {
             }
         }
         return lst;
+    }
+
+    public double longTermGoalFinishPercent(){
+        int finished = 0;
+        int total = 0;
+        for (Task t : this.getTasks()) {
+            total++;
+            if (t.isFininshed()) {
+                finished++;
+            }
+        }
+        return (double) finished / (double) total;
+    }
+
+    public String longTermGoalFinishPercentString() {
+        DecimalFormat df = new DecimalFormat("##0.0");
+        return df.format(longTermGoalFinishPercent() * 100.0);
     }
 
     /**

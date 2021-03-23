@@ -20,6 +20,7 @@ public class Tester {
         user.isFirstTime = false;
         user.longTermGoal = "Graduate with laifu & waifu";
         user.longTermGoalEnd = 20240430;  // YYYYMMDD
+        user.addPet("Snail");
 
         User.goalList = new ArrayList<>();
         user.nextGoalID = 0;
