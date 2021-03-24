@@ -1,5 +1,7 @@
 package com.example.pet.ui.home;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -19,6 +21,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -27,6 +31,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.loader.app.LoaderManager;
 
 import com.example.pet.Goal;
+import com.example.pet.NotificationApplication;
 import com.example.pet.R;
 import com.example.pet.Task;
 import com.example.pet.Tester;
@@ -180,8 +185,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void displayGoal() {
-        int maxIndex = currentGoals.size() - 1;
-        if (goalIndex > maxIndex) {
+        if (goalIndex > currentGoals.size() - 1 || goalIndex < 0) {
             goalIndex = 0;
 
             goalNameDisplay.setText(user.longTermGoal);
@@ -206,21 +210,21 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    public void createUpComingWindow(View v, LinearLayout layout, String name) {
-        Button taskWindow = new Button(v.getContext());
-        taskWindow.setText(name);
-        //taskWindow.setBackgroundResource(R.drawable.home_page_task_window);
-        taskWindow.setBackgroundColor(getResources().getColor(R.color.yellow_150));
-        // TODO: set margin left
-        LinearLayout.LayoutParams paramTaskWindow =
-                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.MATCH_PARENT);
-        paramTaskWindow.gravity = Gravity.CENTER_HORIZONTAL;
-        //paramTaskWindow.leftMargin = 20;
-        //paramTaskWindow.rightMargin = 20;
-        taskWindow.setLayoutParams(paramTaskWindow);
-        layout.addView(taskWindow);
-    }
+//    public void createUpComingWindow(View v, LinearLayout layout, String name) {
+//        Button taskWindow = new Button(v.getContext());
+//        taskWindow.setText(name);
+//        //taskWindow.setBackgroundResource(R.drawable.home_page_task_window);
+//        taskWindow.setBackgroundColor(getResources().getColor(R.color.yellow_150));
+//        // TODO: set margin left
+//        LinearLayout.LayoutParams paramTaskWindow =
+//                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+//                        LinearLayout.LayoutParams.MATCH_PARENT);
+//        paramTaskWindow.gravity = Gravity.CENTER_HORIZONTAL;
+//        //paramTaskWindow.leftMargin = 20;
+//        //paramTaskWindow.rightMargin = 20;
+//        taskWindow.setLayoutParams(paramTaskWindow);
+//        layout.addView(taskWindow);
+//    }
 
     private LinearLayout makeInnerLayout(LinearLayout parent) {
         LinearLayout ll = new LinearLayout(getContext());
@@ -262,6 +266,8 @@ public class HomeFragment extends Fragment {
                 t.changeFinished();
                 user.SaveFiles();
                 displayUpcomingTasks();
+                goalIndex--;
+                displayGoal();
             }
         });
         layout.addView(checkMark);

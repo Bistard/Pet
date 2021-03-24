@@ -37,6 +37,8 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        startService(new Intent(this,MyService.class));
+
         super.onCreate(savedInstanceState);
         // Set the status bar transparent
         makeStatusBarTransparent(this);
