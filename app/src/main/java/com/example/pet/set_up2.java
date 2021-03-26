@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,14 +25,16 @@ public class set_up2 extends AppCompatActivity {
 
         User user = User.Initialize();
 
-        EditText editText = findViewById(R.id.setUpEnterBox2);
-
         // to the set up page#3
         Button nextButton = (Button)findViewById(R.id.setUpButton2);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user.longTermGoal = editText.getText().toString();
+                EditText editText = (EditText) findViewById(R.id.setUpEnterBox2);
+                String str = editText.getText().toString();
+                Log.i("setup",str);
+                user.longTermGoal = str;
+                user.SaveFiles();
                 openSetUp3();
             }
         });

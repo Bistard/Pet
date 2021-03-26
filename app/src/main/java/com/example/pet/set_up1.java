@@ -18,20 +18,19 @@ public class set_up1 extends AppCompatActivity {
 
         User user = User.Initialize();
 
-        EditText editText = findViewById(R.id.setUpEnterBox1);
 
         // to the set up page#2
-        Button nextButton = (Button)findViewById(R.id.setUpButton1);
+        Button nextButton = (Button) findViewById(R.id.setUpButton1);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user.addPet(editText.getText().toString());
+                EditText editText = findViewById(R.id.setUpEnterBox1);
+                String str = editText.getText().toString();
+                user.addPet(str);
+                user.SaveFiles();
                 openSetUp2();
             }
         });
-
-
-
 
 
     }

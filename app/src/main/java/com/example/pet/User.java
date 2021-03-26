@@ -18,7 +18,7 @@ public class User {
     public boolean isFirstTime = true;
 
     public String longTermGoal;
-    public String longTermGoalType;
+//    public String longTermGoalType;
     public int longTermGoalStart;
     public int longTermGoalEnd;
 
@@ -45,12 +45,12 @@ public class User {
             try {
                 self = DataManager.LoadUser("User.json");
             } catch (Exception e) {
-                Log.i(null, "wrong   " + e.toString());
                 self = new User();
                 return self;
             }
             self.LoadFiles();
         }
+        IsInitialized = true;
         return self;
     }
 
