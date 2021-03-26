@@ -217,7 +217,6 @@ public class HomeFragment extends Fragment {
 //        taskWindow.setText(name);
 //        //taskWindow.setBackgroundResource(R.drawable.home_page_task_window);
 //        taskWindow.setBackgroundColor(getResources().getColor(R.color.yellow_150));
-//        // TODO: set margin left
 //        LinearLayout.LayoutParams paramTaskWindow =
 //                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
 //                        LinearLayout.LayoutParams.MATCH_PARENT);

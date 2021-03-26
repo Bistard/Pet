@@ -58,11 +58,6 @@ public class set_up3 extends AppCompatActivity {
         datePickerDialog.show();
     }
 
-    // TODO: store the date
-    public void buttonClick(View view) {
-
-    }
-
     public void openHomeActivity() {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);

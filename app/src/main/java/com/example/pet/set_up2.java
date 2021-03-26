@@ -52,7 +52,7 @@ public class set_up2 extends AppCompatActivity {
     }
 
 //
-//    // TODO: store the type
+//    // TO DO: store the type
 //    public void buttonClick (View view) {
 //    }
 

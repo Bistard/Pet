@@ -46,8 +46,6 @@ public class AddGoalActivity extends AppCompatActivity {
         startDatePickerDialog = Date.initImageDatePicker(this, startDatePickerDialog, startDatePickerButton, startDateText);
          */
 
-        // TODO: check if the endDate >= startDate
-        // TODO: datePicker needs to be completed
         /*
         endDatePickerButton = findViewById(R.id.endDateButton);
         endDateText = findViewById(R.id.addGoalDeadline);
