@@ -3,7 +3,7 @@
     <string name="choose_a_name_for_your_pet">Choose a name for your Pet!</string>
     <string name="name">Name</string>
     <string name="next">Next</string>
-    <string name="title_activity_home">MainActivity</string>
+    <string name="title_activity_home">Pet</string>
     <string name="title_todo">Todo</string>
     <string name="title_home">Home</string>
     <string name="title_calendar">Calendar</string>
