@@ -11,7 +11,9 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import com.example.pet.Date;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class set_up3 extends AppCompatActivity {
 
@@ -24,6 +26,8 @@ public class set_up3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.set_up3);
 
+        User user = User.Initialize();
+
         // initial datePicker
         datePickerButton = findViewById(R.id.datePickerButton);
         datePickerDialog = Date.initDatePicker(this, datePickerDialog, datePickerButton);
@@ -33,6 +37,16 @@ public class set_up3 extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int currentYear = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new java.util.Date()));
+                int currentMonth = Integer.parseInt(new SimpleDateFormat("M", Locale.getDefault()).format(new java.util.Date()));
+                int currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new java.util.Date()));
+                user.longTermGoalStart=currentYear*10000+currentMonth*100+currentDate;
+
+                DatePicker date = datePickerDialog.getDatePicker();
+                user.longTermGoalEnd = date.getYear()*10000+date.getMonth()*100+date.getDayOfMonth();
+
+                user.isFirstTime = false;
+                user.SaveFiles();
 
                 openHomeActivity();
             }

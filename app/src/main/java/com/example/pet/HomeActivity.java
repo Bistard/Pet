@@ -37,6 +37,16 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Data initializing
+        DataManager.init(getFilesDir());
+        // TODO: test only
+        //User user = Tester.makeCustomUser();
+        User user = User.Initialize();
+
+        if(user.isFirstTime){
+            openSetUp1();
+        }
+
         startService(new Intent(this,MyService.class));
 
         super.onCreate(savedInstanceState);
@@ -82,24 +92,6 @@ public class HomeActivity extends AppCompatActivity {
                 openAddGoalPage();
             }
         });
-
-        // Data initializing
-        DataManager.init(getFilesDir());
-        // TODO: test only
-        User user = Tester.makeCustomUser();
-
-        // User user = User.Initialize();
-
-
-        /*
-        Testing only!!!
-         */
-        //User user = Tester.makeCustomUser(getFilesDir());
-        //user.SaveFiles();
-        //Log.i(null,User.goalList.toString());
-        //Log.i(null,user.getUnfinishedTasks(2021,1,1).toString());
-        // end testing
-
     }
 
     /**
@@ -180,6 +172,11 @@ public class HomeActivity extends AppCompatActivity {
      */
     public void openAddGoalPage() {
         Intent intent = new Intent(this, AddGoalActivity.class);
+        startActivity(intent);
+    }
+
+    public void openSetUp1() {
+        Intent intent = new Intent(this, set_up1.class);
         startActivity(intent);
     }
 

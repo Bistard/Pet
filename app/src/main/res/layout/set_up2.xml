@@ -10,7 +10,7 @@
         android:id="@+id/setUpText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What kind of GOAL do you have?"
+        android:text="What is the GOAL you have in mind?"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,22 +33,25 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
-    <Spinner
-        android:id="@+id/goal_spinner"
-        android:layout_width="141dp"
-        android:layout_height="23dp"
+    <EditText
+        android:id="@+id/setUpEnterBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Your long-term goal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/setUpText1"
-        app:layout_constraintVertical_bias="0.081"
-        android:spinnerMode="dropdown" />
+        app:layout_constraintVertical_bias="0.096" />
 
     <ImageView
         android:id="@+id/PetImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@mipmap/ic_pet_foreground"
+        android:src="@drawable/snail_t"
         app:layout_constraintBottom_toTopOf="@+id/setUpText1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

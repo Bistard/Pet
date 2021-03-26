@@ -16,16 +16,16 @@ public class set_up1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.set_up1);
 
-        // Data initializing
-        DataManager.init(getFilesDir());
+        User user = User.Initialize();
+
+        EditText editText = findViewById(R.id.setUpEnterBox1);
 
         // to the set up page#2
         Button nextButton = (Button)findViewById(R.id.setUpButton1);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getPetName(v);
-                // TODO: store the name of the pet
+                user.addPet(editText.getText().toString());
                 openSetUp2();
             }
         });
@@ -34,12 +34,6 @@ public class set_up1 extends AppCompatActivity {
 
 
 
-    }
-
-    // TODO: store the name
-    public EditText getPetName (View view) {
-        TextView setupText = findViewById(R.id.setUpText1);
-        return findViewById(R.id.setUpEnterBox1);
     }
 
     public void openSetUp2() {

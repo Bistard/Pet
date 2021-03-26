@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pet">
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:name=".NotificationApplication"
@@ -31,15 +31,17 @@
         <activity android:name=".AddTaskActivity" />
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home" />
-        <activity android:name=".set_up3" />
-        <activity android:name=".set_up2" />
-        <activity android:name=".set_up1">
+            android:label="@string/title_activity_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".set_up3" />
+        <activity android:name=".set_up2" />
+        <activity android:name=".set_up1">
+
         </activity>
     </application>
 
