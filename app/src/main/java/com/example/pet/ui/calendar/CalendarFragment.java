@@ -154,12 +154,13 @@ public class CalendarFragment extends Fragment {
 
             table_layout[indx].removeAllViews();
             ArrayList<Task> theseTasks = user.getTasks(displayYear, displayMonth, dayNum);
-            int maxRadius = (int) ((double) TABLE_X_MAX / 2.0 / theseTasks.size());
+            int maxRadius = maxRadiusSelection(TABLE_X_MAX,TABLE_Y_MAX,theseTasks.size());
             int[][] circles = new int[theseTasks.size()][3];
             boolean made_circle;
             for (int i = 0; i < theseTasks.size(); i++) {
                 made_circle = false;
                 for (int iteration = 0; iteration < 100; iteration++) {
+                    // TODO: optimize intensity
                     int x = curvedRandom(0, TABLE_X_MAX, 0, 5.0);
                     int y = curvedRandom(0, TABLE_Y_MAX, 0, 5.0);
                     int r = curvedRandom(5, maxRadius, 1, 3.0);
@@ -239,6 +240,11 @@ public class CalendarFragment extends Fragment {
             }
             return (int) randDouble;
         }
+    }
+
+    //TODO: change max size selection method
+    private int maxRadiusSelection(int width, int height, int numberOfTasks){
+        return (int) ((double) width / 2.0 / numberOfTasks);
     }
 
     private String month2string(int month) {
