@@ -128,7 +128,9 @@ public class HomeFragment extends Fragment {
         //pet bubble
         bubbleLayout = root.findViewById(R.id.home_pet_bubble_layout);
         bubbleText = root.findViewById(R.id.home_pet_bubble_text);
-        displayBubble();
+        bubbleLayoutVisible = false;
+        bubbleLayout.setVisibility(View.INVISIBLE);
+
         final Handler refreshHandler = new Handler();
         Runnable runnable = new Runnable() {
             @Override
@@ -146,10 +148,10 @@ public class HomeFragment extends Fragment {
                     }
                 }
 
-                refreshHandler.postDelayed(this, 3 * 1000);
+                refreshHandler.postDelayed(this, 10 * 1000);
             }
         };
-        refreshHandler.postDelayed(runnable, 3 * 1000);
+        refreshHandler.postDelayed(runnable, 10 * 1000);
 
         return root;
     }
@@ -191,7 +193,7 @@ public class HomeFragment extends Fragment {
             goalNameDisplay.setText(user.longTermGoal);
 
             percentageDisplay.setText(user.longTermGoalFinishPercentString());
-            longTermGoalDisplay.setVisibility(View.VISIBLE);
+            longTermGoalDisplay.setText("Long-term Goal:");
             goalType.setVisibility(View.INVISIBLE);
 
             params.width = (int) ((double) WIDTH * user.longTermGoalFinishPercent());
@@ -199,7 +201,7 @@ public class HomeFragment extends Fragment {
         } else {
             goalNameDisplay.setText(currentGoals.get(goalIndex).name());
             percentageDisplay.setText(currentGoals.get(goalIndex).finishPercentString());
-            longTermGoalDisplay.setVisibility(View.INVISIBLE);
+            longTermGoalDisplay.setText("Short-term Goal:");
             goalType.setVisibility(View.VISIBLE);
             goalType.setImageResource(IMAGE_SOURCE[currentGoals.get(goalIndex).type()]);
 

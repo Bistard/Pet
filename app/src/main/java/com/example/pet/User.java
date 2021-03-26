@@ -54,16 +54,6 @@ public class User {
         return self;
     }
 
-    /**
-     * Change if it is the first time for the user
-     *
-     * @param passed
-     */
-    public void passedTutorial(boolean passed) {
-        this.isFirstTime = !passed;
-        SaveFiles();
-    }
-
     public Pet addPet(String name) {
         this.pet = new Pet(name);
         return this.pet;
@@ -145,7 +135,6 @@ public class User {
      * @param endDay        Ending day of the task, in DD, optional if recurring, inclusive
      * @param recurringRule the tasks will be recurring. Supports:
      *                      "Once", "Weekly", TBD...
-     * @param parentID      the ID of its parent
      * @param parent        the parent object
      * @return the newly created goal object
      * @throws IllegalArgumentException
@@ -246,6 +235,9 @@ public class User {
             if (t.isFininshed()) {
                 finished++;
             }
+        }
+        if (total==0){
+            return 1;
         }
         return (double) finished / (double) total;
     }

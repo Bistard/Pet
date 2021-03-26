@@ -41,10 +41,10 @@ public class MyService extends Service {
 
                 notificationManager.notify(1, notification);
 
-                refreshHandler.postDelayed(this, 60 * 1000);
+                refreshHandler.postDelayed(this, 120 * 1000);
             }
         };
-        refreshHandler.postDelayed(runnable, 60 * 1000);
+        refreshHandler.postDelayed(runnable, 120 * 1000);
 
         return START_STICKY;
     }

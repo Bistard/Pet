@@ -40,8 +40,8 @@ public class HomeActivity extends AppCompatActivity {
         // Data initializing
         DataManager.init(getFilesDir());
         // TODO: test only
-        //User user = Tester.makeCustomUser();
-        User user = User.Initialize();
+        User user = Tester.makeCustomUser();
+//        User user = User.Initialize();
 
         if(user.isFirstTime){
             openSetUp1();
