@@ -41,8 +41,8 @@ public class HomeActivity extends AppCompatActivity {
         DataManager.init(getFilesDir());
         // TODO: test only
         Tester.deleteAllJSON();
-//        User user = Tester.makeCustomUser();
-        User user = User.Initialize();
+        User user = Tester.makeCustomUser();
+//        User user = User.Initialize();
 
         if(user.isFirstTime){
             openSetUp1();

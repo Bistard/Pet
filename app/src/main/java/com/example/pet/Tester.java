@@ -12,7 +12,7 @@ public class Tester {
     }
 
     static public User makeCustomUser() {
-        final int today = 20210324;
+        final int today = 20210327;
 
         Tester.deleteAllJSON();
         User user = User.Initialize();
