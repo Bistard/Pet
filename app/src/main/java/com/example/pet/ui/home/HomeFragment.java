@@ -13,6 +13,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -126,6 +128,16 @@ public class HomeFragment extends Fragment {
         displayUpcomingTasks();
 
         //pet bubble
+        ImageView petImg = root.findViewById(R.id.PetImage);
+        petImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bubbleDisappearAnim();
+                refreshBubble();
+                bubbleAppearAnim();
+            }
+        });
+
         bubbleLayout = root.findViewById(R.id.home_pet_bubble_layout);
         bubbleText = root.findViewById(R.id.home_pet_bubble_text);
         bubbleLayoutVisible = false;
@@ -138,13 +150,11 @@ public class HomeFragment extends Fragment {
                 double rand = new Random().nextDouble();
                 if (bubbleLayoutVisible) {
                     if (rand > 0.3) {
-                        bubbleLayoutVisible = false;
-                        bubbleLayout.setVisibility(View.INVISIBLE);
+                        bubbleDisappearAnim();
                     }
                 } else {
                     if (rand > 0.1 && displayBubble()) {
-                        bubbleLayoutVisible = true;
-                        bubbleLayout.setVisibility(View.VISIBLE);
+                        bubbleAppearAnim();
                     }
                 }
 
@@ -164,6 +174,34 @@ public class HomeFragment extends Fragment {
             return false;
         }
         return true;
+    }
+
+    private void refreshBubble(){
+        String str = null;
+        while (str == null){
+            try {
+                str = user.pet.getPhrase();
+            } catch (Exception e) {
+                Log.i("home", e.toString());
+            }
+        }
+        bubbleText.setText(str);
+    }
+
+    private void bubbleAppearAnim(){
+        bubbleLayoutVisible = true;
+        bubbleLayout.setVisibility(View.VISIBLE);
+
+        Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.nav_default_pop_enter_anim);
+        bubbleLayout.startAnimation(animation);
+    }
+
+    private void bubbleDisappearAnim(){
+        bubbleLayoutVisible = false;
+        bubbleLayout.setVisibility(View.INVISIBLE);
+
+        Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.nav_default_pop_exit_anim);
+        bubbleLayout.startAnimation(animation);
     }
 
     private void displayUpcomingTasks() {
