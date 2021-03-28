@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -46,6 +47,7 @@ public class set_up3 extends AppCompatActivity {
                 user.longTermGoalEnd = date.getYear()*10000+date.getMonth()*100+date.getDayOfMonth();
 
                 user.isFirstTime = false;
+                Log.i("setup3","save files");
                 user.SaveFiles();
 
                 openHomeActivity();

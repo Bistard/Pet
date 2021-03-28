@@ -3,6 +3,8 @@ package com.example.pet;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +16,6 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 public class AddGoalActivity extends AppCompatActivity {
-
     // DatePicker attributes
     public DatePickerDialog startDatePickerDialog;
     public ImageButton startDatePickerButton;
@@ -97,5 +98,4 @@ public class AddGoalActivity extends AppCompatActivity {
     public void openEndDataPicker(View view) {
         endDatePickerDialog.show();
     }
-
 }

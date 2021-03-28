@@ -127,41 +127,41 @@ public class HomeFragment extends Fragment {
         upcomingLayout = root.findViewById(R.id.upComingTasks);
         displayUpcomingTasks();
 
-        //pet bubble
-        ImageView petImg = root.findViewById(R.id.PetImage);
-        petImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bubbleDisappearAnim();
-                refreshBubble();
-                bubbleAppearAnim();
-            }
-        });
+//        //pet bubble
+//        ImageView petImg = root.findViewById(R.id.PetImage);
+//        petImg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                bubbleDisappearAnim();
+//                refreshBubble();
+//                bubbleAppearAnim();
+//            }
+//        });
+//
+//        bubbleLayout = root.findViewById(R.id.home_pet_bubble_layout);
+//        bubbleText = root.findViewById(R.id.home_pet_bubble_text);
+//        bubbleLayoutVisible = false;
+//        bubbleLayout.setVisibility(View.INVISIBLE);
 
-        bubbleLayout = root.findViewById(R.id.home_pet_bubble_layout);
-        bubbleText = root.findViewById(R.id.home_pet_bubble_text);
-        bubbleLayoutVisible = false;
-        bubbleLayout.setVisibility(View.INVISIBLE);
-
-        final Handler refreshHandler = new Handler();
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                double rand = new Random().nextDouble();
-                if (bubbleLayoutVisible) {
-                    if (rand > 0.3) {
-                        bubbleDisappearAnim();
-                    }
-                } else {
-                    if (rand > 0.1 && displayBubble()) {
-                        bubbleAppearAnim();
-                    }
-                }
-
-                refreshHandler.postDelayed(this, 10 * 1000);
-            }
-        };
-        refreshHandler.postDelayed(runnable, 10 * 1000);
+//        final Handler refreshHandler = new Handler();
+//        Runnable runnable = new Runnable() {
+//            @Override
+//            public void run() {
+//                double rand = new Random().nextDouble();
+//                if (bubbleLayoutVisible) {
+//                    if (rand > 0.3) {
+//                        bubbleDisappearAnim();
+//                    }
+//                } else {
+//                    if (rand > 0.1 && displayBubble()) {
+//                        bubbleAppearAnim();
+//                    }
+//                }
+//
+//                refreshHandler.postDelayed(this, 10 * 1000);
+//            }
+//        };
+//        refreshHandler.postDelayed(runnable, 10 * 1000);
 
         return root;
     }
