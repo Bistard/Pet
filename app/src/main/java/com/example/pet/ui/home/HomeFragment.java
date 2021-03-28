@@ -159,10 +159,10 @@ public class HomeFragment extends Fragment {
                     }
                 }
 
-                refreshHandler.postDelayed(this, 10 * 1000);
+                refreshHandler.postDelayed(this, 30 * 1000);
             }
         };
-        refreshHandler.postDelayed(runnable, 10 * 1000);
+        refreshHandler.postDelayed(runnable, 30 * 1000);
 
         return root;
     }
