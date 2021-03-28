@@ -32,6 +32,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.loader.app.LoaderManager;
 
+import com.example.pet.AddTaskActivity;
 import com.example.pet.Goal;
 import com.example.pet.NotificationApplication;
 import com.example.pet.R;
@@ -257,21 +258,6 @@ public class HomeFragment extends Fragment {
         }
     }
 
-//    public void createUpComingWindow(View v, LinearLayout layout, String name) {
-//        Button taskWindow = new Button(v.getContext());
-//        taskWindow.setText(name);
-//        //taskWindow.setBackgroundResource(R.drawable.home_page_task_window);
-//        taskWindow.setBackgroundColor(getResources().getColor(R.color.yellow_150));
-//        LinearLayout.LayoutParams paramTaskWindow =
-//                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-//                        LinearLayout.LayoutParams.MATCH_PARENT);
-//        paramTaskWindow.gravity = Gravity.CENTER_HORIZONTAL;
-//        //paramTaskWindow.leftMargin = 20;
-//        //paramTaskWindow.rightMargin = 20;
-//        taskWindow.setLayoutParams(paramTaskWindow);
-//        layout.addView(taskWindow);
-//    }
-
     private LinearLayout makeInnerLayout(LinearLayout parent) {
         LinearLayout ll = new LinearLayout(getContext());
         LinearLayout.LayoutParams llparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -332,10 +318,10 @@ public class HomeFragment extends Fragment {
         tv.setTextColor(0xFFFFFFFF);
         tv.setTextSize(20);
 
-        tv.setOnClickListener(new View.OnClickListener() {
+        layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                AddTaskActivity.openAddTaskActivity(getContext(),t);
             }
         });
 
