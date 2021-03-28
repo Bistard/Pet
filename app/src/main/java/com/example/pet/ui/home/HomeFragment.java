@@ -220,13 +220,15 @@ public class HomeFragment extends Fragment {
                 upcomingTasks.add(t);
             }
         }
+        // display each upcoming task
         int WINDOW_NUMBER = Math.min(MAX_DISPLAY_WINDOW, upcomingTasks.size());
         if (WINDOW_NUMBER != 0) {
             for (int i = 0; i < WINDOW_NUMBER; i++) {
                 makeUpcomingTextView(upcomingTasks.get(i), makeInnerLayout(upcomingLayout));
+                makeEmptyLine(upcomingLayout, 5, getResources().getColor(R.color.grey_50));
             }
             //make custom empty layout
-            makeEmptyLine(upcomingLayout, 50);
+            makeEmptyLine(upcomingLayout, 50, getResources().getColor(R.color.white_transparent));
         } else {
             makeTextView("You don't have anything for today.", makeInnerLayout(upcomingLayout));
         }
@@ -261,19 +263,20 @@ public class HomeFragment extends Fragment {
     private LinearLayout makeInnerLayout(LinearLayout parent) {
         LinearLayout ll = new LinearLayout(getContext());
         LinearLayout.LayoutParams llparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        llparams.setMargins(30, 10, 30, 10);
+        llparams.setMargins(30, 0, 30, 0);
         ll.setLayoutParams(llparams);
         ll.setOrientation(LinearLayout.VERTICAL);
         ll.setBackgroundColor(0x00000000);
 
         LinearLayout layout = new LinearLayout(getContext());
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(30, 0, 30, 0);
+        params.setMargins(0, 0, 0, 0);
         layout.setLayoutParams(params);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setBackgroundColor(getResources().getColor(R.color.yellow_150));
-        //Drawable drawable = getResources().getDrawable(R.drawable.backgraound_round_corner);
-        //layout.setBackground(drawable);
+        // layout.setBackgroundColor(getResources().getColor(R.color.yellow_150));
+        // layout.setBackgroundResource(R.drawable.home_page_task_window);
+        // Drawable drawable = getResources().getDrawable(R.drawable.backgraound_round_corner);
+        // layout.setBackground(drawable);
 
         ll.addView(layout);
         parent.addView(ll);
@@ -289,7 +292,7 @@ public class HomeFragment extends Fragment {
         layout.setBackgroundColor(0x00FFFFFF);
 
         ImageView checkMark = new ImageView(getContext());
-        checkMark.setLayoutParams(new LinearLayout.LayoutParams(80, 80));
+        checkMark.setLayoutParams(new LinearLayout.LayoutParams(80, 180));
         checkMark.setImageResource(R.drawable.ic_baseline_check_box_24);
         checkMark.setScaleType(ImageView.ScaleType.FIT_XY);
         checkMark.setOnClickListener(new View.OnClickListener() {
@@ -315,7 +318,7 @@ public class HomeFragment extends Fragment {
         LinearLayout.LayoutParams tparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         tparams.setMargins(20, 0, 0, 0);
         tv.setLayoutParams(tparams);
-        tv.setTextColor(0xFFFFFFFF);
+        tv.setTextColor(getResources().getColor(R.color.black));
         tv.setTextSize(20);
 
         layout.setOnClickListener(new View.OnClickListener() {
@@ -336,17 +339,18 @@ public class HomeFragment extends Fragment {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.setMargins(75, 20, 70, 20);
         tv.setLayoutParams(params);
+        tv.setGravity(Gravity.CENTER);
         tv.setTextColor(0xFFFFFFFF);
         tv.setTextSize(20);
         parent.addView(tv);
         return tv;
     }
 
-    private LinearLayout makeEmptyLine(LinearLayout parent, int height) {
+    private LinearLayout makeEmptyLine(LinearLayout parent, int height, int color) {
         LinearLayout empty = new LinearLayout(getContext());
         empty.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height));
         empty.setOrientation(LinearLayout.VERTICAL);
-        empty.setBackgroundColor(0x000000FF);
+        empty.setBackgroundColor(color);
         parent.addView(empty);
         return empty;
     }

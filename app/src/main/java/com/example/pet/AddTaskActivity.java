@@ -2,8 +2,7 @@ package com.example.pet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.Intent;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +14,8 @@ import android.widget.TextView;
 
 public class AddTaskActivity extends AppCompatActivity {
 
-    static Task task = null;
+    public DatePickerDialog endDatePickerDialog;
+    Button editEndDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +31,9 @@ public class AddTaskActivity extends AppCompatActivity {
             }
         });
 
-        if(task!=null){
-            Log.i("task",task.name());
-
-            EditText tv = findViewById(R.id.addTaskName);
-            tv.setHint(task.name());
-        }else{
-            Log.i("task","null");
-
-        }
-
-
+        // initial datePicker
+        editEndDate = findViewById(R.id.addTaskDeadline);
+        endDatePickerDialog = Date.initDatePicker(this, endDatePickerDialog, editEndDate);
 
         // finish button listener
         Button finishButton = findViewById(R.id.finishCreateTask);
@@ -55,6 +47,17 @@ public class AddTaskActivity extends AppCompatActivity {
 
     public void createNewTask() {
         // TODO:
+        TextView taskName        = findViewById(R.id.addTaskName);
+        TextView taskDescription = findViewById(R.id.addTaskDescription);
+        TextView taskDeadline    = findViewById(R.id.addTaskDeadline);
+
+        User user = User.Initialize();
+        String[] endDate = taskDeadline.getText().toString().split(" ");
+        int endYear    = Integer.parseInt(endDate[2]);
+        int endMonth   = Date.toNumMonthFormat(endDate[0]);
+        int endDay     = Integer.parseInt(endDate[1]);
+        // user.addTask();
+
 
         finish();
     }

@@ -20,5 +20,9 @@ Group member:
   - floating action button animation cancellation
 - homeFragment.java
   - After creating a new goal/task, in order to show the new one, we need to switch to another fragment and switch back.
-- Setup page is still showing up on second use
-- Page did not update themselves after goal/task is added
+- AddTaskActivity
+  - NEED to list what Goal the task belongs to.
+  - repeat
+  - reminder
+- AddGoalAcitivty
+  - ✔

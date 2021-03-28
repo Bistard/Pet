@@ -152,9 +152,9 @@
         app:layout_constraintTop_toBottomOf="@+id/addCategory"
         app:layout_constraintVertical_bias="0.086" />
 
-    <EditText
+    <Button
         android:id="@+id/addGoalStartTime"
-        android:layout_width="112dp"
+        android:layout_width="130dp"
         android:layout_height="45dp"
         android:ems="10"
         android:inputType="none"
@@ -223,9 +223,9 @@
         app:layout_constraintVertical_bias="0.04"
         app:srcCompat="@drawable/ic_baseline_date_range_24" />
 
-    <EditText
+    <Button
         android:id="@+id/addGoalDeadline"
-        android:layout_width="112dp"
+        android:layout_width="130dp"
         android:layout_height="45dp"
         android:ems="10"
         android:inputType="none"

@@ -126,13 +126,13 @@
         app:layout_constraintTop_toBottomOf="@+id/addTaskDescription"
         app:layout_constraintVertical_bias="0.074" />
 
-    <EditText
+    <Button
         android:id="@+id/addTaskDeadline"
-        android:layout_width="112dp"
+        android:layout_width="130dp"
         android:layout_height="45dp"
         android:ems="10"
         android:inputType="date"
-        android:hint="Feb 27 2021"
+        android:text="Jan 01 2021"
         android:textColor="#96989E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -140,25 +140,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="0.0" />
-
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="49dp"
-        android:layout_height="45dp"
-        android:background="@drawable/roundcorner"
-        android:backgroundTint="#7497A7"
-        android:padding="5dp"
-        android:scaleType="fitCenter"
-        android:tint="@color/white"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
-        app:layout_constraintStart_toEndOf="@+id/addTaskDeadline"
-        app:layout_constraintTop_toTopOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.046"
-        app:srcCompat="@drawable/ic_baseline_date_range_24" />
 
     <Switch
         android:id="@+id/switchRepeat"
