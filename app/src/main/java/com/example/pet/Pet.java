@@ -38,6 +38,7 @@ public class Pet {
         int currentYear = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new java.util.Date()));
         int currentMonth = Integer.parseInt(new SimpleDateFormat("M", Locale.getDefault()).format(new java.util.Date()));
         int currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new Date()));
+        int currentHour = new Date().getHours();
 
         ArrayList<Task> overdue = user.getUnfinishedTasks(currentYear, currentMonth, currentDate);
         ArrayList<Task> finished = new ArrayList<>();
@@ -56,23 +57,29 @@ public class Pet {
         }
 
         phrase = phrase.replaceAll("\\$\\$PET NAME\\$\\$", this.name)
-                .replaceAll("\\$\\$HOUR LEFT\\$\\$", "" + 0)
-                .replaceAll("\\$\\$NUMBER OF UNFINISHED\\$\\$", "" + unfinished.size())
-                .replaceAll("\\$\\$NUMBER OF OVERDUE\\$\\$", "" + overdue.size())
-                .replaceAll("\\$\\$NUMBER OF ALL UNFINISHED\\$\\$", "" + (unfinished.size() + overdue.size()))
+                .replaceAll("\\$\\$HOUR LEFT\\$\\$", "" + (24 - currentHour))
                 .replaceAll("\\$\\$LONG TERM GOAL NAME\\$\\$", user.longTermGoal)
                 .replaceAll("\\$\\$LONG TERM GOAL PERCENT\\$\\$", user.longTermGoalFinishPercentString());
 
-        if (phrase.contains("$$FINISHED TASK$$")) {
+        if (phrase.contains("$$FINISHED TASK$$") || phrase.contains("$$NUMBER OF UNFINISHED$$")) {
             if (finished.size() > 0) {
-                phrase = phrase.replaceAll("\\$\\$FINISHED TASK\\$\\$", finished.get(rand.nextInt(finished.size())).name());
+                phrase = phrase.replaceAll("\\$\\$FINISHED TASK\\$\\$", finished.get(rand.nextInt(finished.size())).name())
+                        .replaceAll("\\$\\$NUMBER OF UNFINISHED\\$\\$", "" + unfinished.size());
             } else {
                 throw new NullPointerException("No finished tasks today");
             }
         }
-        if (phrase.contains("$$UNFINISHED TASK$$")) {
+        if (phrase.contains("$$NUMBER OF OVERDUE$$")) {
+            if (overdue.size() > 0) {
+                phrase = phrase.replaceAll("\\$\\$NUMBER OF OVERDUE\\$\\$", "" + overdue.size());
+            } else {
+                throw new NullPointerException("No overdue tasks today");
+            }
+        }
+        if (phrase.contains("$$UNFINISHED TASK$$") || phrase.contains("$$NUMBER OF ALL UNFINISHED$$")) {
             if (unfinished.size() > 0) {
-                phrase = phrase.replaceAll("\\$\\$UNFINISHED TASK\\$\\$", unfinished.get(rand.nextInt(unfinished.size())).name());
+                phrase = phrase.replaceAll("\\$\\$UNFINISHED TASK\\$\\$", unfinished.get(rand.nextInt(unfinished.size())).name())
+                        .replaceAll("\\$\\$NUMBER OF ALL UNFINISHED\\$\\$", "" + (unfinished.size() + overdue.size()));
             } else {
                 throw new NullPointerException("No unfinished tasks today");
             }
