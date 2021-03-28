@@ -65,7 +65,7 @@
         android:inputType="textPersonName"
 
         android:textColor="#96989E"
-        android:text="Task Name"
+        android:hint="Task Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
@@ -100,7 +100,7 @@
         android:inputType="textPersonName"
 
         android:textColor="#96989E"
-        android:text="Description"
+        android:hint="Description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"

@@ -39,10 +39,14 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Data initializing
         DataManager.init(getFilesDir());
+
+
         // TODO: test only
         Tester.deleteAllJSON();
         User user = Tester.makeCustomUser();
         // User user = User.Initialize();
+
+
 
         if(user.isFirstTime){
             openSetUp1();
@@ -172,8 +176,7 @@ public class HomeActivity extends AppCompatActivity {
      * Open the AddGoalActivity
      */
     public void openAddGoalPage() {
-        Intent intent = new Intent(this, AddGoalActivity.class);
-        startActivity(intent);
+        AddGoalActivity.openAddGoalActivity(this,null);
     }
 
     public void openSetUp1() {

@@ -32,6 +32,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.loader.app.LoaderManager;
 
+import com.example.pet.AddTaskActivity;
 import com.example.pet.Goal;
 import com.example.pet.NotificationApplication;
 import com.example.pet.R;
@@ -127,41 +128,41 @@ public class HomeFragment extends Fragment {
         upcomingLayout = root.findViewById(R.id.upComingTasks);
         displayUpcomingTasks();
 
-//        //pet bubble
-//        ImageView petImg = root.findViewById(R.id.PetImage);
-//        petImg.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                bubbleDisappearAnim();
-//                refreshBubble();
-//                bubbleAppearAnim();
-//            }
-//        });
-//
-//        bubbleLayout = root.findViewById(R.id.home_pet_bubble_layout);
-//        bubbleText = root.findViewById(R.id.home_pet_bubble_text);
-//        bubbleLayoutVisible = false;
-//        bubbleLayout.setVisibility(View.INVISIBLE);
+        //pet bubble
+        ImageView petImg = root.findViewById(R.id.PetImage);
+        petImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bubbleDisappearAnim();
+                refreshBubble();
+                bubbleAppearAnim();
+            }
+        });
 
-//        final Handler refreshHandler = new Handler();
-//        Runnable runnable = new Runnable() {
-//            @Override
-//            public void run() {
-//                double rand = new Random().nextDouble();
-//                if (bubbleLayoutVisible) {
-//                    if (rand > 0.3) {
-//                        bubbleDisappearAnim();
-//                    }
-//                } else {
-//                    if (rand > 0.1 && displayBubble()) {
-//                        bubbleAppearAnim();
-//                    }
-//                }
-//
-//                refreshHandler.postDelayed(this, 10 * 1000);
-//            }
-//        };
-//        refreshHandler.postDelayed(runnable, 10 * 1000);
+        bubbleLayout = root.findViewById(R.id.home_pet_bubble_layout);
+        bubbleText = root.findViewById(R.id.home_pet_bubble_text);
+        bubbleLayoutVisible = false;
+        bubbleLayout.setVisibility(View.INVISIBLE);
+
+        final Handler refreshHandler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                double rand = new Random().nextDouble();
+                if (bubbleLayoutVisible) {
+                    if (rand > 0.3) {
+                        bubbleDisappearAnim();
+                    }
+                } else {
+                    if (rand > 0.1 && displayBubble()) {
+                        bubbleAppearAnim();
+                    }
+                }
+
+                refreshHandler.postDelayed(this, 10 * 1000);
+            }
+        };
+        refreshHandler.postDelayed(runnable, 10 * 1000);
 
         return root;
     }
@@ -176,9 +177,9 @@ public class HomeFragment extends Fragment {
         return true;
     }
 
-    private void refreshBubble(){
+    private void refreshBubble() {
         String str = null;
-        while (str == null){
+        while (str == null) {
             try {
                 str = user.pet.getPhrase();
             } catch (Exception e) {
@@ -188,20 +189,27 @@ public class HomeFragment extends Fragment {
         bubbleText.setText(str);
     }
 
-    private void bubbleAppearAnim(){
+    private void bubbleAppearAnim() {
         bubbleLayoutVisible = true;
         bubbleLayout.setVisibility(View.VISIBLE);
 
-        Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.nav_default_pop_enter_anim);
-        bubbleLayout.startAnimation(animation);
+        try {
+            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
+            bubbleLayout.startAnimation(animation);
+        } catch (Exception ignored) {
+            bubbleLayout.setAlpha(1);
+        }
     }
 
-    private void bubbleDisappearAnim(){
+    private void bubbleDisappearAnim() {
+        try {
+            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.fade_out);
+            bubbleLayout.startAnimation(animation);
+        } catch (Exception ignored) {
+        }
+
         bubbleLayoutVisible = false;
         bubbleLayout.setVisibility(View.INVISIBLE);
-
-        Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.nav_default_pop_exit_anim);
-        bubbleLayout.startAnimation(animation);
     }
 
     private void displayUpcomingTasks() {
@@ -251,21 +259,6 @@ public class HomeFragment extends Fragment {
             goalIndex++;
         }
     }
-
-//    public void createUpComingWindow(View v, LinearLayout layout, String name) {
-//        Button taskWindow = new Button(v.getContext());
-//        taskWindow.setText(name);
-//        //taskWindow.setBackgroundResource(R.drawable.home_page_task_window);
-//        taskWindow.setBackgroundColor(getResources().getColor(R.color.yellow_150));
-//        LinearLayout.LayoutParams paramTaskWindow =
-//                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-//                        LinearLayout.LayoutParams.MATCH_PARENT);
-//        paramTaskWindow.gravity = Gravity.CENTER_HORIZONTAL;
-//        //paramTaskWindow.leftMargin = 20;
-//        //paramTaskWindow.rightMargin = 20;
-//        taskWindow.setLayoutParams(paramTaskWindow);
-//        layout.addView(taskWindow);
-//    }
 
     private LinearLayout makeInnerLayout(LinearLayout parent) {
         LinearLayout ll = new LinearLayout(getContext());
@@ -328,10 +321,10 @@ public class HomeFragment extends Fragment {
         tv.setTextColor(getResources().getColor(R.color.black));
         tv.setTextSize(20);
 
-        tv.setOnClickListener(new View.OnClickListener() {
+        layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                AddTaskActivity.openAddTaskActivity(getContext(),t);
             }
         });
 

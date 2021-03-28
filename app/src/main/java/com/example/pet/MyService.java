@@ -7,7 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.View;
+import android.widget.RemoteViews;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -30,21 +32,33 @@ public class MyService extends Service {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
+                User user = User.Initialize();
+                String str = null;
+                try {
+                    str = user.pet.getPhrase();
+                } catch (Exception e) {
+                    Log.i("home", e.toString());
+                }
+                if (str != null) {
+                    RemoteViews view = new RemoteViews(getPackageName(), R.layout.notification);
+                    view.setTextViewText(R.id.notification_text, str);
 
-                Notification notification = new NotificationCompat.Builder(context, NotificationApplication.CHANNEL_ID)
-                        .setSmallIcon(R.drawable.snail_t)
-                        .setContentTitle("Pet")
-                        .setContentText("Hallo!")
-                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                        .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                        .build();
+                    Notification notification = new NotificationCompat.Builder(context, NotificationApplication.CHANNEL_ID)
+                            .setSmallIcon(R.drawable.snail_t)
+                            .setContentTitle(user.getPetName() + ": ")
+                            .setContentText(str)
+                            .setDefaults(Notification.DEFAULT_ALL)
+                            .setPriority(NotificationCompat.PRIORITY_HIGH)
+                            .setCustomHeadsUpContentView(view)
+                            .setAutoCancel(true)
+                            .build();
 
-                notificationManager.notify(1, notification);
-
-                refreshHandler.postDelayed(this, 120 * 1000);
+                    notificationManager.notify(0, notification);
+                }
+                refreshHandler.postDelayed(this, 10 * 1000);
             }
         };
-        refreshHandler.postDelayed(runnable, 120 * 1000);
+        refreshHandler.postDelayed(runnable, 10 * 1000);
 
         return START_STICKY;
     }

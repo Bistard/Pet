@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 public class AddTaskActivity extends AppCompatActivity {
@@ -61,7 +63,15 @@ public class AddTaskActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void finish() {
+        task = null;
+        super.finish();
+    }
 
-
-
+    public static void openAddTaskActivity(Context context, Task t) {
+        task = t;
+        Intent intent = new Intent(context, AddTaskActivity.class);
+        context.startActivity(intent);
+    }
 }

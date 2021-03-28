@@ -16,6 +16,9 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 public class AddGoalActivity extends AppCompatActivity {
+
+    static Goal goal = null;
+
     // DatePicker attributes
     public DatePickerDialog startDatePickerDialog;
     Button editStartDate;
@@ -37,6 +40,10 @@ public class AddGoalActivity extends AppCompatActivity {
             }
         });
 
+        if(goal!=null){
+            //TODO:change the hint to the existing information
+        }
+
         // initial datePicker
         editStartDate = findViewById(R.id.addGoalStartTime);
         startDatePickerDialog = Date.initDatePicker(this, startDatePickerDialog, editStartDate);
@@ -55,29 +62,40 @@ public class AddGoalActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void finish() {
+        goal = null;
+        super.finish();
+    }
+
     public void createNewGoal() {
-        TextView goalName        = findViewById(R.id.addGoalName);
+        TextView goalName = findViewById(R.id.addGoalName);
         TextView goalDescription = findViewById(R.id.addGoalDescription);
-        TextView goalStartTime   = findViewById(R.id.addGoalStartTime);
-        TextView goalDeadline    = findViewById(R.id.addGoalDeadline);
+        TextView goalStartTime = findViewById(R.id.addGoalStartTime);
+        TextView goalDeadline = findViewById(R.id.addGoalDeadline);
 
         User user = User.Initialize();
         String[] startDate = goalStartTime.getText().toString().split(" ");
         String[] endDate = goalDeadline.getText().toString().split(" ");
-        int startYear  = Integer.parseInt(startDate[2]);
+        int startYear = Integer.parseInt(startDate[2]);
         int startMonth = Date.toNumMonthFormat(startDate[0]);
-        int startDay   = Integer.parseInt(startDate[1]);
-        int endYear    = Integer.parseInt(endDate[2]);
-        int endMonth   = Date.toNumMonthFormat(endDate[0]);
-        int endDay     = Integer.parseInt(endDate[1]);
+        int startDay = Integer.parseInt(startDate[1]);
+        int endYear = Integer.parseInt(endDate[2]);
+        int endMonth = Date.toNumMonthFormat(endDate[0]);
+        int endDay = Integer.parseInt(endDate[1]);
 
         // TODO: unfinished
-        user.addGoal(goalName.getText().toString(),
-                     goalDescription.getText().toString(),
-                     startYear, startMonth, startDay,
-                     endYear, endMonth, endDay,
-                     0
-        );
+        if (goal == null) {
+            user.addGoal(goalName.getText().toString(),
+                    goalDescription.getText().toString(),
+                    startYear, startMonth, startDay,
+                    endYear, endMonth, endDay,
+                    0
+            );
+        } else {
+            //set existing goal
+            user.SaveFiles();
+        }
 
         finish();
     }
@@ -85,7 +103,14 @@ public class AddGoalActivity extends AppCompatActivity {
     public void openStartDataPicker(View view) {
         startDatePickerDialog.show();
     }
+
     public void openEndDataPicker(View view) {
         endDatePickerDialog.show();
+    }
+
+    public static void openAddGoalActivity(Context context, Goal g) {
+        goal = g;
+        Intent intent = new Intent(context, AddGoalActivity.class);
+        context.startActivity(intent);
     }
 }
