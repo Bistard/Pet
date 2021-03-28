@@ -25,7 +25,7 @@
         app:srcCompat="@drawable/ic_baseline_keyboard_arrow_left_24" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/addTaskTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create New Task"
@@ -54,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/addTaskTitle"
         app:layout_constraintVertical_bias="0.022" />
 
     <EditText
@@ -156,14 +156,15 @@
         android:layout_height="45dp"
         android:ems="10"
         android:inputType="date"
-        android:text="Jan 01 2021"
+        android:text="Event Date"
         android:textColor="#96989E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:onClick="openEventDataPicker"/>
 
     <Switch
         android:id="@+id/switchRepeat"
@@ -181,22 +182,22 @@
         app:layout_constraintTop_toBottomOf="@+id/addTaskDeadline"
         app:layout_constraintVertical_bias="0.112" />
 
-    <Switch
-        android:id="@+id/switchReminder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="148dp"
-        android:text="Reminder"
-        android:textColor="@color/white"
-        android:textSize="20sp"
+<!--    <Switch-->
+<!--        android:id="@+id/switchReminder"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="148dp"-->
+<!--        android:text="Reminder"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="20sp"-->
 
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switchRepeat"
-        app:layout_constraintVertical_bias="0.256" />
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.057"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/switchRepeat"-->
+<!--        app:layout_constraintVertical_bias="0.256" />-->
 
     <Button
         android:id="@+id/finishCreateTask"

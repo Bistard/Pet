@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -15,14 +16,21 @@ import android.widget.Spinner;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Locale;
+
 public class AddTaskActivity extends AppCompatActivity {
 
     public static Task task = null;
 
-    public DatePickerDialog endDatePickerDialog;
-    Button editEndDate;
+    private DatePickerDialog endDatePickerDialog;
+    private Button editEndDate;
 
-    Spinner goalsSpinner;
+    private Spinner goalsSpinner;
+
+    private ArrayList<Goal> items = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +53,24 @@ public class AddTaskActivity extends AppCompatActivity {
         // initial goalsSpinner
         goalsSpinner = findViewById(R.id.goalsSpinner);
 
+        User user = User.Initialize();
+        int currentYear = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new java.util.Date()));
+        int currentMonth = Integer.parseInt(new SimpleDateFormat("M", Locale.getDefault()).format(new java.util.Date()));
+        int currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new java.util.Date()));
 
-//        //get the spinner from the xml.
-//        Spinner dropdown = findViewById(R.id.goal_spinner);
-//        //create a list of items for the spinner.
-//        String[] items = new String[]{"Study", "Exercise", "Work", "Others"};
-//        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
-//        //There are multiple variations of this, but this is the basic variant.
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-//        //set the spinners adapter to the previously created one.
-//        dropdown.setAdapter(adapter);
+        for (Goal g : user.getGoals()) {
+            if (g.endDate >= currentYear * 1000 + currentMonth * 100 + currentDate) {
+                items.add(g);
+            }
+        }
+        String[] itemNames = new String[items.size()];
+        for (int i = 0; i < items.size(); i++) {
+            itemNames[i] = items.get(i).name();
+        }
+
+        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, itemNames);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        goalsSpinner.setAdapter(aa);
 
 
         // finish button listener
@@ -62,24 +78,74 @@ public class AddTaskActivity extends AppCompatActivity {
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createNewTask();
+                setTask();
             }
         });
+
+
+        if (task != null) {
+            TextView title = findViewById(R.id.addTaskTitle);
+            title.setText("Change Existing Task");
+            finishButton.setText("Change Task");
+
+            EditText taskName = findViewById(R.id.addTaskName);
+            taskName.setText(task.name());
+            EditText taskDescription = findViewById(R.id.addTaskDescription);
+            taskDescription.setText(task.description());
+
+            goalsSpinner.setSelection(items.indexOf(task.getParentGoal()));
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            java.util.Date date = new java.util.Date();
+            try {
+                date = sdf.parse(task.getParentGoal().startYear() + "/" + task.getParentGoal().startMonth() + "/" + task.getParentGoal().startDay());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            endDatePickerDialog.getDatePicker().setMinDate(date.getTime());
+            sdf = new SimpleDateFormat("yyyy/MM/dd");
+            date = new java.util.Date();
+            try {
+                date = sdf.parse(task.getParentGoal().endYear() + "/" + task.getParentGoal().endMonth() + "/" + task.getParentGoal().endDay());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            endDatePickerDialog.getDatePicker().setMaxDate(date.getTime());
+            endDatePickerDialog.updateDate(task.Year(),task.Month()-1,task.Day());
+            editEndDate.setText(User.month2string(task.Month()) + " " + task.Day() + " " + task.Year());
+        }
+
+
     }
 
-    public void createNewTask() {
-        // TODO:
-        TextView taskName        = findViewById(R.id.addTaskName);
-        TextView taskDescription = findViewById(R.id.addTaskDescription);
-        TextView taskDeadline    = findViewById(R.id.addTaskDeadline);
+    public void setTask() {
+        TextView taskName = findViewById(R.id.addTaskName);
+        TextView TaskDescription = findViewById(R.id.addTaskDescription);
+        TextView taskDeadLine = findViewById(R.id.addTaskDeadline);
+
+        Spinner goalsSpinner = findViewById(R.id.goalsSpinner);
 
         User user = User.Initialize();
-        String[] endDate = taskDeadline.getText().toString().split(" ");
-        int endYear    = Integer.parseInt(endDate[2]);
-        int endMonth   = Date.toNumMonthFormat(endDate[0]);
-        int endDay     = Integer.parseInt(endDate[1]);
-        // user.addTask();
+        String[] endDate = taskDeadLine.getText().toString().split(" ");
+        int endYear = Integer.parseInt(endDate[2]);
+        int endMonth = Date.toNumMonthFormat(endDate[0]);
+        int endDay = Integer.parseInt(endDate[1]);
 
+        if (task == null) {
+            user.addTask(taskName.getText().toString(),
+                    TaskDescription.getText().toString(),
+                    endYear, endMonth, endDay,
+                    "Once",
+                    items.get(goalsSpinner.getSelectedItemPosition())
+            );
+        } else {
+            task.changeName(taskName.getText().toString());
+            task.changeDescription(TaskDescription.getText().toString());
+//            task.changeEventDate(endYear, endMonth, endDay);
+//            task.changeRecurringRule();
+            task.changeParent(items.get(goalsSpinner.getSelectedItemPosition()));
+            user.SaveFiles();
+        }
 
         finish();
     }
@@ -89,6 +155,10 @@ public class AddTaskActivity extends AppCompatActivity {
     public void finish() {
         task = null;
         super.finish();
+    }
+
+    public void openEventDataPicker(View view) {
+        endDatePickerDialog.show();
     }
 
     public static void openAddTaskActivity(Context context, Task t) {
