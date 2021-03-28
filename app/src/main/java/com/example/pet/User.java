@@ -45,6 +45,7 @@ public class User {
             try {
                 self = DataManager.LoadUser("User.json");
             } catch (Exception e) {
+                IsInitialized = true;
                 self = new User();
                 return self;
             }
