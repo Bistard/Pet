@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -16,6 +17,8 @@ public class AddTaskActivity extends AppCompatActivity {
 
     public DatePickerDialog endDatePickerDialog;
     Button editEndDate;
+
+    Spinner goalsSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,9 @@ public class AddTaskActivity extends AppCompatActivity {
         // initial datePicker
         editEndDate = findViewById(R.id.addTaskDeadline);
         endDatePickerDialog = Date.initDatePicker(this, endDatePickerDialog, editEndDate);
+
+        // initial goalsSpinner
+        goalsSpinner = findViewById(R.id.goalsSpinner);
 
         // finish button listener
         Button finishButton = findViewById(R.id.finishCreateTask);
@@ -62,16 +68,4 @@ public class AddTaskActivity extends AppCompatActivity {
         finish();
     }
 
-
-    @Override
-    public void finish() {
-        task = null;
-        super.finish();
-    }
-
-    public static void openAddTaskActivity(Context context, Task t) {
-        task = t;
-        Intent intent = new Intent(context, AddTaskActivity.class);
-        context.startActivity(intent);
-    }
 }
