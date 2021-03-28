@@ -64,7 +64,7 @@
         android:ems="10"
         android:inputType="textPersonName"
 
-        android:text="Goal Name"
+        android:hint="Goal Name"
         android:textColor="#96989E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +91,7 @@
 
     <EditText
         android:id="@+id/addGoalDescription"
-        android:text="Description"
+        android:hint="Description"
 
         android:layout_width="371dp"
         android:layout_height="48dp"
@@ -124,7 +124,7 @@
 
     <EditText
         android:id="@+id/addCategory"
-        android:text="Catagory"
+        android:hint="Catagory"
         android:layout_width="371dp"
         android:layout_height="48dp"
         android:ems="10"

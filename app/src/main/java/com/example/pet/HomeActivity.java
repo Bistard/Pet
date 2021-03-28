@@ -180,8 +180,7 @@ public class HomeActivity extends AppCompatActivity {
      * Open the AddGoalActivity
      */
     public void openAddGoalPage() {
-        Intent intent = new Intent(this, AddGoalActivity.class);
-        startActivity(intent);
+        AddGoalActivity.openAddGoalActivity(this,null);
     }
 
     public void openSetUp1() {

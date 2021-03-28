@@ -176,9 +176,9 @@ public class HomeFragment extends Fragment {
         return true;
     }
 
-    private void refreshBubble(){
+    private void refreshBubble() {
         String str = null;
-        while (str == null){
+        while (str == null) {
             try {
                 str = user.pet.getPhrase();
             } catch (Exception e) {
@@ -188,20 +188,27 @@ public class HomeFragment extends Fragment {
         bubbleText.setText(str);
     }
 
-    private void bubbleAppearAnim(){
+    private void bubbleAppearAnim() {
         bubbleLayoutVisible = true;
         bubbleLayout.setVisibility(View.VISIBLE);
 
-        Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.fade_in);
-        bubbleLayout.startAnimation(animation);
+        try {
+            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
+            bubbleLayout.startAnimation(animation);
+        } catch (Exception ignored) {
+            bubbleLayout.setAlpha(1);
+        }
     }
 
-    private void bubbleDisappearAnim(){
+    private void bubbleDisappearAnim() {
+        try {
+            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.fade_out);
+            bubbleLayout.startAnimation(animation);
+        } catch (Exception ignored) {
+        }
+
         bubbleLayoutVisible = false;
         bubbleLayout.setVisibility(View.INVISIBLE);
-
-        Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.fade_out);
-        bubbleLayout.startAnimation(animation);
     }
 
     private void displayUpcomingTasks() {
