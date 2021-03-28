@@ -18,12 +18,10 @@ import org.w3c.dom.Text;
 public class AddGoalActivity extends AppCompatActivity {
     // DatePicker attributes
     public DatePickerDialog startDatePickerDialog;
-    public ImageButton startDatePickerButton;
-    public TextView startDateText;
+    Button editStartDate;
 
     public DatePickerDialog endDatePickerDialog;
-    public ImageButton endDatePickerButton;
-    public TextView endDateText;
+    Button editEndDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,19 +38,11 @@ public class AddGoalActivity extends AppCompatActivity {
         });
 
         // initial datePicker
-        /*
-        // TODO: datePicker needs to be completed
-        startDatePickerButton = findViewById(R.id.startDateButton);
-        startDateText = findViewById(R.id.addGoalStartTime);
-        startDatePickerDialog = Date.initImageDatePicker(this, startDatePickerDialog, startDatePickerButton, startDateText);
-         */
+        editStartDate = findViewById(R.id.addGoalStartTime);
+        startDatePickerDialog = Date.initDatePicker(this, startDatePickerDialog, editStartDate);
 
-        /*
-        endDatePickerButton = findViewById(R.id.endDateButton);
-        endDateText = findViewById(R.id.addGoalDeadline);
-        endDatePickerDialog = Date.initImageDatePicker(this, endDatePickerDialog, endDatePickerButton, endDateText);
-         */
-
+        editEndDate = findViewById(R.id.addGoalDeadline);
+        endDatePickerDialog = Date.initDatePicker(this, startDatePickerDialog, editEndDate);
 
         // finish button listener
         Button finishButton = findViewById(R.id.finishCreateGoal);
