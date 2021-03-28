@@ -22,7 +22,7 @@ public class DataManager {
         try {
             mapper.writeValue(new File(path, filename), obj);
         } catch (IOException e) {
-            Log.i("", e.toString());
+            Log.i("DM", e.toString());
         }
     }
 
@@ -36,7 +36,7 @@ public class DataManager {
         try {
             mapper.writeValue(new File(path, filename), lst);
         } catch (IOException e) {
-            Log.i("", e.toString());
+            Log.i("DM", e.toString());
         }
     }
 
@@ -55,7 +55,7 @@ public class DataManager {
         try {
             mapper.writeValue(new File(path, filename), toStore);
         } catch (IOException e) {
-            Log.i(null, e.toString());
+            Log.i("DM", e.toString());
         }
     }
 
