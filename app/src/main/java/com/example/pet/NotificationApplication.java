@@ -19,7 +19,7 @@ public class NotificationApplication extends Application {
             NotificationChannel ch = new NotificationChannel(
                     CHANNEL_ID,
                     "Pet",
-                    NotificationManager.IMPORTANCE_DEFAULT
+                    NotificationManager.IMPORTANCE_HIGH
             );
 
             NotificationManager manager = getSystemService(NotificationManager.class);

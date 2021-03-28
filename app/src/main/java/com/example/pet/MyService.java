@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
+import android.widget.RemoteViews;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -39,17 +40,20 @@ public class MyService extends Service {
                     Log.i("home", e.toString());
                 }
                 if (str != null) {
+                    RemoteViews view = new RemoteViews(getPackageName(), R.layout.notification);
+                    view.setTextViewText(R.id.notification_text, str);
+
                     Notification notification = new NotificationCompat.Builder(context, NotificationApplication.CHANNEL_ID)
                             .setSmallIcon(R.drawable.snail_t)
-                            .setContentTitle(user.getPetName()+": ")
+                            .setContentTitle(user.getPetName() + ": ")
                             .setContentText(str)
-                            .setTicker(str)
-                            .setPriority(NotificationCompat.PRIORITY_MAX)
-                            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                            .setDefaults(Notification.DEFAULT_ALL)
+                            .setPriority(NotificationCompat.PRIORITY_HIGH)
+                            .setCustomHeadsUpContentView(view)
                             .setAutoCancel(true)
                             .build();
 
-                    notificationManager.notify(1, notification);
+                    notificationManager.notify(0, notification);
                 }
                 refreshHandler.postDelayed(this, 10 * 1000);
             }
