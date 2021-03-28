@@ -19,6 +19,7 @@ public class Tester {
 
         user.isFirstTime = false;
         user.longTermGoal = "Graduate with laifu & waifu";
+        user.longTermGoalStart = 20200901;
         user.longTermGoalEnd = 20240430;  // YYYYMMDD
         user.addPet("Snail");
 

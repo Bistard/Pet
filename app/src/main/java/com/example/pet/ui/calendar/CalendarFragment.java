@@ -123,7 +123,7 @@ public class CalendarFragment extends Fragment {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void updateTable() {
-        top_date_text.setText(month2string(displayMonth) + " " + displayYear);
+        top_date_text.setText(User.month2string(displayMonth) + " " + displayYear);
 
         int start_day = 0;
         try {
@@ -245,36 +245,5 @@ public class CalendarFragment extends Fragment {
     //TODO: change max size selection method
     private int maxRadiusSelection(int width, int height, int numberOfTasks){
         return (int) ((double) width / 2.0 / numberOfTasks);
-    }
-
-    private String month2string(int month) {
-        switch (month) {
-            case 1:
-                return "Jan.";
-            case 2:
-                return "Feb.";
-            case 3:
-                return "Mar.";
-            case 4:
-                return "Apr.";
-            case 5:
-                return "May ";
-            case 6:
-                return "Jun.";
-            case 7:
-                return "Jul.";
-            case 8:
-                return "Aug.";
-            case 9:
-                return "Sep.";
-            case 10:
-                return "Oct.";
-            case 11:
-                return "Nov.";
-            case 12:
-                return "Dec";
-            default:
-                return "MONTH";
-        }
     }
 }

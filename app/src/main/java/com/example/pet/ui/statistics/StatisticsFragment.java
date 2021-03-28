@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.pet.AddGoalActivity;
 import com.example.pet.Goal;
 import com.example.pet.R;
 import com.example.pet.Task;
@@ -113,6 +114,14 @@ public class StatisticsFragment extends Fragment {
         tv.setLayoutParams(tparams);
         tv.setTextColor(0xFF424949);
         tv.setTextSize(25);
+
+
+        layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddGoalActivity.openAddGoalActivity(getContext(),g);
+            }
+        });
 
         layout.addView(tv);
         parent.addView(layout);

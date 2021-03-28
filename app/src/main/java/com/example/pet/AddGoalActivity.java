@@ -8,12 +8,17 @@ import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class AddGoalActivity extends AppCompatActivity {
 
@@ -42,33 +47,69 @@ public class AddGoalActivity extends AppCompatActivity {
             }
         });
 
-        if(goal!=null){
-            //TODO:change the hint to the existing information
-        }
+        //spinner
+        String[] options = {"education", "hobbit", "sport", "work"};
+        Spinner spinner = findViewById(R.id.addCategory);
+        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,options);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(aa);
 
         // initial datePicker
-        /*
-        // TODO: datePicker needs to be completed
         startDatePickerButton = findViewById(R.id.startDateButton);
         startDateText = findViewById(R.id.addGoalStartTime);
         startDatePickerDialog = Date.initImageDatePicker(this, startDatePickerDialog, startDatePickerButton, startDateText);
-         */
 
-        /*
         endDatePickerButton = findViewById(R.id.endDateButton);
         endDateText = findViewById(R.id.addGoalDeadline);
         endDatePickerDialog = Date.initImageDatePicker(this, endDatePickerDialog, endDatePickerButton, endDateText);
-         */
-
 
         // finish button listener
         Button finishButton = findViewById(R.id.finishCreateGoal);
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createNewGoal();
+                setGoal();
             }
         });
+
+        if (goal != null) {
+            TextView title = findViewById(R.id.addGoalTitle);
+            title.setText("Change Existing Goal");
+            finishButton.setText("Change Goal");
+
+            EditText goalName = findViewById(R.id.addGoalName);
+            goalName.setText(goal.name());
+            EditText goalDescription = findViewById(R.id.addGoalDescription);
+            goalDescription.setText(goal.description());
+
+            spinner.setSelection(goal.type());
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+            java.util.Date date = new java.util.Date();
+            try {
+                date = sdf.parse("" + User.Initialize().longTermGoalStart);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            startDatePickerDialog.getDatePicker().setMinDate(date.getTime());
+            endDatePickerDialog.getDatePicker().setMinDate(date.getTime());
+            sdf = new SimpleDateFormat("yyyyMMdd");
+            date = new java.util.Date();
+            try {
+                date = sdf.parse("" + User.Initialize().longTermGoalEnd);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            startDatePickerDialog.getDatePicker().setMaxDate(date.getTime());
+            endDatePickerDialog.getDatePicker().setMaxDate(date.getTime());
+
+            startDatePickerDialog.updateDate(goal.startYear(), goal.startMonth() - 1, goal.startDay());
+            startDateText.setText(User.month2string(goal.startMonth()) + " " + goal.startDay() + " " + goal.startYear());
+
+            endDatePickerDialog.updateDate(goal.endYear(), goal.endMonth() - 1, goal.endDay());
+            endDateText.setText(User.month2string(goal.endMonth()) + " " + goal.endDay() + " " + goal.endYear());
+        }
+
 
     }
 
@@ -78,11 +119,13 @@ public class AddGoalActivity extends AppCompatActivity {
         super.finish();
     }
 
-    public void createNewGoal() {
+    public void setGoal() {
         TextView goalName = findViewById(R.id.addGoalName);
         TextView goalDescription = findViewById(R.id.addGoalDescription);
         TextView goalStartTime = findViewById(R.id.addGoalStartTime);
         TextView goalDeadline = findViewById(R.id.addGoalDeadline);
+
+        Spinner spinner = findViewById(R.id.addCategory);
 
         User user = User.Initialize();
         String[] startDate = goalStartTime.getText().toString().split(" ");
@@ -94,16 +137,19 @@ public class AddGoalActivity extends AppCompatActivity {
         int endMonth = Date.toNumMonthFormat(endDate[0]);
         int endDay = Integer.parseInt(endDate[1]);
 
-        // TODO: unfinished
         if (goal == null) {
             user.addGoal(goalName.getText().toString(),
                     goalDescription.getText().toString(),
                     startYear, startMonth, startDay,
                     endYear, endMonth, endDay,
-                    0
+                    spinner.getSelectedItemPosition()
             );
         } else {
-            //set existing goal
+            goal.changeName(goalName.getText().toString());
+            goal.changeDescription(goalDescription.getText().toString());
+            goal.changeStartDate(startYear, startMonth, startDay);
+            goal.changeEndDate(endYear, endMonth, endDay);
+            goal.changeType(spinner.getSelectedItemPosition());
             user.SaveFiles();
         }
 

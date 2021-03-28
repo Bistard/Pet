@@ -8,6 +8,8 @@ import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Date {
@@ -68,6 +70,14 @@ public class Date {
         datePickerDialog = new DatePickerDialog(context, style, dateSetListener, year, month, day);
         long now = System.currentTimeMillis() - 1000;
         datePickerDialog.getDatePicker().setMinDate(now);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        java.util.Date date=new java.util.Date();
+        try {
+            date = sdf.parse(""+ User.Initialize().longTermGoalEnd);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        datePickerDialog.getDatePicker().setMaxDate(date.getTime());
         return datePickerDialog;
     }
 

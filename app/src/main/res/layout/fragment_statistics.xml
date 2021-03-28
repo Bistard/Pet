@@ -9,11 +9,15 @@
 
     <ScrollView
         android:id="@+id/statistics_scrollview"
-        android:layout_width="413dp"
+        android:layout_width="match_parent"
         android:layout_height="571dp"
         android:background="#CEEDDC"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:layout_editor_absoluteX="-1dp">
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="40dp"
+        tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
             android:id="@+id/statistics_main_layout"
