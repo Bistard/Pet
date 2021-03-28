@@ -40,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
         // Data initializing
         DataManager.init(getFilesDir());
         // TODO: test only
-        Tester.deleteAllJSON();
+//        Tester.deleteAllJSON();
 //        User user = Tester.makeCustomUser();
         User user = User.Initialize();
 
