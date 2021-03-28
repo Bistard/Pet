@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.pet.AddTaskActivity;
 import com.example.pet.R;
 import com.example.pet.Task;
 import com.example.pet.User;
@@ -81,7 +82,7 @@ public class TodoFragment extends Fragment {
 
         makeEmptyLine(todaysLayout, 30);
         if (todaysTasks.size() == 0) {
-            makeTextView("You have finished all the tasks today!", todaysLayout);
+            makeTextView("You have no task today!", todaysLayout);
         } else {
             int i = MAX_LINE_PER_DAY;
             for (Task t : todaysTasks) {
@@ -106,9 +107,7 @@ public class TodoFragment extends Fragment {
 
             LinearLayout theLayout = makeInnerLayout(linearLayout);
             makeEmptyLine(theLayout, 30);
-            if (theTasks.size() == 0) {
-                makeTextView("You have finished all the tasks today!", theLayout);
-            } else {
+            if (theTasks.size() != 0) {
                 int i = MAX_LINE_PER_DAY;
                 for (Task t : theTasks) {
                     if (i == 0) {
@@ -183,6 +182,16 @@ public class TodoFragment extends Fragment {
         layout.setOrientation(LinearLayout.HORIZONTAL);
         layout.setBackgroundColor(0x00FFFFFF);
 
+        ImageView checkmark = new ImageView(getContext());
+        checkmark.setLayoutParams(new LinearLayout.LayoutParams(80, 80));
+        if (t.isFininshed()) {
+            checkmark.setImageResource(R.drawable.ic_baseline_indeterminate_check_box_24);
+        }else {
+            checkmark.setImageResource(R.drawable.ic_baseline_check_box_24);
+        }
+        checkmark.setScaleType(ImageView.ScaleType.FIT_XY);
+        layout.addView(checkmark);
+
         ImageView img = new ImageView(getContext());
         img.setLayoutParams(new LinearLayout.LayoutParams(80, 80));
         img.setImageResource(IMAGE_SOURCE[t.parentType()]);
@@ -190,20 +199,35 @@ public class TodoFragment extends Fragment {
         layout.addView(img);
 
         TextView tv = new TextView(getContext());
-        tv.setText(t.name()+" ");
+        tv.setText(t.name() + " ");
         LinearLayout.LayoutParams tparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         tparams.setMargins(20, 0, 0, 0);
         tv.setLayoutParams(tparams);
         tv.setTextColor(0xFFFFFFFF);
         tv.setTextSize(20);
-        if(t.isFininshed()){
+        if (t.isFininshed()) {
             tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
 
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AddTaskActivity.openAddTaskActivity(getContext(), t);
+            }
+        });
 
+        checkmark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                t.changeFinished();
+                user.SaveFiles();
+                if (t.isFininshed()) {
+                    tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                    checkmark.setImageResource(R.drawable.ic_baseline_indeterminate_check_box_24);
+                }else {
+                    checkmark.setImageResource(R.drawable.ic_baseline_check_box_24);
+                    tv.setPaintFlags(tv.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+                }
             }
         });
 
@@ -215,7 +239,7 @@ public class TodoFragment extends Fragment {
     private TextView makeTextView(ArrayList<Task> lst, LinearLayout parent) {
         LinearLayout layout = new LinearLayout(getContext());
         layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setOrientation(LinearLayout.HORIZONTAL);
         layout.setBackgroundColor(0x00FFFFFF);
 
         TextView tv = new TextView(getContext());
