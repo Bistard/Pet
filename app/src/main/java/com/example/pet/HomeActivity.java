@@ -40,19 +40,9 @@ public class HomeActivity extends AppCompatActivity {
         // Data initializing
         DataManager.init(getFilesDir());
         // TODO: test only
-<<<<<<< Updated upstream
-        Tester.deleteAllJSON();
+//        Tester.deleteAllJSON();
 //        User user = Tester.makeCustomUser();
         User user = User.Initialize();
-=======
-
-        // custom user option
-        Tester.deleteAllJSON();
-        User user = Tester.makeCustomUser();
-
-        //new user option
-//        User user = User.Initialize();
->>>>>>> Stashed changes
 
         if(user.isFirstTime){
             openSetUp1();
