@@ -39,10 +39,18 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Data initializing
         DataManager.init(getFilesDir());
+
+
         // TODO: test only
+
+        //custom user
 //        Tester.deleteAllJSON();
 //        User user = Tester.makeCustomUser();
+
+        //new user
         User user = User.Initialize();
+
+
 
         if(user.isFirstTime){
             openSetUp1();
