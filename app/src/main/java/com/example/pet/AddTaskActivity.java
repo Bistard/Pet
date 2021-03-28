@@ -3,6 +3,8 @@ package com.example.pet;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +15,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 public class AddTaskActivity extends AppCompatActivity {
+
+    public static Task task = null;
 
     public DatePickerDialog endDatePickerDialog;
     Button editEndDate;

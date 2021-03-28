@@ -100,10 +100,10 @@ public class AddGoalActivity extends AppCompatActivity {
             endDatePickerDialog.getDatePicker().setMaxDate(date.getTime());
 
             startDatePickerDialog.updateDate(goal.startYear(), goal.startMonth() - 1, goal.startDay());
-            startDateText.setText(User.month2string(goal.startMonth()) + " " + goal.startDay() + " " + goal.startYear());
+            editStartDate.setText(User.month2string(goal.startMonth()) + " " + goal.startDay() + " " + goal.startYear());
 
             endDatePickerDialog.updateDate(goal.endYear(), goal.endMonth() - 1, goal.endDay());
-            endDateText.setText(User.month2string(goal.endMonth()) + " " + goal.endDay() + " " + goal.endYear());
+            editEndDate.setText(User.month2string(goal.endMonth()) + " " + goal.endDay() + " " + goal.endYear());
         }
 
 
