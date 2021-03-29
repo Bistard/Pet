@@ -354,7 +354,7 @@ public class HomeFragment extends Fragment {
 
         // DEADLINE
         TextView ddl = new TextView(getContext());
-        ddl.setText(com.example.pet.Date.makeDateString(t.endYear(), t.endMonth(), t.endDay()));
+        ddl.setText(com.example.pet.Date.makeDateString(t.Year(), t.Month(), t.Day()));
         ddl.setTextColor(getResources().getColor(R.color.grey));
         ddl.setTextSize(12);
         // params
