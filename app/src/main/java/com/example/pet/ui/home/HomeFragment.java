@@ -1,5 +1,6 @@
 package com.example.pet.ui.home;
 
+import android.animation.AnimatorInflater;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -27,6 +29,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
@@ -53,6 +56,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
+
+import static android.animation.AnimatorInflater.loadStateListAnimator;
 
 public class HomeFragment extends Fragment {
 
@@ -294,16 +299,18 @@ public class HomeFragment extends Fragment {
         LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
         layoutParams.setMargins(0, 0, 0, 0);
         linearLayout.setLayoutParams(layoutParams);
-
         // CHECK BOX
-        CheckBox checkbox = new CheckBox(getContext(), null, 0);
+        CheckBox checkbox = new CheckBox(getContext());
+        checkbox.setButtonDrawable(R.drawable.my_check_box);
+        checkbox.setId(R.id.layout3);
         // params
-        checkbox.setBackgroundResource(R.drawable.my_check_box);
         LinearLayout.LayoutParams paramsCB = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         paramsCB.gravity = Gravity.CENTER_VERTICAL;
         paramsCB.rightMargin = 50;
         checkbox.setLayoutParams(paramsCB);
         linearLayout.addView(checkbox);
+        // animation
+        // checkbox.setStateListAnimator(AnimatorInflater.loadStateListAnimator(getContext(), R.drawable.check_box_anim_smooth));
         // functionality
         checkbox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -318,7 +325,6 @@ public class HomeFragment extends Fragment {
 
         // TASK NAME
         TextView tv = new TextView(getContext());
-        tv.setId(R.id.layout2);
         tv.setText(t.name());
         // tv.setTypeface(Typeface.DEFAULT_BOLD);
         // tv.setTypeface(Typeface.createFromAsset(getAssets(),"STCAIYUN.TTF"));
