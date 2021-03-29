@@ -21,6 +21,9 @@ Group member:
   - need to show all goals, with proper message
 - CustomUser profile to showcase the app is needed
   - can be edited in Tester.java
+- More reasonable Tester.java
+- Upcoming Tasks
+  - (✔) show ddl
 
 # Bugs
 - Navbar
