@@ -144,11 +144,7 @@ public class TodoFragment extends Fragment {
         parent.addView(tab);
         return tab;
     }
-
-    void addSideBar(int color, LinearLayout parent) {
-        
-    }
-
+    
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private LinearLayout makeInnerLayout(LinearLayout parent) {
         // BACKGROUND LINEAR LAYOUT
