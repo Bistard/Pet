@@ -16,9 +16,12 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -284,52 +287,63 @@ public class HomeFragment extends Fragment {
     }
 
     private TextView makeUpcomingTextView(Task t, LinearLayout parent) {
-        LinearLayout layout = new LinearLayout(getContext());
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(20, 20, 20, 20);
-        layout.setLayoutParams(params);
-        layout.setOrientation(LinearLayout.HORIZONTAL);
-        layout.setBackgroundColor(0x00FFFFFF);
 
-        ImageView checkMark = new ImageView(getContext());
-        checkMark.setLayoutParams(new LinearLayout.LayoutParams(80, 180));
-        checkMark.setImageResource(R.drawable.ic_baseline_check_box_24);
-        checkMark.setScaleType(ImageView.ScaleType.FIT_XY);
-        checkMark.setOnClickListener(new View.OnClickListener() {
+        // RadioGroup
+        RadioGroup radioGroup = new RadioGroup(getContext());
+        radioGroup.setLayoutParams(new RadioGroup.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 200));
+        radioGroup.setOrientation(LinearLayout.HORIZONTAL);
+
+        // CHECK BOX
+        CheckBox checkbox = new CheckBox(getContext());
+        // params
+        RadioGroup.LayoutParams paramsCB = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT);
+        paramsCB.gravity = Gravity.CENTER_VERTICAL;
+        paramsCB.rightMargin = 50;
+        checkbox.setLayoutParams(paramsCB);
+        radioGroup.addView(checkbox);
+        // functionality
+        checkbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 t.changeFinished();
                 user.SaveFiles();
-                displayUpcomingTasks();
+                // displayUpcomingTasks();
                 goalIndex--;
                 displayGoal();
             }
         });
-        layout.addView(checkMark);
 
-        ImageView img = new ImageView(getContext());
-        img.setLayoutParams(new LinearLayout.LayoutParams(80, 80));
-        img.setImageResource(IMAGE_SOURCE[t.parentType()]);
-        img.setScaleType(ImageView.ScaleType.FIT_XY);
-        layout.addView(img);
-
+        // TASK NAME
         TextView tv = new TextView(getContext());
+        tv.setId(R.id.layout2);
         tv.setText(t.name());
-        LinearLayout.LayoutParams tparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        tparams.setMargins(20, 0, 0, 0);
-        tv.setLayoutParams(tparams);
+        // params
+        RadioGroup.LayoutParams paramsTV = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT);
+        paramsTV.setMargins(40, 0, 0, 0);
+        paramsTV.gravity = Gravity.CENTER_VERTICAL;
+        tv.setLayoutParams(paramsTV);
         tv.setTextColor(getResources().getColor(R.color.black));
         tv.setTextSize(20);
-
-        layout.setOnClickListener(new View.OnClickListener() {
+        radioGroup.addView(tv);
+        // functionality
+        radioGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddTaskActivity.openAddTaskActivity(getContext(),t);
+                AddTaskActivity.openAddTaskActivity(getContext(), t);
             }
         });
 
-        layout.addView(tv);
-        parent.addView(layout);
+        // TASK TYPE
+        ImageView img = new ImageView(getContext());
+        img.setImageResource(IMAGE_SOURCE[t.parentType()]);
+        // params
+        RadioGroup.LayoutParams paramsIMG = new RadioGroup.LayoutParams(80, 80);
+        paramsIMG.gravity = Gravity.CENTER_VERTICAL;
+        paramsIMG.rightMargin = 25;
+        img.setLayoutParams(paramsIMG);
+        radioGroup.addView(img);
+
+        parent.addView(radioGroup);
         return tv;
     }
 
