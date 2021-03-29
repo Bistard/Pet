@@ -46,6 +46,7 @@ import com.example.pet.R;
 import com.example.pet.Task;
 import com.example.pet.Tester;
 import com.example.pet.User;
+import com.example.pet.Date;
 import com.example.pet.ui.todo.TodoFragment;
 
 import java.lang.reflect.Array;
@@ -53,7 +54,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+
 import java.util.Locale;
 import java.util.Random;
 
@@ -113,7 +114,7 @@ public class HomeFragment extends Fragment {
         date display
          */
         TextView dateDisplay = root.findViewById(R.id.fragment_home_top_date);
-        String date = new SimpleDateFormat("MMMM dd", Locale.getDefault()).format(new Date());
+        String date = new SimpleDateFormat("MMMM dd", Locale.getDefault()).format(new java.util.Date());
         dateDisplay.setText(date);
         /*
         progressBar & goalName display
@@ -124,9 +125,9 @@ public class HomeFragment extends Fragment {
         percentageDisplay = root.findViewById(R.id.fragment_home_top_percentage);
         progressBar = root.findViewById(R.id.fragment_home_top_progressBar);
         params = (LinearLayout.LayoutParams) progressBar.getLayoutParams();
-        currentYear = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date()));
-        currentMonth = Integer.parseInt(new SimpleDateFormat("M", Locale.getDefault()).format(new Date()));
-        currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new Date()));
+        currentYear = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new java.util.Date()));
+        currentMonth = Integer.parseInt(new SimpleDateFormat("M", Locale.getDefault()).format(new java.util.Date()));
+        currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new java.util.Date()));
         WIDTH = Resources.getSystem().getDisplayMetrics().widthPixels;
         currentGoals = user.getGoals(currentYear, currentMonth, currentDate);
         displayGoal();
@@ -296,7 +297,7 @@ public class HomeFragment extends Fragment {
         int height = 200;
         // Linear Layout
         LinearLayout linearLayout = new LinearLayout(getContext());
-        LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
         layoutParams.setMargins(0, 0, 0, 0);
         linearLayout.setLayoutParams(layoutParams);
         // CHECK BOX
@@ -323,6 +324,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        // CONTAINER (TASK NAME & DEADLINE)
+        LinearLayout container = new LinearLayout(getContext());
+        LinearLayout.LayoutParams paramsCONTAINER = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height, 1);
+        paramsCONTAINER.setMargins(0, 0, 0, 0);
+        container.setLayoutParams(paramsCONTAINER);
+        container.setOrientation(LinearLayout.VERTICAL);
+
         // TASK NAME
         TextView tv = new TextView(getContext());
         tv.setText(t.name());
@@ -335,7 +343,7 @@ public class HomeFragment extends Fragment {
         paramsTV.setMargins(0, 0, 0, 0);
         paramsTV.gravity = Gravity.CENTER_VERTICAL;
         tv.setLayoutParams(paramsTV);
-        linearLayout.addView(tv);
+        container.addView(tv);
         // functionality
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -343,6 +351,19 @@ public class HomeFragment extends Fragment {
                 AddTaskActivity.openAddTaskActivity(getContext(), t);
             }
         });
+
+        // DEADLINE
+        TextView ddl = new TextView(getContext());
+        ddl.setText(com.example.pet.Date.makeDateString(t.endYear(), t.endMonth(), t.endDay()));
+        ddl.setTextColor(getResources().getColor(R.color.grey));
+        ddl.setTextSize(12);
+        // params
+        LinearLayout.LayoutParams paramsDDL = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
+        paramsDDL.setMargins(0, 0, 0, 0);
+        paramsDDL.gravity = Gravity.CENTER_VERTICAL;
+        ddl.setLayoutParams(paramsDDL);
+        container.addView(ddl);
+        linearLayout.addView(container);
 
         // TASK TYPE
         ImageView img = new ImageView(getContext());
