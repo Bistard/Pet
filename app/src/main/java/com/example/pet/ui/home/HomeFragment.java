@@ -296,8 +296,9 @@ public class HomeFragment extends Fragment {
         linearLayout.setLayoutParams(layoutParams);
 
         // CHECK BOX
-        CheckBox checkbox = new CheckBox(getContext());
+        CheckBox checkbox = new CheckBox(getContext(), null, 0);
         // params
+        checkbox.setBackgroundResource(R.drawable.my_check_box);
         LinearLayout.LayoutParams paramsCB = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         paramsCB.gravity = Gravity.CENTER_VERTICAL;
         paramsCB.rightMargin = 50;

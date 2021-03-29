@@ -18,12 +18,12 @@
     </style>
 
     <style name="Theme.Pet.HomePage" parent="Theme.AppCompat.Light.NoActionBar">
-
     </style>
 
     <style name="ThemeOverlay.Pet.AppWidgetContainer" parent="">
         <item name="appWidgetBackgroundColor">@color/light_blue_600</item>
         <item name="appWidgetTextColor">@color/light_blue_50</item>
     </style>
+
 
 </resources>
