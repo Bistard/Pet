@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 
 public class TodoFragment extends Fragment {
 
@@ -43,6 +45,9 @@ public class TodoFragment extends Fragment {
     private final int NUMBER_OF_DAYS = 7;
 
     private int[] IMAGE_SOURCE;
+
+    private final int[] backgroundSource = {R.drawable.background_round_color_0,R.drawable.background_round_color_1,R.drawable.background_round_color_2,R.drawable.background_round_color_3};
+    private int prevBackground = -1;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -156,10 +161,17 @@ public class TodoFragment extends Fragment {
      */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private LinearLayout makeInnerLayout(LinearLayout parent) {
+        Random rand = new Random();
         // BACKGROUND LINEAR LAYOUT
         LinearLayout bglayout = new LinearLayout(getContext());
         // TODO: use some method to set this as a random color
-        bglayout.setBackground(getResources().getDrawable(R.drawable.big_backgraound_round_corner));
+        int curBackground = backgroundSource[rand.nextInt(backgroundSource.length)];
+        while (curBackground==prevBackground){
+            curBackground=backgroundSource[rand.nextInt(backgroundSource.length)];
+        }
+        prevBackground=curBackground;
+        Log.i("todo",""+curBackground);
+        bglayout.setBackground(getResources().getDrawable(curBackground));
         bglayout.setElevation(20);
         // params
         LinearLayout.LayoutParams paramsBG = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
