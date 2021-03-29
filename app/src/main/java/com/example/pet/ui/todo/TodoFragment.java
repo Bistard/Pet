@@ -17,6 +17,7 @@ import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -138,7 +139,9 @@ public class TodoFragment extends Fragment {
         tab.setText(text);
         tab.setTextSize(20);
         tab.setTextColor(getResources().getColor(R.color.black));
-        tab.setTypeface(Typeface.SANS_SERIF, Typeface.BOLD);
+        // font
+        Typeface font = ResourcesCompat.getFont(getContext(), R.font.roboto);
+        tab.setTypeface(font);
         // params
         LinearLayout.LayoutParams paramsTAB = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         paramsTAB.setMargins(30, 30, 30, 10);
@@ -229,8 +232,11 @@ public class TodoFragment extends Fragment {
         tparams.setMargins(20, 0, 0, 0);
         tv.setLayoutParams(tparams);
         tv.setTextColor(getResources().getColor(R.color.black_50));
-        tv.setTextSize(15);
-        // tv.setTypeface(Typeface.MONOSPACE, Typeface.BOLD);
+        tv.setTextSize(16);
+        // font
+        Typeface font = ResourcesCompat.getFont(getContext(), R.font.roboto_light);
+        tv.setTypeface(font);
+
         if (t.isFininshed()) {
             tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
@@ -274,7 +280,10 @@ public class TodoFragment extends Fragment {
         params.setMargins(75, 20, 70, 20);
         tv.setLayoutParams(params);
         tv.setTextColor(getResources().getColor(R.color.black));
-        tv.setTextSize(20);
+        tv.setTextSize(16);
+        // font
+        Typeface font = ResourcesCompat.getFont(getContext(), R.font.roboto);
+        tv.setTypeface(font);
 
         tv.setOnClickListener(new View.OnClickListener() {
             @Override

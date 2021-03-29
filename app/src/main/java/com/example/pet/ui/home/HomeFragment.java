@@ -11,6 +11,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.FontRequest;
+import android.provider.FontsContract;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -32,6 +34,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -251,7 +254,7 @@ public class HomeFragment extends Fragment {
             goalNameDisplay.setText(user.longTermGoal);
 
             percentageDisplay.setText(user.longTermGoalFinishPercentString());
-            longTermGoalDisplay.setText("Long-term Goal:");
+            longTermGoalDisplay.setText("Long-term");
             goalType.setVisibility(View.INVISIBLE);
 
             params.width = (int) ((double) WIDTH * user.longTermGoalFinishPercent());
@@ -259,7 +262,7 @@ public class HomeFragment extends Fragment {
         } else {
             goalNameDisplay.setText(currentGoals.get(goalIndex).name());
             percentageDisplay.setText(currentGoals.get(goalIndex).finishPercentString());
-            longTermGoalDisplay.setText("Short-term Goal:");
+            longTermGoalDisplay.setText("Short-term");
             goalType.setVisibility(View.VISIBLE);
             goalType.setImageResource(IMAGE_SOURCE[currentGoals.get(goalIndex).type()]);
 
@@ -293,6 +296,7 @@ public class HomeFragment extends Fragment {
         return layout;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private TextView makeUpcomingTextView(Task t, LinearLayout parent) {
         int height = 200;
         // Linear Layout
@@ -334,7 +338,8 @@ public class HomeFragment extends Fragment {
         // TASK NAME
         TextView tv = new TextView(getContext());
         tv.setText(t.name());
-        // tv.setTypeface(Typeface.);
+        Typeface font = ResourcesCompat.getFont(getContext(), R.font.roboto_light);
+        tv.setTypeface(font);
         tv.setTextColor(getResources().getColor(R.color.black));
         tv.setTextSize(18);
         // params
