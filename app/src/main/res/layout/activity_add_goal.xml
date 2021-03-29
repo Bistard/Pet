@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddGoalActivity"
-    android:background="#C2D4DD">
+    android:background="@color/light_green">
 
     <ImageButton
         android:id="@+id/returnGoal"
         android:layout_width="42dp"
         android:layout_height="42dp"
-        android:background="@color/white_transparent"
+        android:background="@color/black_50_transparent"
         android:minWidth="30dp"
         android:minHeight="30dp"
         android:scaleType="fitCenter"
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create New Goal"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/dark_green"
         android:textSize="28sp"
 
         android:textStyle="bold"
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Goal Name"
-        android:textColor="@color/white"
+        android:textColor="@color/dark_green"
         android:textSize="20sp"
         android:textStyle="bold"
 
@@ -78,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Description"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/dark_green"
         android:textSize="20sp"
         android:textStyle="bold"
 
@@ -112,7 +112,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Category"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/dark_green"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -141,7 +141,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start Date"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/dark_green"
         android:textSize="20sp"
         android:textStyle="bold"
 
@@ -160,7 +160,7 @@
         android:inputType="none"
         android:hint="Start Date"
         android:textSize="15dp"
-        android:textColor="#96989E"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.051"
@@ -193,7 +193,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="End Date"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/dark_green"
         android:textSize="20sp"
         android:textStyle="bold"
 
@@ -231,7 +231,7 @@
         android:inputType="none"
         android:onClick="openEndDataPicker"
         android:hint="End Date"
-        android:textColor="#96989E"
+        android:textColor="@color/black"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -8,6 +8,7 @@
 
     <color name="black">#FF000000</color>
     <color name="black_50">#FF545454</color>
+    <color name="black_50_transparent">#55545454</color>
 
     <color name="grey_transparent">#55cbcbcb</color>
     <color name="grey">#cbcbcb</color>
