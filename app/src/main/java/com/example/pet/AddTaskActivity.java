@@ -177,16 +177,30 @@ public class AddTaskActivity extends AppCompatActivity {
     }
 
     private void updateDateRange(int index, DatePickerDialog endDatePickerDialog) {
+        User user = User.Initialize();
         Goal g = items.get(index);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         java.util.Date date = new java.util.Date();
+        try {
+            date = sdf.parse("" + user.longTermGoalStart);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        endDatePickerDialog.getDatePicker().setMinDate(date.getTime());
+        try {
+            date = sdf.parse("" + user.longTermGoalEnd);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        endDatePickerDialog.getDatePicker().setMaxDate(date.getTime());
+        endDatePickerDialog.updateDate(g.startYear(), g.startMonth() - 1, g.startDay());
+        editEndDate.setText(Date.makeDateString(g.startYear(),g.startMonth(),g.startDay()));
         try {
             date = sdf.parse("" + g.startDate);
         } catch (ParseException e) {
             e.printStackTrace();
         }
         endDatePickerDialog.getDatePicker().setMinDate(date.getTime());
-        sdf = new SimpleDateFormat("yyyyMMdd");
         date = new java.util.Date();
         try {
             date = sdf.parse("" + g.endDate);
@@ -196,7 +210,15 @@ public class AddTaskActivity extends AppCompatActivity {
         endDatePickerDialog.getDatePicker().setMaxDate(date.getTime());
 
         if (task != null) {
-            endDatePickerDialog.updateDate(task.startYear(), task.startMonth() - 1, task.startDay());
+            int targetDate = task.startYear() * 10000 + task.startMonth() * 100 + task.startDay();
+            if (g.startDate <= targetDate && targetDate <= g.endDate) {
+                Log.i("task page",""+targetDate);
+                Log.i("task page",""+g.startDate);
+                Log.i("task page",""+g.endDate);
+                Log.i("task page",(g.startDate >= targetDate && targetDate <= g.endDate)?"true":"false");
+                endDatePickerDialog.updateDate(task.startYear(), task.startMonth() - 1, task.startDay());
+                editEndDate.setText(Date.makeDateString(task.startYear(),task.startMonth(),task.startDay()));
+            }
         }
     }
 
