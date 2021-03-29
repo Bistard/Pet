@@ -2,7 +2,7 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:initialKeyguardLayout="@layout/pet_widget"
     android:initialLayout="@layout/pet_widget"
-    android:minWidth="280dp"
+    android:minWidth="320dp"
     android:minHeight="36dp"
     android:previewImage="@drawable/snail_t"
     android:resizeMode="none"

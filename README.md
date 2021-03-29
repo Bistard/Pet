@@ -7,22 +7,31 @@ Group member:
 - 👧Linda Wang
 
 # New Features (this branch)
-- home page (in progress)
-- todo page (initialized)
-- widget pet (initialized)
+- home page
+- todo page
+- widget pet
 
 # Todo
 - Beautify Calendar
+  - Change generation method
+  - change icon / colored blob
 - Add pet dialog
+  - Phrases
+- Statistics Fragment
+  - need to show all goals, with proper message
+- CustomUser profile to showcase the app is needed
+  - can be edited in Tester.java
 
 # Bugs
 - Navbar
   - floating action button animation cancellation
+    - will be ignored for the time being
 - homeFragment.java
   - After creating a new goal/task, in order to show the new one, we need to switch to another fragment and switch back.
 - AddTaskActivity
-  - NEED to list what Goal the task belongs to.
-  - repeat
-  - reminder
-- AddGoalAcitivty
-  - ✔
+  - consistency issue when update the rule
+    - will not be resolved unless major structure change on file system
+    - may be ignored
+- Todo Fragment
+  - unfinished show more render empty spaces
+  - Date display formatting

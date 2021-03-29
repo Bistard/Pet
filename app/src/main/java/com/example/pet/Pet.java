@@ -64,14 +64,15 @@ public class Pet {
         if (phrase.contains("$$FINISHED TASK$$") || phrase.contains("$$NUMBER OF UNFINISHED$$")) {
             if (finished.size() > 0) {
                 phrase = phrase.replaceAll("\\$\\$FINISHED TASK\\$\\$", finished.get(rand.nextInt(finished.size())).name())
-                        .replaceAll("\\$\\$NUMBER OF UNFINISHED\\$\\$", "" + unfinished.size());
+                        .replaceAll("\\$\\$NUMBER OF FINISHED\\$\\$", "" + unfinished.size());
             } else {
                 throw new NullPointerException("No finished tasks today");
             }
         }
-        if (phrase.contains("$$NUMBER OF OVERDUE$$")) {
+        if (phrase.contains("$$OVERDUE TASK$$") || phrase.contains("$$NUMBER OF OVERDUE$$")) {
             if (overdue.size() > 0) {
-                phrase = phrase.replaceAll("\\$\\$NUMBER OF OVERDUE\\$\\$", "" + overdue.size());
+                phrase = phrase.replaceAll("\\$\\$OVERDUE TASK\\$\\$", finished.get(rand.nextInt(overdue.size())).name())
+                        .replaceAll("\\$\\$NUMBER OF OVERDUE\\$\\$", "" + overdue.size());
             } else {
                 throw new NullPointerException("No overdue tasks today");
             }

@@ -287,20 +287,26 @@ public class HomeFragment extends Fragment {
     }
 
     private TextView makeUpcomingTextView(Task t, LinearLayout parent) {
+        int height = 200;
+        // Linear Layout
+        LinearLayout linearLayout = new LinearLayout(getContext());
+        LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
+        layoutParams.setMargins(0, 0, 0, 0);
+        linearLayout.setLayoutParams(layoutParams);
 
         // RadioGroup
         RadioGroup radioGroup = new RadioGroup(getContext());
-        radioGroup.setLayoutParams(new RadioGroup.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 200));
+        radioGroup.setLayoutParams(new RadioGroup.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, height));
         radioGroup.setOrientation(LinearLayout.HORIZONTAL);
 
         // CHECK BOX
         CheckBox checkbox = new CheckBox(getContext());
         // params
-        RadioGroup.LayoutParams paramsCB = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams paramsCB = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         paramsCB.gravity = Gravity.CENTER_VERTICAL;
         paramsCB.rightMargin = 50;
         checkbox.setLayoutParams(paramsCB);
-        radioGroup.addView(checkbox);
+        linearLayout.addView(checkbox);
         // functionality
         checkbox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -318,13 +324,13 @@ public class HomeFragment extends Fragment {
         tv.setId(R.id.layout2);
         tv.setText(t.name());
         // params
-        RadioGroup.LayoutParams paramsTV = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams paramsTV = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
         paramsTV.setMargins(40, 0, 0, 0);
         paramsTV.gravity = Gravity.CENTER_VERTICAL;
         tv.setLayoutParams(paramsTV);
         tv.setTextColor(getResources().getColor(R.color.black));
         tv.setTextSize(20);
-        radioGroup.addView(tv);
+        linearLayout.addView(tv);
         // functionality
         radioGroup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -343,7 +349,8 @@ public class HomeFragment extends Fragment {
         img.setLayoutParams(paramsIMG);
         radioGroup.addView(img);
 
-        parent.addView(radioGroup);
+        linearLayout.addView(radioGroup);
+        parent.addView(linearLayout);
         return tv;
     }
 
