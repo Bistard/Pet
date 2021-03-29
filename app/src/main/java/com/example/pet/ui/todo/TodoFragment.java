@@ -170,7 +170,6 @@ public class TodoFragment extends Fragment {
             curBackground=backgroundSource[rand.nextInt(backgroundSource.length)];
         }
         prevBackground=curBackground;
-        Log.i("todo",""+curBackground);
         bglayout.setBackground(getResources().getDrawable(curBackground));
         bglayout.setElevation(20);
         // params
