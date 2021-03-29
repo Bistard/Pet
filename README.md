@@ -32,6 +32,7 @@ Group member:
   - consistency issue when update the rule
     - will not be resolved unless major structure change on file system
     - may be ignored
+  - (⭐) adding task will encounter an error when selecting what goals belongs to
 - Todo Fragment
   - unfinished show more render empty spaces
   - Date display formatting
