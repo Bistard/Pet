@@ -335,6 +335,7 @@ public class HomeFragment extends Fragment {
         // TASK NAME
         TextView tv = new TextView(getContext());
         tv.setText(t.name());
+        // font
         Typeface font = ResourcesCompat.getFont(getContext(), R.font.roboto_light);
         tv.setTypeface(font);
         tv.setTextColor(getResources().getColor(R.color.black));
@@ -383,11 +384,13 @@ public class HomeFragment extends Fragment {
     private TextView makeTextView(String text, LinearLayout parent) {
         TextView tv = new TextView(getContext());
         tv.setText(text);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
         params.setMargins(75, 20, 70, 20);
         tv.setLayoutParams(params);
         tv.setGravity(Gravity.CENTER);
-        tv.setTextColor(0xFFFFFFFF);
+        // font
+        Typeface font = ResourcesCompat.getFont(getContext(), R.font.roboto_light);
+        tv.setTypeface(font);
         tv.setTextSize(20);
         parent.addView(tv);
         return tv;
