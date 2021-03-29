@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -294,11 +295,6 @@ public class HomeFragment extends Fragment {
         layoutParams.setMargins(0, 0, 0, 0);
         linearLayout.setLayoutParams(layoutParams);
 
-        // RadioGroup
-        RadioGroup radioGroup = new RadioGroup(getContext());
-        radioGroup.setLayoutParams(new RadioGroup.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, height));
-        radioGroup.setOrientation(LinearLayout.HORIZONTAL);
-
         // CHECK BOX
         CheckBox checkbox = new CheckBox(getContext());
         // params
@@ -323,16 +319,18 @@ public class HomeFragment extends Fragment {
         TextView tv = new TextView(getContext());
         tv.setId(R.id.layout2);
         tv.setText(t.name());
+        // tv.setTypeface(Typeface.DEFAULT_BOLD);
+        // tv.setTypeface(Typeface.createFromAsset(getAssets(),"STCAIYUN.TTF"));
+        tv.setTextColor(getResources().getColor(R.color.black));
+        tv.setTextSize(18);
         // params
         LinearLayout.LayoutParams paramsTV = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
-        paramsTV.setMargins(40, 0, 0, 0);
+        paramsTV.setMargins(0, 0, 0, 0);
         paramsTV.gravity = Gravity.CENTER_VERTICAL;
         tv.setLayoutParams(paramsTV);
-        tv.setTextColor(getResources().getColor(R.color.black));
-        tv.setTextSize(20);
         linearLayout.addView(tv);
         // functionality
-        radioGroup.setOnClickListener(new View.OnClickListener() {
+        tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AddTaskActivity.openAddTaskActivity(getContext(), t);
@@ -347,9 +345,8 @@ public class HomeFragment extends Fragment {
         paramsIMG.gravity = Gravity.CENTER_VERTICAL;
         paramsIMG.rightMargin = 25;
         img.setLayoutParams(paramsIMG);
-        radioGroup.addView(img);
+        linearLayout.addView(img);
 
-        linearLayout.addView(radioGroup);
         parent.addView(linearLayout);
         return tv;
     }
