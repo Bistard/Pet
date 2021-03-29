@@ -107,7 +107,7 @@ public class TodoFragment extends Fragment {
             int searchDay = searchDate % 100;
 
             ArrayList<Task> theTasks = user.getTasks(searchYear, searchMonth, searchDay);
-            makeTab(searchYear + "/" + searchMonth + "/" + searchDay, linearLayout);
+            makeTab(com.example.pet.Date.makeDateString(searchYear, searchMonth, searchDay), linearLayout);
 
             LinearLayout theLayout = makeInnerLayout(linearLayout);
             makeEmptyLine(theLayout, 30);
@@ -135,7 +135,8 @@ public class TodoFragment extends Fragment {
         // tab
         TextView tab = new TextView(getContext());
         tab.setText(text);
-        tab.setTextSize(25);
+        tab.setTextSize(20);
+        tab.setTextColor(getResources().getColor(R.color.black));
         // params
         LinearLayout.LayoutParams paramsTAB = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         paramsTAB.setMargins(30, 30, 30, 10);
@@ -144,7 +145,7 @@ public class TodoFragment extends Fragment {
         parent.addView(tab);
         return tab;
     }
-    
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private LinearLayout makeInnerLayout(LinearLayout parent) {
         // BACKGROUND LINEAR LAYOUT
