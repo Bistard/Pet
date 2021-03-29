@@ -79,7 +79,6 @@ public class HomeFragment extends Fragment {
     private int goalIndex = Integer.MAX_VALUE;
     private TextView goalNameDisplay;
     private TextView longTermGoalDisplay;
-    private ImageView goalType;
     private TextView percentageDisplay;
     private LinearLayout progressBar;
     private LinearLayout.LayoutParams params;
@@ -94,6 +93,7 @@ public class HomeFragment extends Fragment {
     private FrameLayout bubbleLayout;
     private TextView bubbleText;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -124,7 +124,6 @@ public class HomeFragment extends Fragment {
          */
         goalNameDisplay = root.findViewById(R.id.fragment_home_top_goal_name);
         longTermGoalDisplay = root.findViewById(R.id.fragment_home_top_goal_longtermgoal);
-        goalType = root.findViewById(R.id.fragment_home_top_goal_type);
         percentageDisplay = root.findViewById(R.id.fragment_home_top_percentage);
         progressBar = root.findViewById(R.id.fragment_home_top_progressBar);
         params = (LinearLayout.LayoutParams) progressBar.getLayoutParams();
@@ -225,6 +224,7 @@ public class HomeFragment extends Fragment {
         bubbleLayout.setVisibility(View.INVISIBLE);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void displayUpcomingTasks() {
         upcomingLayout.removeAllViews();
         upcomingTasks = user.getUnfinishedTasks(currentYear, currentMonth, currentDate);
@@ -255,7 +255,6 @@ public class HomeFragment extends Fragment {
 
             percentageDisplay.setText(user.longTermGoalFinishPercentString());
             longTermGoalDisplay.setText("Long-term");
-            goalType.setVisibility(View.INVISIBLE);
 
             params.width = (int) ((double) WIDTH * user.longTermGoalFinishPercent());
             progressBar.setLayoutParams(params);
@@ -263,8 +262,6 @@ public class HomeFragment extends Fragment {
             goalNameDisplay.setText(currentGoals.get(goalIndex).name());
             percentageDisplay.setText(currentGoals.get(goalIndex).finishPercentString());
             longTermGoalDisplay.setText("Short-term");
-            goalType.setVisibility(View.VISIBLE);
-            goalType.setImageResource(IMAGE_SOURCE[currentGoals.get(goalIndex).type()]);
 
             params.width = (int) ((double) WIDTH * currentGoals.get(goalIndex).finishPercent());
             progressBar.setLayoutParams(params);
