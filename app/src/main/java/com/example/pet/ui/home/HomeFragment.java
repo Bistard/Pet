@@ -334,8 +334,7 @@ public class HomeFragment extends Fragment {
         // TASK NAME
         TextView tv = new TextView(getContext());
         tv.setText(t.name());
-        // tv.setTypeface(Typeface.DEFAULT_BOLD);
-        // tv.setTypeface(Typeface.createFromAsset(getAssets(),"STCAIYUN.TTF"));
+        // tv.setTypeface(Typeface.);
         tv.setTextColor(getResources().getColor(R.color.black));
         tv.setTextSize(18);
         // params

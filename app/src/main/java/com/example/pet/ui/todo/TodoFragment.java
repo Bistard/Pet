@@ -2,6 +2,7 @@ package com.example.pet.ui.todo;
 
 import android.annotation.SuppressLint;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -137,6 +138,7 @@ public class TodoFragment extends Fragment {
         tab.setText(text);
         tab.setTextSize(20);
         tab.setTextColor(getResources().getColor(R.color.black));
+        tab.setTypeface(Typeface.SANS_SERIF, Typeface.BOLD);
         // params
         LinearLayout.LayoutParams paramsTAB = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         paramsTAB.setMargins(30, 30, 30, 10);
@@ -146,6 +148,9 @@ public class TodoFragment extends Fragment {
         return tab;
     }
 
+    /*
+    build a container for all the relevant tasks
+     */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private LinearLayout makeInnerLayout(LinearLayout parent) {
         // BACKGROUND LINEAR LAYOUT
@@ -223,8 +228,9 @@ public class TodoFragment extends Fragment {
         LinearLayout.LayoutParams tparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         tparams.setMargins(20, 0, 0, 0);
         tv.setLayoutParams(tparams);
-        tv.setTextColor(getResources().getColor(R.color.black));
-        tv.setTextSize(20);
+        tv.setTextColor(getResources().getColor(R.color.black_50));
+        tv.setTextSize(15);
+        // tv.setTypeface(Typeface.MONOSPACE, Typeface.BOLD);
         if (t.isFininshed()) {
             tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
