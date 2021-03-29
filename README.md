@@ -24,6 +24,9 @@ Group member:
   - (✔) show ddl
   - ripple effect on task itself
   - turn red when passed DDL
+- Todo Activity
+  - (✔) display fixed color to side bar
+  - display random color to side bar
 
 # Bugs
 - Navbar
