@@ -27,6 +27,8 @@ Group member:
 - Todo Activity
   - (✔) display fixed color to side bar
   - display random color to side bar
+  - "more" needs a button style
+- (⭐) New Font
 
 # Bugs
 - Navbar
