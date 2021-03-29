@@ -14,7 +14,7 @@ Group member:
 # Todo
 - Beautify Calendar
   - Change generation method
-  - change icon / colored blob
+  - (✔) change icon / colored blob
 - Add pet dialog
   - Phrases
 - Statistics Fragment
@@ -24,6 +24,8 @@ Group member:
 - More reasonable Tester.java
 - Upcoming Tasks
   - (✔) show ddl
+  - ripple effect on task itself
+  - turn red when passed DDL
 
 # Bugs
 - Navbar
