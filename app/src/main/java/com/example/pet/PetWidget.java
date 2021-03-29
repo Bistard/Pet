@@ -100,7 +100,7 @@ public class PetWidget extends AppWidgetProvider {
         }
         int[] textIds = {R.id.appwidget_todo_text0, R.id.appwidget_todo_text1, R.id.appwidget_todo_text2};
         int[] iconIds = {R.id.appwidget_todo_icon0, R.id.appwidget_todo_icon1, R.id.appwidget_todo_icon2};
-        int[] IMAGE_SOURCE = new int[]{R.drawable.education_icon, R.drawable.habbit_icon, R.drawable.sport_icon, R.drawable.work_icon};
+        int[] IMAGE_SOURCE = new int[]{R.drawable.ic_baseline_education_24, R.drawable.ic_baseline_habbit_24, R.drawable.ic_baseline_sport_24, R.drawable.ic_baseline_work_24};
         if (currentTasks.size() == 0) {
             views.setViewVisibility(iconIds[0], View.INVISIBLE);
             views.setViewVisibility(iconIds[1], View.INVISIBLE);

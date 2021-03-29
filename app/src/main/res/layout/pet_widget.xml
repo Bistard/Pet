@@ -58,7 +58,7 @@
             android:id="@+id/appwidget_todo_icon0"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/education_icon" />
+            android:src="@drawable/ic_baseline_education_24" />
 
         <TextView
             android:id="@+id/appwidget_todo_text0"
@@ -89,7 +89,7 @@
             android:id="@+id/appwidget_todo_icon1"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/education_icon" />
+            android:src="@drawable/ic_baseline_education_24" />
 
         <TextView
             android:id="@+id/appwidget_todo_text1"
@@ -120,7 +120,7 @@
             android:id="@+id/appwidget_todo_icon2"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/education_icon" />
+            android:src="@drawable/ic_baseline_education_24" />
 
         <TextView
             android:id="@+id/appwidget_todo_text2"

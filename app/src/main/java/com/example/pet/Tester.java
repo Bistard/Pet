@@ -131,7 +131,7 @@ public class Tester {
             }
         }
 
-        Goal goal = user.addGoal("Deal with next 3 years", " ", 2021, 9, 1, 2024, 4, 30, 0);
+        Goal goal = user.addGoal("Deal with next 3 years", " ", 2021, 9, 1, 2024, 4, 30, 1);
         user.addTask("Do things", "", 2021, 9, 1, "Daily", goal);
 
         user.SaveFiles();

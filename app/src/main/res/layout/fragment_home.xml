@@ -126,7 +126,7 @@
             android:layout_marginStart="165dp"
             android:layout_marginLeft="165dp"
             android:layout_marginBottom="35dp"
-            android:src="@drawable/education_icon" />
+            android:src="@drawable/ic_baseline_education_24" />
 
         <LinearLayout
             android:layout_width="fill_parent"
