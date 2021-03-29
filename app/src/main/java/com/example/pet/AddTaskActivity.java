@@ -8,11 +8,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -29,8 +32,11 @@ public class AddTaskActivity extends AppCompatActivity {
     private Button editEndDate;
 
     private Spinner goalsSpinner;
+    private Spinner recurringOption;
+    private Switch repeatSwitch;
 
     private ArrayList<Goal> items = new ArrayList<>();
+    String[] options = {"Daily", "Weekly", "Bi-weekly", "Monthly"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +78,38 @@ public class AddTaskActivity extends AppCompatActivity {
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         goalsSpinner.setAdapter(aa);
 
+        goalsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                updateDateRange(position, endDatePickerDialog);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+        recurringOption = findViewById(R.id.goalsRecurrenceOption);
+
+        ArrayAdapter aa2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, options);
+        aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        recurringOption.setAdapter(aa2);
+        recurringOption.setVisibility(View.INVISIBLE);
+
+
+        repeatSwitch = findViewById(R.id.switchRepeat);
+        repeatSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    recurringOption.setVisibility(View.VISIBLE);
+                } else {
+                    recurringOption.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
 
         // finish button listener
         Button finishButton = findViewById(R.id.finishCreateTask);
@@ -94,25 +132,15 @@ public class AddTaskActivity extends AppCompatActivity {
             taskDescription.setText(task.description());
 
             goalsSpinner.setSelection(items.indexOf(task.getParentGoal()));
+            updateDateRange(items.indexOf(task.getParentGoal()), endDatePickerDialog);
 
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-            java.util.Date date = new java.util.Date();
-            try {
-                date = sdf.parse(task.getParentGoal().startYear() + "/" + task.getParentGoal().startMonth() + "/" + task.getParentGoal().startDay());
-            } catch (ParseException e) {
-                e.printStackTrace();
+            editEndDate.setText(User.month2string(task.startMonth()) + " " + task.startDay() + " " + task.startYear());
+
+            if (task.isRecurring()) {
+                repeatSwitch.setChecked(true);
+                recurringOption.setVisibility(View.VISIBLE);
+                recurringOption.setSelection(java.util.Arrays.asList(options).indexOf(task.recurringRule()));
             }
-            endDatePickerDialog.getDatePicker().setMinDate(date.getTime());
-            sdf = new SimpleDateFormat("yyyy/MM/dd");
-            date = new java.util.Date();
-            try {
-                date = sdf.parse(task.getParentGoal().endYear() + "/" + task.getParentGoal().endMonth() + "/" + task.getParentGoal().endDay());
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            endDatePickerDialog.getDatePicker().setMaxDate(date.getTime());
-            endDatePickerDialog.updateDate(task.Year(),task.Month()-1,task.Day());
-            editEndDate.setText(User.month2string(task.Month()) + " " + task.Day() + " " + task.Year());
         }
 
 
@@ -126,28 +154,50 @@ public class AddTaskActivity extends AppCompatActivity {
         Spinner goalsSpinner = findViewById(R.id.goalsSpinner);
 
         User user = User.Initialize();
-        String[] endDate = taskDeadLine.getText().toString().split(" ");
-        int endYear = Integer.parseInt(endDate[2]);
-        int endMonth = Date.toNumMonthFormat(endDate[0]);
-        int endDay = Integer.parseInt(endDate[1]);
+        int endYear = endDatePickerDialog.getDatePicker().getYear();
+        int endMonth = endDatePickerDialog.getDatePicker().getMonth() + 1;
+        int endDay = endDatePickerDialog.getDatePicker().getDayOfMonth();
 
         if (task == null) {
             user.addTask(taskName.getText().toString(),
                     TaskDescription.getText().toString(),
                     endYear, endMonth, endDay,
-                    "Once",
+                    (repeatSwitch.isChecked() ? options[recurringOption.getSelectedItemPosition()] : "Once"),
                     items.get(goalsSpinner.getSelectedItemPosition())
             );
         } else {
             task.changeName(taskName.getText().toString());
             task.changeDescription(TaskDescription.getText().toString());
-//            task.changeEventDate(endYear, endMonth, endDay);
-//            task.changeRecurringRule();
+            task.changeRecurringRule(endYear, endMonth, endDay, (repeatSwitch.isChecked() ? options[recurringOption.getSelectedItemPosition()] : "Once"));
             task.changeParent(items.get(goalsSpinner.getSelectedItemPosition()));
             user.SaveFiles();
         }
 
         finish();
+    }
+
+    private void updateDateRange(int index, DatePickerDialog endDatePickerDialog) {
+        Goal g = items.get(index);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        java.util.Date date = new java.util.Date();
+        try {
+            date = sdf.parse("" + g.startDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        endDatePickerDialog.getDatePicker().setMinDate(date.getTime());
+        sdf = new SimpleDateFormat("yyyyMMdd");
+        date = new java.util.Date();
+        try {
+            date = sdf.parse("" + g.endDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        endDatePickerDialog.getDatePicker().setMaxDate(date.getTime());
+
+        if (task != null) {
+            endDatePickerDialog.updateDate(task.startYear(), task.startMonth() - 1, task.startDay());
+        }
     }
 
 

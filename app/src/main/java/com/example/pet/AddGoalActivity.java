@@ -48,7 +48,7 @@ public class AddGoalActivity extends AppCompatActivity {
         //spinner
         String[] options = {"education", "hobbit", "sport", "work"};
         Spinner spinner = findViewById(R.id.addCategory);
-        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,options);
+        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, options);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(aa);
 
@@ -118,20 +118,16 @@ public class AddGoalActivity extends AppCompatActivity {
     public void setGoal() {
         TextView goalName = findViewById(R.id.addGoalName);
         TextView goalDescription = findViewById(R.id.addGoalDescription);
-        TextView goalStartTime = findViewById(R.id.addGoalStartTime);
-        TextView goalDeadline = findViewById(R.id.addGoalDeadline);
 
         Spinner spinner = findViewById(R.id.addCategory);
 
         User user = User.Initialize();
-        String[] startDate = goalStartTime.getText().toString().split(" ");
-        String[] endDate = goalDeadline.getText().toString().split(" ");
-        int startYear = Integer.parseInt(startDate[2]);
-        int startMonth = Date.toNumMonthFormat(startDate[0]);
-        int startDay = Integer.parseInt(startDate[1]);
-        int endYear = Integer.parseInt(endDate[2]);
-        int endMonth = Date.toNumMonthFormat(endDate[0]);
-        int endDay = Integer.parseInt(endDate[1]);
+        int startYear = startDatePickerDialog.getDatePicker().getYear();
+        int startMonth = startDatePickerDialog.getDatePicker().getMonth() + 1;
+        int startDay = startDatePickerDialog.getDatePicker().getDayOfMonth();
+        int endYear = endDatePickerDialog.getDatePicker().getYear();
+        int endMonth = endDatePickerDialog.getDatePicker().getMonth() + 1;
+        int endDay = endDatePickerDialog.getDatePicker().getDayOfMonth();
 
         if (goal == null) {
             user.addGoal(goalName.getText().toString(),
