@@ -7,9 +7,11 @@ Group member:
 - 👧Linda Wang
 
 # New Features (this branch)
-- home page
 - todo page
 - widget pet
+- notification
+- calendar
+- statistics
 
 # Todo
 - Beautify Calendar
