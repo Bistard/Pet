@@ -98,7 +98,7 @@ public class HomeFragment extends Fragment {
 
         // user initialize
         user = User.Initialize();
-        IMAGE_SOURCE = new int[]{R.drawable.education_icon, R.drawable.habbit_icon, R.drawable.sport_icon, R.drawable.work_icon};
+        IMAGE_SOURCE = new int[]{R.drawable.ic_baseline_education_24, R.drawable.ic_baseline_habbit_24, R.drawable.ic_baseline_sport_24, R.drawable.ic_baseline_work_24};
         /*
          * fragment_home_top Initialize
          */

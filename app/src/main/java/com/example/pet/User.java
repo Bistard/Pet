@@ -60,7 +60,7 @@ public class User {
         return this.pet;
     }
 
-    /**
+    /**a
      * get the name of the pet
      *
      * @return name in String
