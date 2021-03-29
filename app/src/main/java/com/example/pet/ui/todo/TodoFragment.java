@@ -239,7 +239,7 @@ public class TodoFragment extends Fragment {
     private TextView makeTextView(ArrayList<Task> lst, LinearLayout parent) {
         LinearLayout layout = new LinearLayout(getContext());
         layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        layout.setOrientation(LinearLayout.HORIZONTAL);
+        layout.setOrientation(LinearLayout.VERTICAL);
         layout.setBackgroundColor(0x00FFFFFF);
 
         TextView tv = new TextView(getContext());
