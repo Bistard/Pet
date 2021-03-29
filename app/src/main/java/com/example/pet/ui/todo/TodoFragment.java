@@ -42,6 +42,7 @@ public class TodoFragment extends Fragment {
 
     private int[] IMAGE_SOURCE;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         todoViewModel =
@@ -150,19 +151,28 @@ public class TodoFragment extends Fragment {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private LinearLayout makeInnerLayout(LinearLayout parent) {
-        // Linear Layout
+        // BACKGROUND LINEAR LAYOUT
+        LinearLayout bglayout = new LinearLayout(getContext());
+        // TODO: use some method to set this as a random color
+        bglayout.setBackground(getResources().getDrawable(R.drawable.big_backgraound_round_corner));
+        bglayout.setElevation(20);
+        // params
+        LinearLayout.LayoutParams paramsBG = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        paramsBG.setMargins(30, 0, 30, 0);
+        bglayout.setLayoutParams(paramsBG);
+
+        // SMALLER LINEAR LAYOUT
         LinearLayout layout = new LinearLayout(getContext());
         // setting
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setBackgroundColor(0xFF7EA48F);
         layout.setBackground(getResources().getDrawable(R.drawable.backgraound_round_corner));
-        layout.setElevation(10);
         // params
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(30, 0, 30, 0);
+        params.setMargins(15, 0, 0, 0);
         layout.setLayoutParams(params);
 
-        parent.addView(layout);
+        bglayout.addView(layout);
+        parent.addView(bglayout);
         return layout;
     }
 
