@@ -254,14 +254,14 @@ public class HomeFragment extends Fragment {
             goalNameDisplay.setText(user.longTermGoal);
 
             percentageDisplay.setText(user.longTermGoalFinishPercentString());
-            longTermGoalDisplay.setText("Long-term");
+            longTermGoalDisplay.setText("Long-Term");
 
             params.width = (int) ((double) WIDTH * user.longTermGoalFinishPercent());
             progressBar.setLayoutParams(params);
         } else {
             goalNameDisplay.setText(currentGoals.get(goalIndex).name());
             percentageDisplay.setText(currentGoals.get(goalIndex).finishPercentString());
-            longTermGoalDisplay.setText("Short-term");
+            longTermGoalDisplay.setText("Short-Term");
 
             params.width = (int) ((double) WIDTH * currentGoals.get(goalIndex).finishPercent());
             progressBar.setLayoutParams(params);
