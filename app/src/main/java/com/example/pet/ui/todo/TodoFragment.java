@@ -3,6 +3,7 @@ package com.example.pet.ui.todo;
 import android.annotation.SuppressLint;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.graphics.Bitmap;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -56,8 +58,8 @@ public class TodoFragment extends Fragment {
         int currentMonth = Integer.parseInt(new SimpleDateFormat("M", Locale.getDefault()).format(new Date()));
         int currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new Date()));
 
+        // Unfinished Task Display
         ArrayList<Task> unfinishedTasks = user.getUnfinishedTasks(currentYear, currentMonth, currentDate);
-
         if (unfinishedTasks.size() > 0) {
             makeTab("Unfinished Tasks", linearLayout);
             LinearLayout unfinishedLayout = makeInnerLayout(linearLayout);
@@ -75,6 +77,7 @@ public class TodoFragment extends Fragment {
             makeEmptyLine(unfinishedLayout, 30);
         }
 
+        // Today's Task Display
         ArrayList<Task> todaysTasks = user.getTasks(currentYear, currentMonth, currentDate);
         makeTab("Today's Tasks", linearLayout);
 
@@ -128,26 +131,32 @@ public class TodoFragment extends Fragment {
     }
 
     private TextView makeTab(String text, LinearLayout parent) {
+        // tab
         TextView tab = new TextView(getContext());
         tab.setText(text);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(30, 30, 30, 10);
-        tab.setLayoutParams(params);
         tab.setTextSize(25);
+        // params
+        LinearLayout.LayoutParams paramsTAB = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        paramsTAB.setMargins(30, 30, 30, 10);
+        tab.setLayoutParams(paramsTAB);
+
         parent.addView(tab);
         return tab;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private LinearLayout makeInnerLayout(LinearLayout parent) {
+        // Linear Layout
         LinearLayout layout = new LinearLayout(getContext());
+        // setting
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setBackgroundColor(0xFF7EA48F);
+        layout.setBackground(getResources().getDrawable(R.drawable.backgraound_round_corner));
+        layout.setElevation(10);
+        // params
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.setMargins(30, 0, 30, 0);
         layout.setLayoutParams(params);
-        layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setBackgroundColor(0xFF7EA48F);
-        Drawable drawable = getResources().getDrawable(R.drawable.backgraound_round_corner);
-
-        layout.setBackground(drawable);
 
         parent.addView(layout);
         return layout;
@@ -168,7 +177,7 @@ public class TodoFragment extends Fragment {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.setMargins(75, 20, 70, 20);
         tv.setLayoutParams(params);
-        tv.setTextColor(0xFFFFFFFF);
+        tv.setTextColor(getResources().getColor(R.color.black));
         tv.setTextSize(20);
         parent.addView(tv);
         return tv;
@@ -203,7 +212,7 @@ public class TodoFragment extends Fragment {
         LinearLayout.LayoutParams tparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         tparams.setMargins(20, 0, 0, 0);
         tv.setLayoutParams(tparams);
-        tv.setTextColor(0xFFFFFFFF);
+        tv.setTextColor(getResources().getColor(R.color.black));
         tv.setTextSize(20);
         if (t.isFininshed()) {
             tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
@@ -247,7 +256,7 @@ public class TodoFragment extends Fragment {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.setMargins(75, 20, 70, 20);
         tv.setLayoutParams(params);
-        tv.setTextColor(0xFFFFFFFF);
+        tv.setTextColor(getResources().getColor(R.color.black));
         tv.setTextSize(20);
 
         tv.setOnClickListener(new View.OnClickListener() {

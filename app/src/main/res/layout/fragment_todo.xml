@@ -14,14 +14,14 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="40dp"
-        android:background="#CEEDDC">
+        android:background="@color/white_10">
 
         <LinearLayout
             android:id="@+id/todo_main_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="#CEEDDC"
+            android:background="@color/white_10"
             android:orientation="vertical" />
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
