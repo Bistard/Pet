@@ -97,6 +97,8 @@ public class CalendarFragment extends Fragment {
                 updateTable();
             }
         });
+        // today button
+        /*
         root.findViewById(R.id.calendar_top_today).setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -106,6 +108,7 @@ public class CalendarFragment extends Fragment {
                 updateTable();
             }
         });
+        */
 
         table_text = new TextView[35];
         table_layout = new RelativeLayout[35];
