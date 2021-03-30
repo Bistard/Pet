@@ -142,7 +142,9 @@ public class HomeFragment extends Fragment {
         upcomingLayout = root.findViewById(R.id.upComingTasks);
         displayUpcomingTasks();
 
-        //pet bubble
+        /*
+        pet bubble display
+         */
         ImageView petImg = root.findViewById(R.id.PetImage);
         petImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,7 +154,6 @@ public class HomeFragment extends Fragment {
                 bubbleAppearAnim();
             }
         });
-
         bubbleLayout = root.findViewById(R.id.home_pet_bubble_layout);
         bubbleText = root.findViewById(R.id.home_pet_bubble_text);
         bubbleLayoutVisible = false;
@@ -319,7 +320,7 @@ public class HomeFragment extends Fragment {
         // tomorrow: turn to R.drawable.my_check_tomorrow
         // others: turn to R.drawable.my_check
         if (true) {
-            checkbox.setButtonDrawable(R.drawable.my_check_box_tomorrow);
+            checkbox.setButtonDrawable(R.drawable.my_check_box);
         } else {
 
         }
