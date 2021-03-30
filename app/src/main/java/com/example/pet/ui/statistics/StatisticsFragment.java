@@ -53,17 +53,17 @@ public class StatisticsFragment extends Fragment {
         int currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new Date()));
 
         ArrayList<Goal> allGoals = user.getGoals();
-//        ArrayList<Goal> finishedGoals = new ArrayList<>();
-//        for (Goal g : allGoals) {
-//            if (g.isEnded(currentYear, currentMonth, currentDate)) {
-//                finishedGoals.add(g);
-//            }
-//        }
+        ArrayList<Goal> finishedGoals = new ArrayList<>();
+        for (Goal g : allGoals) {
+            if (g.isEnded(currentYear, currentMonth, currentDate)) {
+                finishedGoals.add(g);
+            }
+        }
 
-        if (allGoals.size() == 0) {
+        if (finishedGoals.size() == 0) {
             makeTab("You do not any goals.", linearLayout);
         } else {
-            for (Goal g : allGoals) {
+            for (Goal g : finishedGoals) {
                 makeTab(g, linearLayout);
                 LinearLayout innerLayout = makeInnerLayout(linearLayout);
                 makeEmptyLine(innerLayout, 30);
