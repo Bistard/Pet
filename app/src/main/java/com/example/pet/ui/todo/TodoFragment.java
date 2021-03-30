@@ -32,6 +32,8 @@ import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
@@ -46,7 +48,7 @@ public class TodoFragment extends Fragment {
 
     private int[] IMAGE_SOURCE;
 
-    private final int[] backgroundSource = {R.drawable.background_round_color_0,R.drawable.background_round_color_1,R.drawable.background_round_color_2,R.drawable.background_round_color_3};
+    private final int[] backgroundSource = {R.drawable.background_round_color_0, R.drawable.background_round_color_1, R.drawable.background_round_color_2, R.drawable.background_round_color_3};
     private int prevBackground = -1;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -73,6 +75,16 @@ public class TodoFragment extends Fragment {
             LinearLayout unfinishedLayout = makeInnerLayout(linearLayout);
 
             makeEmptyLine(unfinishedLayout, 30);
+
+            Comparator<Task> compareTask = new Comparator<Task>() {
+                public int compare(Task t1, Task t2) {
+                    int date1 = t1.Year() * 10000 + t1.Month() * 100 + t1.Day();
+                    int date2 = t2.Year() * 10000 + t2.Month() * 100 + t2.Day();
+                    return date1 - date2;
+                }
+            };
+            Collections.sort(unfinishedTasks, compareTask);
+
             int i = MAX_LINE_PER_DAY;
             for (Task t : unfinishedTasks) {
                 if (i == 0) {
@@ -166,10 +178,10 @@ public class TodoFragment extends Fragment {
         LinearLayout bglayout = new LinearLayout(getContext());
         // TODO: use some method to set this as a random color
         int curBackground = backgroundSource[rand.nextInt(backgroundSource.length)];
-        while (curBackground==prevBackground){
-            curBackground=backgroundSource[rand.nextInt(backgroundSource.length)];
+        while (curBackground == prevBackground) {
+            curBackground = backgroundSource[rand.nextInt(backgroundSource.length)];
         }
-        prevBackground=curBackground;
+        prevBackground = curBackground;
         bglayout.setBackground(getResources().getDrawable(curBackground));
         bglayout.setElevation(20);
         // params
@@ -225,7 +237,7 @@ public class TodoFragment extends Fragment {
         checkmark.setLayoutParams(new LinearLayout.LayoutParams(80, 80));
         if (t.isFininshed()) {
             checkmark.setImageResource(R.drawable.ic_baseline_indeterminate_check_box_24);
-        }else {
+        } else {
             checkmark.setImageResource(R.drawable.ic_baseline_check_box_24);
         }
         checkmark.setScaleType(ImageView.ScaleType.FIT_XY);
@@ -267,9 +279,9 @@ public class TodoFragment extends Fragment {
                 if (t.isFininshed()) {
                     tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                     checkmark.setImageResource(R.drawable.ic_baseline_indeterminate_check_box_24);
-                }else {
+                } else {
                     checkmark.setImageResource(R.drawable.ic_baseline_check_box_24);
-                    tv.setPaintFlags(tv.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+                    tv.setPaintFlags(tv.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
                 }
             }
         });
