@@ -29,7 +29,7 @@
     <ScrollView
         android:id="@+id/verticalScrollUpcoming"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_home_upcoming"
         app:layout_constraintVertical_bias="0.117"
