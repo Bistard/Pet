@@ -1,5 +1,7 @@
 package com.example.pet.ui.statistics;
 
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,11 +14,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.pet.AddGoalActivity;
+import com.example.pet.AddTaskActivity;
 import com.example.pet.Goal;
 import com.example.pet.R;
 import com.example.pet.Task;
@@ -49,17 +53,17 @@ public class StatisticsFragment extends Fragment {
         int currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new Date()));
 
         ArrayList<Goal> allGoals = user.getGoals();
-        ArrayList<Goal> finishedGoals = new ArrayList<>();
-        for (Goal g : allGoals) {
-            if (g.isEnded(currentYear, currentMonth, currentDate)) {
-                finishedGoals.add(g);
-            }
-        }
+//        ArrayList<Goal> finishedGoals = new ArrayList<>();
+//        for (Goal g : allGoals) {
+//            if (g.isEnded(currentYear, currentMonth, currentDate)) {
+//                finishedGoals.add(g);
+//            }
+//        }
 
-        if (finishedGoals.size() == 0) {
-            makeTab("You have not finished any goals.", linearLayout);
+        if (allGoals.size() == 0) {
+            makeTab("You do not any goals.", linearLayout);
         } else {
-            for (Goal g : finishedGoals) {
+            for (Goal g : allGoals) {
                 makeTab(g, linearLayout);
                 LinearLayout innerLayout = makeInnerLayout(linearLayout);
                 makeEmptyLine(innerLayout, 30);
@@ -119,7 +123,7 @@ public class StatisticsFragment extends Fragment {
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddGoalActivity.openAddGoalActivity(getContext(),g);
+                AddGoalActivity.openAddGoalActivity(getContext(), g);
             }
         });
 
@@ -134,7 +138,6 @@ public class StatisticsFragment extends Fragment {
         params.setMargins(30, 0, 30, 0);
         layout.setLayoutParams(params);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setBackgroundColor(0xFF7EA48F);
         Drawable drawable = getResources().getDrawable(R.drawable.backgraound_round_corner);
 
         layout.setBackground(drawable);
@@ -152,13 +155,12 @@ public class StatisticsFragment extends Fragment {
         return empty;
     }
 
-    private TextView makeTextView(String text, LinearLayout parent) {
+        private TextView makeTextView(String text, LinearLayout parent) {
         TextView tv = new TextView(getContext());
         tv.setText(text);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.setMargins(75, 20, 70, 20);
         tv.setLayoutParams(params);
-        tv.setTextColor(0xFFFFFFFF);
         tv.setTextSize(20);
         parent.addView(tv);
         return tv;
