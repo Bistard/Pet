@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.statistics.StatisticsFragment"
-    android:background="#CEEDDC">
+    android:background="@color/white">
 
     <ScrollView
         android:id="@+id/statistics_scrollview"
         android:layout_width="match_parent"
         android:layout_height="650dp"
-        android:background="#CEEDDC"
+        android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         android:layout_marginRight="0dp"
         android:layout_marginLeft="0dp"
