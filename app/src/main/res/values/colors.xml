@@ -36,4 +36,9 @@
 
     <color name="blue">#003566</color>
 
+    <color name="red">#ec1c24</color>
+    <color name="red_50">#ea8589</color>
+
+    <color name="orange">#ff7f27</color>
+
 </resources>

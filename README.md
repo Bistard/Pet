@@ -27,8 +27,7 @@ Group member:
 - Todo Activity
   - (✔) display fixed color to side bar
   - (✔) display random color to side bar
-  - (⭐) display more colors
-  - (⭐) display DDL to each task
+  - (✔) display more colors
   - "more" might needs a button style
 - (✔) New Font
 

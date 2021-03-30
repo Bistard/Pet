@@ -48,7 +48,10 @@ public class TodoFragment extends Fragment {
 
     private int[] IMAGE_SOURCE;
 
-    private final int[] backgroundSource = {R.drawable.background_round_color_0, R.drawable.background_round_color_1, R.drawable.background_round_color_2, R.drawable.background_round_color_3};
+    private final int[] backgroundSource = {R.drawable.background_round_color_0, R.drawable.background_round_color_1,
+                                            R.drawable.background_round_color_2, R.drawable.background_round_color_3,
+                                            R.drawable.background_round_color_4, R.drawable.background_round_color_5,
+                                            R.drawable.background_round_color_6, R.drawable.background_round_color_7};
     private int prevBackground = -1;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
