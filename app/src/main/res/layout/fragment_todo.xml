@@ -112,7 +112,7 @@
                     android:id="@+id/stat_tomorrow_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="overdue"
+                    android:text="tomorrow"
                     android:fontFamily="@font/roboto_light"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="15dp"/>
