@@ -193,7 +193,7 @@ public class TodoFragment extends Fragment {
         tomorrow.setText(String.valueOf(tomorrowTasksSize));
 
         TextView unfinished = root.findViewById(R.id.stat_todo_number);
-        unfinished.setText(String.valueOf(totalTasks));
+        unfinished.setText(String.valueOf(unfinishedTasksSize+todayTasksSize+tomorrowTasksSize+totalTasks));
 
         return root;
     }
