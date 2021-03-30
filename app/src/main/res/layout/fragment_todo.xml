@@ -65,6 +65,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="15dp"/>
                 <TextView
+                    android:id="@+id/stat_overdue_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -90,6 +91,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="15dp"/>
                 <TextView
+                    android:id="@+id/stat_today_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -115,6 +117,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="15dp"/>
                 <TextView
+                    android:id="@+id/stat_tomorrow_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -140,6 +143,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="15dp"/>
                 <TextView
+                    android:id="@+id/stat_unfinished_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
