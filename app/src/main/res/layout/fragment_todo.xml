@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.todo.TodoFragment">
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/fragment_todo_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -14,30 +14,42 @@
         app:layout_constraintTop_toTopOf="parent"
 
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@drawable/fragment_home_gradient"
-        android:elevation="40dp">
+        android:layout_height="200dp">
 
-        <TextView
-            android:layout_width="173dp"
-            android:layout_height="41dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="123dp"
-            android:layout_marginLeft="123dp"
-            android:layout_marginTop="19dp"
-            android:layout_marginEnd="115dp"
-            android:layout_marginRight="115dp"
-            android:layout_marginBottom="20dp"
-            android:text="To-Do List"
-            android:textColor="@color/white"
-            android:textSize="35dp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+        <FrameLayout
+            android:id="@+id/to_do_top"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@drawable/fragment_home_gradient"
+            android:elevation="10dp">
+
+            <TextView
+                android:layout_width="173dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="123dp"
+                android:layout_marginLeft="123dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="115dp"
+                android:layout_marginRight="115dp"
+                android:text="To-Do List"
+                android:textColor="@color/white"
+                android:textSize="35dp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/to_do_stat"
+            android:elevation="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/backgraound_round_corner">
+            <!-- stats -->
+        </FrameLayout>
+
+    </FrameLayout>
 
     <ScrollView
         android:id="@+id/todo_scrollview"
