@@ -76,7 +76,7 @@ public class TodoFragment extends Fragment {
         ArrayList<Task> unfinishedTasks = user.getUnfinishedTasks(currentYear, currentMonth, currentDate);
         int unfinishedTasksSize = unfinishedTasks.size();
         if (unfinishedTasksSize > 0) {
-            makeTab("Unfinished", linearLayout);
+            makeTab("Overdue", linearLayout);
             LinearLayout unfinishedLayout = makeInnerLayout(linearLayout);
 
             makeEmptyLine(unfinishedLayout, 30);
@@ -125,7 +125,34 @@ public class TodoFragment extends Fragment {
         }
         makeEmptyLine(todaysLayout, 30);
 
-        for (int d = 1; d <= NUMBER_OF_DAYS; d++) {
+        // Tomorrow's Task Display
+        int tomorrowDate = Task.incrementDate(currentYear * 10000 + currentMonth * 100 + currentDate, 1);
+        int tomorrowYear = tomorrowDate / 10000;
+        int tomorrowMonth = (tomorrowDate % 10000) / 100;
+        int tomorrowDay = tomorrowDate % 100;
+        ArrayList<Task> tomorrowTasks = user.getTasks(tomorrowYear, tomorrowMonth, tomorrowDay);
+        int tomorrowTasksSize = tomorrowTasks.size();
+        makeTab("Tomorrow", linearLayout);
+
+        LinearLayout tomorrowsLayout = makeInnerLayout(linearLayout);
+
+        makeEmptyLine(tomorrowsLayout, 30);
+        if (tomorrowTasksSize == 0) {
+            makeTextView("You have no task tomorrow!", tomorrowsLayout);
+        } else {
+            int i = MAX_LINE_PER_DAY;
+            for (Task t : tomorrowTasks) {
+                if (i == 0) {
+                    makeTextView(new ArrayList<Task>(tomorrowTasks.subList(MAX_LINE_PER_DAY, todayTasks.size())), tomorrowsLayout);
+                    break;
+                }
+                i--;
+                makeTextView(t, tomorrowsLayout);
+            }
+        }
+        makeEmptyLine(tomorrowsLayout, 30);
+
+        for (int d = 2; d <= NUMBER_OF_DAYS; d++) {
             int searchDate = Task.incrementDate(currentYear * 10000 + currentMonth * 100 + currentDate, d);
             int searchYear = searchDate / 10000;
             int searchMonth = (searchDate % 10000) / 100;
@@ -162,9 +189,8 @@ public class TodoFragment extends Fragment {
         TextView today = root.findViewById(R.id.stat_today_number);
         today.setText(String.valueOf(todayTasksSize));
 
-        // TODO: update R.id.stat_tomorrow_number
         TextView tomorrow = root.findViewById(R.id.stat_tomorrow_number);
-        tomorrow.setText("0");
+        tomorrow.setText(String.valueOf(tomorrowTasksSize));
 
         TextView unfinished = root.findViewById(R.id.stat_todo_number);
         unfinished.setText(String.valueOf(totalTasks));
