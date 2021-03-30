@@ -86,7 +86,7 @@ public class HomeFragment extends Fragment {
     private LinearLayout.LayoutParams params;
     private int WIDTH;
     //  upComing
-    private final int MAX_DISPLAY_WINDOW = 10;
+    private final int MAX_DISPLAY_WINDOW = 20;
     private LinearLayout upcomingLayout;
     private ArrayList<Task> upcomingTasks;
 
@@ -236,6 +236,12 @@ public class HomeFragment extends Fragment {
                 upcomingTasks.add(t);
             }
         }
+        int tomorrow = Task.incrementDate(currentYear * 10000 + currentMonth * 100 + currentDate, 1);
+        for (Task t : user.getTasks(tomorrow / 10000, (tomorrow % 10000) / 100, tomorrow % 100)) {
+            if (!t.isFininshed()) {
+                upcomingTasks.add(t);
+            }
+        }
         Comparator<Task> compareTask = new Comparator<Task>() {
             public int compare(Task t1, Task t2) {
                 int date1 = t1.Year() * 10000 + t1.Month() * 100 + t1.Day();
@@ -315,14 +321,14 @@ public class HomeFragment extends Fragment {
         // CHECK BOX
         CheckBox checkbox = new CheckBox(getContext());
         // TODO: change color due to DDL
-        // overdue: turn to R.drawable.my_check_box_overdue
-        // today: turn to R.drawable.my_check_box_today
-        // tomorrow: turn to R.drawable.my_check_tomorrow
-        // others: turn to R.drawable.my_check
-        if (true) {
-            checkbox.setButtonDrawable(R.drawable.my_check_box);
+        int curDate = currentYear * 10000 + currentMonth * 100 + currentDate;
+        int thisDate = t.Year() * 10000 + t.Month() * 100 + t.Day();
+        if (thisDate < curDate) {
+            checkbox.setButtonDrawable(R.drawable.my_check_box_overdue);
+        } else if (thisDate == curDate) {
+            checkbox.setButtonDrawable(R.drawable.my_check_box_today);
         } else {
-
+            checkbox.setButtonDrawable(R.drawable.my_check_box_tomorrow);
         }
         checkbox.setId(R.id.layout3);
         // params
