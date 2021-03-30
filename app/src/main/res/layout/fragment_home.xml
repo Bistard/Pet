@@ -69,6 +69,7 @@
             android:fontFamily="@font/roboto"
             android:text="Today's Date"
             android:textColor="@color/white"
+            android:textStyle="bold"
             android:textSize="40sp" />
 
         <TextView
@@ -79,7 +80,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
-            android:fontFamily="@font/roboto_light"
+            android:fontFamily="@font/roboto"
             android:text="Goal Name"
             android:textColor="@color/white"
             android:textSize="20sp" />
