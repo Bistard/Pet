@@ -135,15 +135,15 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/stat_unfinished_text"
+                    android:id="@+id/stat_todo_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="unfinished"
+                    android:text="todo"
                     android:fontFamily="@font/roboto_light"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="15dp"/>
                 <TextView
-                    android:id="@+id/stat_unfinished_number"
+                    android:id="@+id/stat_todo_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"

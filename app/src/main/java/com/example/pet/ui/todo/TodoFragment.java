@@ -67,14 +67,16 @@ public class TodoFragment extends Fragment {
         user = User.Initialize();
         IMAGE_SOURCE = new int[]{R.drawable.ic_baseline_education_24, R.drawable.ic_baseline_habbit_24, R.drawable.ic_baseline_sport_24, R.drawable.ic_baseline_work_24};
 
+        int totalTasks = 0;
         int currentYear = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date()));
         int currentMonth = Integer.parseInt(new SimpleDateFormat("M", Locale.getDefault()).format(new Date()));
         int currentDate = Integer.parseInt(new SimpleDateFormat("dd", Locale.getDefault()).format(new Date()));
 
         // Unfinished Task Display
         ArrayList<Task> unfinishedTasks = user.getUnfinishedTasks(currentYear, currentMonth, currentDate);
-        if (unfinishedTasks.size() > 0) {
-            makeTab("Unfinished Tasks", linearLayout);
+        int unfinishedTasksSize = unfinishedTasks.size();
+        if (unfinishedTasksSize > 0) {
+            makeTab("Unfinished", linearLayout);
             LinearLayout unfinishedLayout = makeInnerLayout(linearLayout);
 
             makeEmptyLine(unfinishedLayout, 30);
@@ -101,19 +103,20 @@ public class TodoFragment extends Fragment {
         }
 
         // Today's Task Display
-        ArrayList<Task> todaysTasks = user.getTasks(currentYear, currentMonth, currentDate);
-        makeTab("Today's Tasks", linearLayout);
+        ArrayList<Task> todayTasks = user.getTasks(currentYear, currentMonth, currentDate);
+        int todayTasksSize = todayTasks.size();
+        makeTab("Today", linearLayout);
 
         LinearLayout todaysLayout = makeInnerLayout(linearLayout);
 
         makeEmptyLine(todaysLayout, 30);
-        if (todaysTasks.size() == 0) {
+        if (todayTasksSize == 0) {
             makeTextView("You have no task today!", todaysLayout);
         } else {
             int i = MAX_LINE_PER_DAY;
-            for (Task t : todaysTasks) {
+            for (Task t : todayTasks) {
                 if (i == 0) {
-                    makeTextView(new ArrayList<Task>(todaysTasks.subList(MAX_LINE_PER_DAY, todaysTasks.size())), todaysLayout);
+                    makeTextView(new ArrayList<Task>(todayTasks.subList(MAX_LINE_PER_DAY, todayTasks.size())), todaysLayout);
                     break;
                 }
                 i--;
@@ -129,11 +132,13 @@ public class TodoFragment extends Fragment {
             int searchDay = searchDate % 100;
 
             ArrayList<Task> theTasks = user.getTasks(searchYear, searchMonth, searchDay);
+            int theTasksSize = theTasks.size();
+            totalTasks += theTasksSize;
             makeTab(com.example.pet.Date.makeDateString(searchYear, searchMonth, searchDay), linearLayout);
 
             LinearLayout theLayout = makeInnerLayout(linearLayout);
             makeEmptyLine(theLayout, 30);
-            if (theTasks.size() != 0) {
+            if (theTasksSize != 0) {
                 int i = MAX_LINE_PER_DAY;
                 for (Task t : theTasks) {
                     if (i == 0) {
@@ -147,8 +152,22 @@ public class TodoFragment extends Fragment {
             makeEmptyLine(theLayout, 30);
         }
 
-        //make custom empty layout
+        // make custom empty layout
         makeEmptyLine(linearLayout, 200);
+
+        // update stat_overdue_number/stat_today_number/stat_tomorrow_number/stat_unfinished_number
+        TextView overdue = root.findViewById(R.id.stat_overdue_number);
+        overdue.setText(String.valueOf(unfinishedTasksSize));
+
+        TextView today = root.findViewById(R.id.stat_today_number);
+        today.setText(String.valueOf(todayTasksSize));
+
+        // TODO: update R.id.stat_tomorrow_number
+        TextView tomorrow = root.findViewById(R.id.stat_tomorrow_number);
+        tomorrow.setText("0");
+
+        TextView unfinished = root.findViewById(R.id.stat_todo_number);
+        unfinished.setText(String.valueOf(totalTasks));
 
         return root;
     }
