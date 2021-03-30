@@ -27,8 +27,9 @@ Group member:
 - Todo Activity
   - (✔) display fixed color to side bar
   - display random color to side bar
-  - "more" needs a button style
-- (⭐) New Font
+  - (⭐) display DDL to each task
+  - "more" might needs a button style
+- (✔) New Font
 
 # Bugs
 - Navbar
@@ -40,7 +41,7 @@ Group member:
   - consistency issue when update the rule
     - will not be resolved unless major structure change on file system
     - may be ignored
-  - (⭐) adding task will encounter an error when selecting what goals belongs to
+  - (✔) adding task will encounter an error when selecting what goals belongs to
 - Todo Fragment
   - unfinished show more render empty spaces
-  - Date display formatting
+  - (✔)Date display formatting

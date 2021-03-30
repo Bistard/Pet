@@ -10,7 +10,7 @@
     <ScrollView
         android:id="@+id/statistics_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="571dp"
+        android:layout_height="650dp"
         android:background="#CEEDDC"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         android:layout_marginRight="0dp"

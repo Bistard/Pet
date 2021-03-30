@@ -58,6 +58,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Locale;
 import java.util.Random;
 
@@ -162,11 +164,11 @@ public class HomeFragment extends Fragment {
             public void run() {
                 double rand = new Random().nextDouble();
                 if (bubbleLayoutVisible) {
-                    if (rand > 0.3) {
+                    if (rand > 0.1) {
                         bubbleDisappearAnim();
                     }
                 } else {
-                    if (rand > 0.1 && displayBubble()) {
+                    if (rand > 0.3 && displayBubble()) {
                         bubbleAppearAnim();
                     }
                 }
@@ -233,6 +235,14 @@ public class HomeFragment extends Fragment {
                 upcomingTasks.add(t);
             }
         }
+        Comparator<Task> compareTask = new Comparator<Task>() {
+            public int compare(Task t1, Task t2) {
+                int date1 = t1.Year() * 10000 + t1.Month() * 100 + t1.Day();
+                int date2 = t2.Year() * 10000 + t2.Month() * 100 + t2.Day();
+                return date1 - date2;
+            }
+        };
+        Collections.sort(upcomingTasks, compareTask);
         // display each upcoming task
         int WINDOW_NUMBER = Math.min(MAX_DISPLAY_WINDOW, upcomingTasks.size());
         if (WINDOW_NUMBER != 0) {
