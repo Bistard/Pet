@@ -20,10 +20,10 @@ Group member:
 - CustomUser profile to showcase the app is needed
   - can be edited in Tester.java
 - More reasonable Tester.java
-- Upcoming Tasks
-  - (✔) show ddl
-  - ripple effect on task itself
-  - change colors and checkbox state due to DDL
+- Home Activity
+  - (✔) upcoming task: show DDL
+  - upcoming task: ripple effect on task itself
+  - upcoming task: change colors and checkbox state due to DDL
 - Todo Activity
   - (✔) display fixed color to side bar
   - (✔) display random color to side bar
