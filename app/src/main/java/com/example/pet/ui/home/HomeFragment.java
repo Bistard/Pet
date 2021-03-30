@@ -313,7 +313,16 @@ public class HomeFragment extends Fragment {
         linearLayout.setLayoutParams(layoutParams);
         // CHECK BOX
         CheckBox checkbox = new CheckBox(getContext());
-        checkbox.setButtonDrawable(R.drawable.my_check_box);
+        // TODO: change color due to DDL
+        // overdue: turn to R.drawable.my_check_box_overdue
+        // today: turn to R.drawable.my_check_box_today
+        // tomorrow: turn to R.drawable.my_check_tomorrow
+        // others: turn to R.drawable.my_check
+        if (true) {
+            checkbox.setButtonDrawable(R.drawable.my_check_box_tomorrow);
+        } else {
+
+        }
         checkbox.setId(R.id.layout3);
         // params
         LinearLayout.LayoutParams paramsCB = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -367,7 +376,16 @@ public class HomeFragment extends Fragment {
         // DEADLINE
         TextView ddl = new TextView(getContext());
         ddl.setText(com.example.pet.Date.makeDateString(t.Year(), t.Month(), t.Day()));
-        ddl.setTextColor(getResources().getColor(R.color.grey));
+        // TODO: change color due to the DDL
+        // overdue: turn to R.color.red
+        // today: turn to R.color.red_50
+        // tomorrow: turn to R.color.yellow_100
+        // others: turn to R.color.grey
+        if (true) {
+            ddl.setTextColor(getResources().getColor(R.color.grey));
+        } else {
+
+        }
         ddl.setTextSize(12);
         // params
         LinearLayout.LayoutParams paramsDDL = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1);

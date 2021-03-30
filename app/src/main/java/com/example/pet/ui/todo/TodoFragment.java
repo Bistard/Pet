@@ -179,7 +179,7 @@ public class TodoFragment extends Fragment {
         Random rand = new Random();
         // BACKGROUND LINEAR LAYOUT
         LinearLayout bglayout = new LinearLayout(getContext());
-        // TODO: use some method to set this as a random color
+        // random color displayed
         int curBackground = backgroundSource[rand.nextInt(backgroundSource.length)];
         while (curBackground == prevBackground) {
             curBackground = backgroundSource[rand.nextInt(backgroundSource.length)];
