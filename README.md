@@ -26,7 +26,8 @@ Group member:
   - turn red when passed DDL
 - Todo Activity
   - (✔) display fixed color to side bar
-  - display random color to side bar
+  - (✔) display random color to side bar
+  - (⭐) display more colors
   - (⭐) display DDL to each task
   - "more" might needs a button style
 - (✔) New Font
