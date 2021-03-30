@@ -70,6 +70,7 @@
                     android:layout_height="wrap_content"
                     android:text="0"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     android:fontFamily="@font/roboto_light"
                     android:layout_gravity="center_horizontal" />
 
@@ -96,6 +97,7 @@
                     android:layout_height="wrap_content"
                     android:text="0"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     android:fontFamily="@font/roboto_light"
                     android:layout_gravity="center_horizontal" />
 
@@ -122,6 +124,7 @@
                     android:layout_height="wrap_content"
                     android:text="0"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     android:fontFamily="@font/roboto_light"
                     android:layout_gravity="center_horizontal" />
 
@@ -148,6 +151,7 @@
                     android:layout_height="wrap_content"
                     android:text="0"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     android:fontFamily="@font/roboto_light"
                     android:layout_gravity="center_horizontal" />
 
