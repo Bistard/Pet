@@ -78,98 +78,112 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="0"
-                android:background="@drawable/border">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
                     android:text="SUN"
                     android:fontFamily="@font/roboto_light"
-                    android:gravity="center_horizontal"/>
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="1"
-                android:background="@drawable/border">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
                     android:text="MON"
                     android:fontFamily="@font/roboto_light"
-                    android:gravity="center_horizontal"/>
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="2"
-                android:background="@drawable/border">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
                     android:text="TUE"
                     android:fontFamily="@font/roboto_light"
-                    android:gravity="center_horizontal"/>
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="3"
-                android:background="@drawable/border">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
                     android:text="WED"
                     android:fontFamily="@font/roboto_light"
-                    android:gravity="center_horizontal"/>
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="4"
-                android:background="@drawable/border">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
                     android:text="THU"
                     android:fontFamily="@font/roboto_light"
-                    android:gravity="center_horizontal"/>
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="5"
-                android:background="@drawable/border">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
                     android:text="FRI"
                     android:fontFamily="@font/roboto_light"
-                    android:gravity="center_horizontal"/>
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="6"
-                android:background="@drawable/border">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
                     android:text="SAT"
                     android:fontFamily="@font/roboto_light"
-                    android:gravity="center_horizontal"/>
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical"/>
             </LinearLayout>
         </TableRow>
 
@@ -181,7 +195,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="0"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -199,7 +212,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="1"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -217,7 +229,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="2"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -235,7 +246,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="3"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -253,7 +263,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="4"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -271,7 +280,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="5"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -289,7 +297,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="6"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -311,7 +318,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="0"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -329,7 +335,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="1"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -347,7 +352,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="2"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -365,7 +369,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="3"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -383,7 +386,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="4"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -401,7 +403,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="5"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -419,7 +420,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="6"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -441,7 +441,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="0"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -459,7 +458,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="1"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -477,7 +475,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="2"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -495,7 +492,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="3"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -513,7 +509,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="4"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -531,7 +526,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="5"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -549,7 +543,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="6"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -571,7 +564,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="0"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -589,7 +581,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="1"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -607,7 +598,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="2"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -625,7 +615,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="3"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -643,7 +632,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="4"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -661,7 +649,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="5"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -679,7 +666,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="6"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -701,7 +687,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="0"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -719,7 +704,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="1"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -737,7 +721,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="2"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -755,7 +738,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="3"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -773,7 +755,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="4"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -791,7 +772,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="5"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
@@ -809,7 +789,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_column="6"
-                android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
