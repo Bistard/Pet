@@ -186,6 +186,7 @@ public class CalendarFragment extends Fragment {
         // display each task
         int WINDOW_NUMBER = tasks.size();
         if (WINDOW_NUMBER != 0) {
+            makeEmptyLine(taskLayout, 5, getResources().getColor(R.color.grey_50));
             for (int i = 0; i < WINDOW_NUMBER; i++) {
                 makeUpcomingTextView(tasks.get(i), makeInnerLayout(taskLayout));
                 makeEmptyLine(taskLayout, 5, getResources().getColor(R.color.grey_50));

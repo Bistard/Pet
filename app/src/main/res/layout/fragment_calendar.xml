@@ -1132,7 +1132,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp">
 
             <TextView
                 android:id="@+id/calendar_bottom_day"
@@ -1140,7 +1141,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
                 android:text="Day"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 app:layout_constraintStart_toStartOf="@+id/calendar_table"
@@ -1152,7 +1153,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
                 android:text="month"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 app:layout_constraintStart_toStartOf="@+id/calendar_table"
@@ -1161,15 +1162,16 @@
 
         <TextView
             android:id="@+id/calendar_bottom_tasks_num"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="# tasks in total"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:fontFamily="@font/roboto_light"
             android:layout_marginRight="10dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:gravity="end"/>
+            android:gravity="end"
+            android:layout_marginEnd="10dp" />
 
     </LinearLayout>
 
@@ -1177,6 +1179,7 @@
         android:id="@+id/calendar_bottom_scrollview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="65dp"
         android:background="@color/white"
 

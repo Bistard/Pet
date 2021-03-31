@@ -253,6 +253,7 @@ public class HomeFragment extends Fragment {
         // display each upcoming task
         int WINDOW_NUMBER = Math.min(MAX_DISPLAY_WINDOW, upcomingTasks.size());
         if (WINDOW_NUMBER != 0) {
+            makeEmptyLine(upcomingLayout, 5, getResources().getColor(R.color.grey_50));
             for (int i = 0; i < WINDOW_NUMBER; i++) {
                 makeUpcomingTextView(upcomingTasks.get(i), makeInnerLayout(upcomingLayout));
                 makeEmptyLine(upcomingLayout, 5, getResources().getColor(R.color.grey_50));
