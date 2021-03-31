@@ -154,12 +154,13 @@ public class CalendarFragment extends Fragment {
         int dayNum = 1;
         for (; indx < start_day + YearMonth.of(displayYear, displayMonth).lengthOfMonth() && indx < 35; indx++) {
             table_text_frame[indx].setBackgroundColor(0x00000000);
-            if (dayNum == displayDate) {
-                Drawable drawable = getResources().getDrawable(R.drawable.calendar_date_2);
-                table_text_frame[indx].setBackground(drawable);
-            }
+
             if (displayYear == currentYear && displayMonth == currentMonth && dayNum == currentDate) {
                 Drawable drawable = getResources().getDrawable(R.drawable.calendar_date);
+                table_text_frame[indx].setBackground(drawable);
+            }
+            if (dayNum == displayDate) {
+                Drawable drawable = getResources().getDrawable(R.drawable.calendar_date_2);
                 table_text_frame[indx].setBackground(drawable);
             }
             table_text[indx].setText("" + dayNum);
@@ -198,7 +199,7 @@ public class CalendarFragment extends Fragment {
         }
         // bottom-right # of tasks display
         TextView bottom_tasks_num =root.findViewById(R.id.calendar_bottom_tasks_num);
-        bottom_tasks_num.setText(String.valueOf(WINDOW_NUMBER) + " " + "tasks");
+        bottom_tasks_num.setText("+" + String.valueOf(WINDOW_NUMBER) + " " + "tasks");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -223,12 +224,12 @@ public class CalendarFragment extends Fragment {
         int dayNum = 1;
         for (; indx < start_day + YearMonth.of(displayYear, displayMonth).lengthOfMonth() && indx < 35; indx++) {
             table_text_frame[indx].setBackgroundColor(0x00000000);
-            if (dayNum == displayDate) {
-                Drawable drawable = getResources().getDrawable(R.drawable.calendar_date_2);
-                table_text_frame[indx].setBackground(drawable);
-            }
             if (displayYear == currentYear && displayMonth == currentMonth && dayNum == currentDate) {
                 Drawable drawable = getResources().getDrawable(R.drawable.calendar_date);
+                table_text_frame[indx].setBackground(drawable);
+            }
+            if (dayNum == displayDate) {
+                Drawable drawable = getResources().getDrawable(R.drawable.calendar_date_2);
                 table_text_frame[indx].setBackground(drawable);
             }
             dayNum++;
