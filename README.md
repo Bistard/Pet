@@ -7,7 +7,8 @@ Group member:
 - 👧Linda Wang
 
 # New Features (this branch)
-- 
+- New UI for todo Activity
+- Displaying tasks in each day on Calendar Activity
 
 # Todo
 - Beautify Calendar
