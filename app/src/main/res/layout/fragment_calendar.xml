@@ -34,20 +34,14 @@
             android:translationY="25dp" />
 
         <ImageButton
-            android:id="@+id/calendar_top_left_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginTop="30dp"
+android:layout_marginTop="30dp"
             android:layout_marginStart="70dp"
             android:layout_marginLeft="25dp"
             android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
             android:translationY="25dp" />
 
         <ImageButton
-            android:id="@+id/calendar_top_right_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginTop="30dp"
+android:layout_marginTop="30dp"
             android:layout_marginStart="25dp"
             android:layout_marginLeft="0dp"
             android:layout_toEndOf="@+id/calendar_top_date"
@@ -76,7 +70,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_column="0"
                 android:background="@drawable/border">
 
@@ -90,7 +84,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_column="1"
                 android:background="@drawable/border">
 
@@ -104,7 +98,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_column="2"
                 android:background="@drawable/border">
 
@@ -118,7 +112,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_column="3"
                 android:background="@drawable/border">
 
@@ -132,7 +126,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_column="4"
                 android:background="@drawable/border">
 
@@ -146,7 +140,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_column="5"
                 android:background="@drawable/border">
 
@@ -160,7 +154,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_column="6"
                 android:background="@drawable/border">
 
@@ -179,683 +173,648 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="0"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_00"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="00" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="00"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal"/>
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_00"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="1"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_01"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="01" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="01"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal"/>
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_01"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="2"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_02"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="02" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="02"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal"/>
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_02"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="3"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_03"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="03" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="03"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal"/>
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_03"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="4"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_04"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="04" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="04"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal"/>
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_04"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="5"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_05"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="05" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="05"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal"/>
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_05"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="6"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_06"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="06" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="06"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal"/>
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_06"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
         </TableRow>
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="0"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_10"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10" />
+                    android:text="10"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_10"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="1"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_11"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="11" />
+                    android:text="11"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_11"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="2"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_12"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12" />
+                    android:text="12"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_12"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="3"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_13"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="13" />
+                    android:text="13"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_13"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="4"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_14"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="14" />
+                    android:text="14"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_14"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="5"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_15"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="15" />
+                    android:text="15"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_15"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="6"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_16"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="16" />
+                    android:text="16"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_16"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
         </TableRow>
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="0"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_20"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="20" />
+                    android:text="20"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_20"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="1"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_21"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="21" />
+                    android:text="21"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_21"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="2"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_22"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="22" />
+                    android:text="22"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_22"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="3"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_23"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="23" />
+                    android:text="23"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_23"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="4"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_24"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="24" />
+                    android:text="24"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_24"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="5"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_25"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="25" />
+                    android:text="25"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_25"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="6"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_26"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="26" />
+                    android:text="26"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_26"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
         </TableRow>
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="0"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_30"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="30" />
+                    android:text="30"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_30"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="1"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_31"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="31" />
+                    android:text="31"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_31"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="2"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_32"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="32" />
+                    android:text="32"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_32"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="3"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_33"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="33" />
+                    android:text="33"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_33"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="4"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_34"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="34" />
+                    android:text="34"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_34"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="5"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_35"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="35" />
+                    android:text="35"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_35"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="6"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_36"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="36" />
+                    android:text="36"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_36"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
         </TableRow>
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="0"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_40"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="40" />
+                    android:text="40"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_40"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="1"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_41"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="41" />
+                    android:text="41"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_41"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="2"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_42"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="42" />
+                    android:text="42"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_42"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="3"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_43"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="43" />
+                    android:text="43"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_43"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="4"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_44"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="44" />
+                    android:text="44"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_44"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="5"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_45"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="45" />
+                    android:text="45"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_45"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
                 android:layout_column="6"
                 android:background="@drawable/border"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/calendar_table_text_46"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="46" />
+                    android:text="46"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal" />
 
-                <RelativeLayout
-                    android:id="@+id/calendar_table_layout_46"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp" />
             </LinearLayout>
         </TableRow>
     </TableLayout>
