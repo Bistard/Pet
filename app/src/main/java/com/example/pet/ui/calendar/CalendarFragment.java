@@ -139,7 +139,7 @@ public class CalendarFragment extends Fragment {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void updateTable() {
-        top_date_text.setText(User.month2string(displayMonth) + " " + displayYear);
+        top_date_text.setText(com.example.pet.Date.toFullStrMonthFormat(displayMonth) + " " + displayYear);
 
         int start_day = 0;
         try {

@@ -251,27 +251,27 @@ public class User {
     public static String month2string(int month){
         switch (month) {
             case 1:
-                return "Jan.";
+                return "Jan";
             case 2:
-                return "Feb.";
+                return "Feb";
             case 3:
-                return "Mar.";
+                return "Mar";
             case 4:
-                return "Apr.";
+                return "Apr";
             case 5:
-                return "May ";
+                return "May";
             case 6:
-                return "Jun.";
+                return "Jun";
             case 7:
-                return "Jul.";
+                return "Jul";
             case 8:
-                return "Aug.";
+                return "Aug";
             case 9:
-                return "Sep.";
+                return "Sep";
             case 10:
-                return "Oct.";
+                return "Oct";
             case 11:
-                return "Nov.";
+                return "Nov";
             case 12:
                 return "Dec";
             default:
