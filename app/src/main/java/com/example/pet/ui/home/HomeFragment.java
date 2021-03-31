@@ -257,8 +257,6 @@ public class HomeFragment extends Fragment {
                 makeUpcomingTextView(upcomingTasks.get(i), makeInnerLayout(upcomingLayout));
                 makeEmptyLine(upcomingLayout, 5, getResources().getColor(R.color.grey_50));
             }
-            //make custom empty layout
-            makeEmptyLine(upcomingLayout, 50, getResources().getColor(R.color.white_transparent));
         } else {
             makeTextView("You don't have anything for today.", makeInnerLayout(upcomingLayout));
         }
