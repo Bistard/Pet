@@ -381,11 +381,7 @@ public class HomeFragment extends Fragment {
         // DEADLINE
         TextView ddl = new TextView(getContext());
         ddl.setText(com.example.pet.Date.makeDateString(t.Year(), t.Month(), t.Day()));
-        // TODO: change color due to the DDL
-        // overdue: turn to R.color.red
-        // today: turn to R.color.red_50
-        // tomorrow: turn to R.color.yellow_100
-        // others: turn to R.color.grey
+        // change color due to the DDL
         if (thisDate < curDate) {
             ddl.setTextColor(getResources().getColor(R.color.red));
         } else if (thisDate == curDate) {

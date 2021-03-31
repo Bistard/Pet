@@ -26,7 +26,6 @@
             android:layout_marginTop="30dp"
             android:layout_toEndOf="@+id/calendar_top_left_arrow"
             android:layout_toRightOf="@+id/calendar_top_left_arrow"
-            android:fontFamily="sans-serif-medium"
             android:text="MON. YYYY"
             android:textColor="@color/white"
             android:textSize="30sp"
@@ -85,6 +84,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="SUN"
+                    android:fontFamily="@font/roboto_light"
                     android:gravity="center_horizontal"/>
             </LinearLayout>
 
@@ -98,6 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="MON"
+                    android:fontFamily="@font/roboto_light"
                     android:gravity="center_horizontal"/>
             </LinearLayout>
 
@@ -111,6 +112,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TUE"
+                    android:fontFamily="@font/roboto_light"
                     android:gravity="center_horizontal"/>
             </LinearLayout>
 
@@ -124,6 +126,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="WED"
+                    android:fontFamily="@font/roboto_light"
                     android:gravity="center_horizontal"/>
             </LinearLayout>
 
@@ -137,6 +140,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="THU"
+                    android:fontFamily="@font/roboto_light"
                     android:gravity="center_horizontal"/>
             </LinearLayout>
 
@@ -150,6 +154,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="FRI"
+                    android:fontFamily="@font/roboto_light"
                     android:gravity="center_horizontal"/>
             </LinearLayout>
 
@@ -163,6 +168,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="SAT"
+                    android:fontFamily="@font/roboto_light"
                     android:gravity="center_horizontal"/>
             </LinearLayout>
         </TableRow>
@@ -187,7 +193,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_00"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -206,7 +212,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_01"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -225,7 +231,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_02"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -244,7 +250,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_03"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -263,7 +269,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_04"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -282,7 +288,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_05"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -301,7 +307,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_06"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
         </TableRow>
         <TableRow
@@ -324,7 +330,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_10"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -343,7 +349,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_11"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -362,7 +368,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_12"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -381,7 +387,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_13"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -400,7 +406,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_14"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -419,7 +425,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_15"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -438,7 +444,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_16"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
         </TableRow>
         <TableRow
@@ -461,7 +467,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_20"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -480,7 +486,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_21"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -499,7 +505,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_22"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -518,7 +524,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_23"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -537,7 +543,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_24"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -556,7 +562,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_25"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -575,7 +581,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_26"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
         </TableRow>
         <TableRow
@@ -598,7 +604,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_30"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -617,7 +623,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_31"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -636,7 +642,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_32"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -655,7 +661,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_33"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -674,7 +680,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_34"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -693,7 +699,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_35"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -712,7 +718,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_36"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
         </TableRow>
         <TableRow
@@ -735,7 +741,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_40"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -754,7 +760,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_41"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -773,7 +779,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_42"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -792,7 +798,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_43"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -811,7 +817,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_44"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -830,7 +836,7 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_45"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -849,39 +855,78 @@
                 <RelativeLayout
                     android:id="@+id/calendar_table_layout_46"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" />
+                    android:layout_height="40dp" />
             </LinearLayout>
         </TableRow>
     </TableLayout>
+
     <LinearLayout
+        android:id="@+id/calendar_date_display"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/calendar_table"
         app:layout_constraintTop_toBottomOf="@+id/calendar_table"
-        android:layout_marginRight="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        tools:layout_editor_absoluteX="0dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/calendar_bottom_text"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="date"/>
+            android:orientation="vertical">
 
-        <ScrollView
-            android:id="@+id/calendar_bottom_scrollview"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="@color/white"
-            >
-
-            <LinearLayout
-                android:id="@+id/calendar_bottom_main_layout"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/calendar_bottom_day"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="vertical" />
-        </ScrollView>
+                android:fontFamily="@font/roboto"
+                android:text="Day"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintStart_toStartOf="@+id/calendar_table"
+                app:layout_constraintTop_toBottomOf="@+id/calendar_table" />
+
+            <TextView
+                android:id="@+id/calendar_bottom_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="month"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintStart_toStartOf="@+id/calendar_table"
+                app:layout_constraintTop_toBottomOf="@+id/calendar_table" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/calendar_bottom_tasks_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="# tasks in total"
+            android:textSize="20dp"
+            android:fontFamily="@font/roboto_light"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="end"/>
+
     </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/calendar_bottom_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="65dp"
+        android:background="@color/white"
+
+        app:layout_constraintTop_toBottomOf="@+id/calendar_bottom_text"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/calendar_bottom_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical" />
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
