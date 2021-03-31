@@ -320,7 +320,7 @@ public class HomeFragment extends Fragment {
         linearLayout.setLayoutParams(layoutParams);
         // CHECK BOX
         CheckBox checkbox = new CheckBox(getContext());
-        // TODO: change color due to DDL
+        // change color due to DDL
         int curDate = currentYear * 10000 + currentMonth * 100 + currentDate;
         int thisDate = t.Year() * 10000 + t.Month() * 100 + t.Day();
         if (thisDate < curDate) {
@@ -328,7 +328,7 @@ public class HomeFragment extends Fragment {
         } else if (thisDate == curDate) {
             checkbox.setButtonDrawable(R.drawable.my_check_box_today);
         } else {
-            checkbox.setButtonDrawable(R.drawable.my_check_box_tomorrow);
+            checkbox.setButtonDrawable(R.drawable.my_check_box);
         }
         checkbox.setId(R.id.layout3);
         // params
@@ -388,10 +388,12 @@ public class HomeFragment extends Fragment {
         // today: turn to R.color.red_50
         // tomorrow: turn to R.color.yellow_100
         // others: turn to R.color.grey
-        if (true) {
-            ddl.setTextColor(getResources().getColor(R.color.grey));
+        if (thisDate < curDate) {
+            ddl.setTextColor(getResources().getColor(R.color.red));
+        } else if (thisDate == curDate) {
+            ddl.setTextColor(getResources().getColor(R.color.red_50));
         } else {
-
+            ddl.setTextColor(getResources().getColor(R.color.grey));
         }
         ddl.setTextSize(12);
         // params
