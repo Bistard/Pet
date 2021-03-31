@@ -34,14 +34,20 @@
             android:translationY="25dp" />
 
         <ImageButton
-android:layout_marginTop="30dp"
+            android:id="@+id/calendar_top_left_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
             android:layout_marginStart="70dp"
             android:layout_marginLeft="25dp"
             android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
             android:translationY="25dp" />
 
         <ImageButton
-android:layout_marginTop="30dp"
+            android:id="@+id/calendar_top_right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
             android:layout_marginStart="25dp"
             android:layout_marginLeft="0dp"
             android:layout_toEndOf="@+id/calendar_top_date"
@@ -70,7 +76,7 @@ android:layout_marginTop="30dp"
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="0"
                 android:background="@drawable/border">
 
@@ -84,7 +90,7 @@ android:layout_marginTop="30dp"
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="1"
                 android:background="@drawable/border">
 
@@ -98,7 +104,7 @@ android:layout_marginTop="30dp"
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="2"
                 android:background="@drawable/border">
 
@@ -112,7 +118,7 @@ android:layout_marginTop="30dp"
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="3"
                 android:background="@drawable/border">
 
@@ -126,7 +132,7 @@ android:layout_marginTop="30dp"
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="4"
                 android:background="@drawable/border">
 
@@ -140,7 +146,7 @@ android:layout_marginTop="30dp"
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="5"
                 android:background="@drawable/border">
 
@@ -154,7 +160,7 @@ android:layout_marginTop="30dp"
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="6"
                 android:background="@drawable/border">
 
@@ -173,7 +179,7 @@ android:layout_marginTop="30dp"
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="0"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -184,14 +190,14 @@ android:layout_marginTop="30dp"
                     android:layout_height="0dp"
                     android:text="00"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="1"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -202,14 +208,14 @@ android:layout_marginTop="30dp"
                     android:layout_height="0dp"
                     android:text="01"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="2"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -220,14 +226,14 @@ android:layout_marginTop="30dp"
                     android:layout_height="0dp"
                     android:text="02"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="3"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -238,14 +244,14 @@ android:layout_marginTop="30dp"
                     android:layout_height="0dp"
                     android:text="03"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="4"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -256,14 +262,14 @@ android:layout_marginTop="30dp"
                     android:layout_height="0dp"
                     android:text="04"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="5"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -274,14 +280,14 @@ android:layout_marginTop="30dp"
                     android:layout_height="0dp"
                     android:text="05"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="6"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -292,18 +298,18 @@ android:layout_marginTop="30dp"
                     android:layout_height="0dp"
                     android:text="06"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
         </TableRow>
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="0"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -311,17 +317,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_10"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="10"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="1"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -329,17 +335,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_11"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="11"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="2"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -347,17 +353,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_12"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="12"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="3"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -365,17 +371,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_13"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="13"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="4"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -383,17 +389,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_14"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="14"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="5"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -401,17 +407,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_15"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="15"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="6"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -419,21 +425,21 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_16"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="16"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
         </TableRow>
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="0"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -441,17 +447,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_20"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="20"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="1"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -459,17 +465,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_21"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="21"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="2"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -477,17 +483,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_22"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="22"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="3"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -495,17 +501,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_23"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="23"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="4"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -513,17 +519,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_24"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="24"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="5"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -531,17 +537,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_25"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="25"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="6"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -549,21 +555,21 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_26"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="26"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
         </TableRow>
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="0"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -571,17 +577,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_30"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="30"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="1"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -589,17 +595,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_31"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="31"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="2"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -607,17 +613,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_32"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="32"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="3"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -625,17 +631,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_33"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="33"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="4"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -643,17 +649,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_34"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="34"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="5"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -661,17 +667,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_35"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="35"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="6"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -679,21 +685,21 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_36"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="36"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
         </TableRow>
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="0"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -701,17 +707,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_40"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="40"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="1"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -719,17 +725,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_41"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="41"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="2"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -737,17 +743,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_42"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="42"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="3"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -755,17 +761,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_43"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="43"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="4"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -773,17 +779,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_44"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="44"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="5"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -791,17 +797,17 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_45"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="45"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_column="6"
                 android:background="@drawable/border"
                 android:orientation="vertical">
@@ -809,11 +815,11 @@ android:layout_marginTop="30dp"
                 <TextView
                     android:id="@+id/calendar_table_text_46"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="46"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
         </TableRow>
