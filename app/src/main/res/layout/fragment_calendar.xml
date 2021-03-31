@@ -219,8 +219,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical"/>
 
-                    </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_00"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
 
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+                            
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -244,6 +254,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_01"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -271,6 +293,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_02"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -296,6 +330,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_03"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -323,6 +369,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_04"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -349,6 +407,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_05"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -374,6 +444,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_06"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -405,6 +487,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_10"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -430,6 +524,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_11"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -457,6 +563,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -482,6 +600,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_13"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -509,6 +639,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_14"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -535,6 +677,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_15"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -560,6 +714,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_16"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -591,6 +757,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_20"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -616,6 +794,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_21"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -643,6 +833,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_22"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -668,6 +870,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_23"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -695,6 +909,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_24"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -721,6 +947,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_25"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -746,6 +984,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_26"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -777,6 +1027,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_30"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -802,6 +1064,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_31"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -829,6 +1103,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_32"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -854,6 +1140,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_33"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -881,6 +1179,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_34"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -907,6 +1217,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_35"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -932,6 +1254,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_36"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -963,6 +1297,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_40"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -988,6 +1334,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_41"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -1015,6 +1373,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_42"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -1040,6 +1410,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_43"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -1067,6 +1449,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_44"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -1093,6 +1487,18 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
 
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_45"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -1118,6 +1524,18 @@
                             android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_46"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
