@@ -55,6 +55,8 @@ public class CalendarFragment extends Fragment {
     private LinearLayout[] table_text_frame;
 
     private int[] IMAGE_SOURCE;
+    private int[] TASK_ROUND_ICON;
+
     private final int TABLE_X_MAX = 140;
     private final int TABLE_Y_MAX = 160;
 
@@ -68,6 +70,7 @@ public class CalendarFragment extends Fragment {
 
         user = User.Initialize();
         IMAGE_SOURCE = new int[]{R.drawable.ic_baseline_education_24, R.drawable.ic_baseline_habbit_24, R.drawable.ic_baseline_sport_24, R.drawable.ic_baseline_work_24};
+        TASK_ROUND_ICON = new int[]{R.drawable.background_round_color_education, R.drawable.background_round_color_sport, R.drawable.background_round_color_habbit, R.drawable.background_round_color_work};
 
         currentYear = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date()));
         currentMonth = Integer.parseInt(new SimpleDateFormat("M", Locale.getDefault()).format(new Date()));
