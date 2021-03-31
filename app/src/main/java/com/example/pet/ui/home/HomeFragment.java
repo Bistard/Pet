@@ -257,8 +257,6 @@ public class HomeFragment extends Fragment {
                 makeUpcomingTextView(upcomingTasks.get(i), makeInnerLayout(upcomingLayout));
                 makeEmptyLine(upcomingLayout, 5, getResources().getColor(R.color.grey_50));
             }
-            //make custom empty layout
-            makeEmptyLine(upcomingLayout, 50, getResources().getColor(R.color.white_transparent));
         } else {
             makeTextView("You don't have anything for today.", makeInnerLayout(upcomingLayout));
         }
@@ -383,11 +381,7 @@ public class HomeFragment extends Fragment {
         // DEADLINE
         TextView ddl = new TextView(getContext());
         ddl.setText(com.example.pet.Date.makeDateString(t.Year(), t.Month(), t.Day()));
-        // TODO: change color due to the DDL
-        // overdue: turn to R.color.red
-        // today: turn to R.color.red_50
-        // tomorrow: turn to R.color.yellow_100
-        // others: turn to R.color.grey
+        // change color due to the DDL
         if (thisDate < curDate) {
             ddl.setTextColor(getResources().getColor(R.color.red));
         } else if (thisDate == curDate) {

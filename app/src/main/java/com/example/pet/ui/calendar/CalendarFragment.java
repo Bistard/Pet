@@ -33,6 +33,8 @@ import com.example.pet.Task;
 import com.example.pet.User;
 import com.example.pet.ui.home.HomeViewModel;
 
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.time.YearMonth;
 import java.util.ArrayList;
@@ -269,9 +271,14 @@ public class CalendarFragment extends Fragment {
         return (int) Math.sqrt((double) width * (double) height / 8.0 / numberOfTasks);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void updateBottomScrollView() {
-        TextView date = root.findViewById(R.id.calendar_bottom_text);
-        date.setText(com.example.pet.Date.makeDateString(displayYear, displayMonth, displayDate));
+        // bottom-left date display
+        TextView bottom_month = root.findViewById(R.id.calendar_bottom_month);
+        bottom_month.setText(com.example.pet.Date.toStrMonthFormat(displayMonth));
+        TextView bottom_day = root.findViewById(R.id.calendar_bottom_day);
+        bottom_day.setText(String.valueOf(displayDate));
+
 
         LinearLayout taskLayout = root.findViewById(R.id.calendar_bottom_main_layout);
         taskLayout.removeAllViews();
@@ -288,6 +295,9 @@ public class CalendarFragment extends Fragment {
         } else {
             makeTextView("You don't have anything for this date.", makeInnerLayout(taskLayout));
         }
+        // bottom-right # of tasks display
+        TextView bottom_tasks_num =root.findViewById(R.id.calendar_bottom_tasks_num);
+        bottom_tasks_num.setText(String.valueOf(WINDOW_NUMBER) + " " + "tasks");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
