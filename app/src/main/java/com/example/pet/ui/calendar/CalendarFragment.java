@@ -197,7 +197,7 @@ public class CalendarFragment extends Fragment {
         }
         // bottom-right # of tasks display
         TextView bottom_tasks_num =root.findViewById(R.id.calendar_bottom_tasks_num);
-        bottom_tasks_num.setText(String.valueOf(WINDOW_NUMBER) + " " + "tasks on that day");
+        bottom_tasks_num.setText(String.valueOf(WINDOW_NUMBER) + " " + "tasks");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

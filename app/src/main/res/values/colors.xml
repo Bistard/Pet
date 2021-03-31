@@ -17,12 +17,14 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_5">#00f7f7f7</color>
     <color name="white_10">#00f1f1f1</color>
+    <color name="white_transparent">#FFFFFFFF</color>
 
     <color name="green">#a1f9bc</color>
+    <color name="green_100">#a1f9bc</color>
     <color name="light_green">#e2ffeb</color>
     <color name="dark_green">#63cb83</color>
     <color name="dark_dark_green">#567760</color>
-    <color name="white_transparent">#FFFFFFFF</color>
+
 
     <color name="light_blue_50">#FFE1F5FE</color>
     <color name="light_blue_200">#FF81D4FA</color>
