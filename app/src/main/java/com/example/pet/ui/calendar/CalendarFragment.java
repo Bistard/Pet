@@ -167,7 +167,7 @@ public class CalendarFragment extends Fragment {
         int dayNum = 1;
         for (; indx < start_day + YearMonth.of(displayYear, displayMonth).lengthOfMonth() && indx < 35; indx++) {
             table_text[indx].setBackgroundColor(0x00000000);
-            if(dayNum==displayDate){
+            if (dayNum == displayDate) {
                 Drawable drawable = getResources().getDrawable(R.drawable.calendar_date_2);
                 table_text[indx].setBackground(drawable);
             }
@@ -185,7 +185,6 @@ public class CalendarFragment extends Fragment {
             for (int i = 0; i < theseTasks.size(); i++) {
                 made_circle = false;
                 for (int iteration = 0; iteration < 100; iteration++) {
-                    // TODO: optimize intensity
                     int x = curvedRandom(0, TABLE_X_MAX, 0, 5.0);
                     int y = curvedRandom(0, TABLE_Y_MAX, 0, 5.0);
                     int r = curvedRandom(5, maxRadius, 1, 3.0);
@@ -268,9 +267,8 @@ public class CalendarFragment extends Fragment {
         }
     }
 
-    //TODO: change max size selection method
     private int maxRadiusSelection(int width, int height, int numberOfTasks) {
-        return (int) ((double) width / 2.0 / numberOfTasks);
+        return (int) Math.sqrt((double) width * (double) height / 8.0 / numberOfTasks);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -324,7 +322,7 @@ public class CalendarFragment extends Fragment {
         int dayNum = 1;
         for (; indx < start_day + YearMonth.of(displayYear, displayMonth).lengthOfMonth() && indx < 35; indx++) {
             table_text[indx].setBackgroundColor(0x00000000);
-            if(dayNum==displayDate){
+            if (dayNum == displayDate) {
                 Drawable drawable = getResources().getDrawable(R.drawable.calendar_date_2);
                 table_text[indx].setBackground(drawable);
             }
@@ -372,16 +370,7 @@ public class CalendarFragment extends Fragment {
         linearLayout.setLayoutParams(layoutParams);
         // CHECK BOX
         CheckBox checkbox = new CheckBox(getContext());
-        // TODO: change color due to DDL
-        // overdue: turn to R.drawable.my_check_box_overdue
-        // today: turn to R.drawable.my_check_box_today
-        // tomorrow: turn to R.drawable.my_check_tomorrow
-        // others: turn to R.drawable.my_check
-        if (true) {
-            checkbox.setButtonDrawable(R.drawable.my_check_box);
-        } else {
-
-        }
+        checkbox.setButtonDrawable(R.drawable.my_check_box);
         checkbox.setId(R.id.layout3);
         // params
         LinearLayout.LayoutParams paramsCB = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
