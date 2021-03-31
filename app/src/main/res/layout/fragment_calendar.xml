@@ -869,9 +869,11 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/calendar_info_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
 
             <TextView
                 android:id="@+id/calendar_bottom_day"
@@ -905,6 +907,7 @@
             android:text="# tasks in total"
             android:textSize="20dp"
             android:fontFamily="@font/roboto_light"
+            android:layout_marginRight="10dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:gravity="end"/>
