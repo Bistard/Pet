@@ -204,25 +204,6 @@
         app:layout_constraintTop_toBottomOf="@+id/addCategory"
         app:layout_constraintVertical_bias="0.086" />
 
-<!--        <ImageButton-->
-<!--        android:id="@+id/endDateButton"-->
-<!--        android:layout_width="49dp"-->
-<!--        android:layout_height="45dp"-->
-<!--        android:background="@drawable/roundcorner"-->
-<!--        android:backgroundTint="@color/dark_green"-->
-<!--        android:padding="5dp"-->
-<!--        android:scaleType="fitCenter"-->
-<!--        android:tint="@color/white"-->
-<!--        android:onClick="openEndDataPicker"-->
-
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/addGoalDeadline"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/textView6"-->
-<!--        app:layout_constraintVertical_bias="0.04"-->
-<!--        app:srcCompat="@drawable/ic_baseline_date_range_24" />-->
-
     <Button
         android:id="@+id/addGoalDeadline"
         android:layout_width="130dp"
@@ -239,18 +220,6 @@
         app:layout_constraintStart_toEndOf="@+id/addGoalStartTime"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        app:layout_constraintBottom_toTopOf="@+id/addGoalName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
-        app:layout_constraintStart_toEndOf="@+id/addGoalTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.618"
-        app:srcCompat="@drawable/ic_notifications_black_24dp" />
 
     <Button
         android:id="@+id/finishCreateGoal"
