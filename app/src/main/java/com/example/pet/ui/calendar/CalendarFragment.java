@@ -278,26 +278,6 @@ public class CalendarFragment extends Fragment {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
         layoutParams.setMargins(0, 0, 0, 0);
         linearLayout.setLayoutParams(layoutParams);
-        // CHECK BOX
-        CheckBox checkbox = new CheckBox(getContext());
-        checkbox.setButtonDrawable(R.drawable.my_check_box);
-        checkbox.setId(R.id.layout3);
-        // params
-        LinearLayout.LayoutParams paramsCB = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        paramsCB.gravity = Gravity.CENTER_VERTICAL;
-        paramsCB.rightMargin = 50;
-        checkbox.setLayoutParams(paramsCB);
-        linearLayout.addView(checkbox);
-        // animation
-        // checkbox.setStateListAnimator(AnimatorInflater.loadStateListAnimator(getContext(), R.drawable.check_box_anim_smooth));
-        // functionality
-        checkbox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                t.changeFinished();
-                user.SaveFiles();
-            }
-        });
 
         // CONTAINER (TASK NAME & DEADLINE)
         LinearLayout container = new LinearLayout(getContext());
@@ -331,16 +311,7 @@ public class CalendarFragment extends Fragment {
         // DEADLINE
         TextView ddl = new TextView(getContext());
         ddl.setText(com.example.pet.Date.makeDateString(t.Year(), t.Month(), t.Day()));
-        // TODO: change color due to the DDL
-        // overdue: turn to R.color.red
-        // today: turn to R.color.red_50
-        // tomorrow: turn to R.color.yellow_100
-        // others: turn to R.color.grey
-        if (true) {
             ddl.setTextColor(getResources().getColor(R.color.grey));
-        } else {
-
-        }
         ddl.setTextSize(12);
         // params
         LinearLayout.LayoutParams paramsDDL = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
