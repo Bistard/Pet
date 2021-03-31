@@ -52,7 +52,6 @@ public class CalendarFragment extends Fragment {
     private int currentYear, currentMonth, currentDate, displayYear, displayMonth, displayDate;
     private TextView top_date_text;
     private TextView[] table_text;
-    private RelativeLayout[] table_layout;
 
     private int[] IMAGE_SOURCE;
     private final int TABLE_X_MAX = 140;
@@ -114,20 +113,12 @@ public class CalendarFragment extends Fragment {
         });
 
         table_text = new TextView[35];
-        table_layout = new RelativeLayout[35];
         for (int _i = 0; _i < 5; _i++) {
             for (int _j = 0; _j < 7; _j++) {
                 int i = _i;
                 int j = _j;
                 table_text[i * 7 + j] = root.findViewById(r.getIdentifier("calendar_table_text_" + i + j, "id", getContext().getPackageName()));
                 table_text[i * 7 + j].setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        updateDisplayDate(i, j);
-                    }
-                });
-                table_layout[i * 7 + j] = root.findViewById(r.getIdentifier("calendar_table_layout_" + i + j, "id", getContext().getPackageName()));
-                table_layout[i * 7 + j].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         updateDisplayDate(i, j);
@@ -158,7 +149,6 @@ public class CalendarFragment extends Fragment {
         for (; indx < start_day; indx++) {
             table_text[indx].setBackgroundColor(0x00000000);
             table_text[indx].setText("");
-            table_layout[indx].removeAllViews();
         }
         int dayNum = 1;
         for (; indx < start_day + YearMonth.of(displayYear, displayMonth).lengthOfMonth() && indx < 35; indx++) {
@@ -177,7 +167,6 @@ public class CalendarFragment extends Fragment {
         for (; indx < 35; indx++) {
             table_text[indx].setBackgroundColor(0x00000000);
             table_text[indx].setText("");
-            table_layout[indx].removeAllViews();
         }
     }
 
