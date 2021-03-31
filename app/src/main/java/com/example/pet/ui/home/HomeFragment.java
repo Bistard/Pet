@@ -385,7 +385,7 @@ public class HomeFragment extends Fragment {
         if (thisDate < curDate) {
             ddl.setTextColor(getResources().getColor(R.color.red));
         } else if (thisDate == curDate) {
-            ddl.setTextColor(getResources().getColor(R.color.red_50));
+            ddl.setTextColor(getResources().getColor(R.color.yellow_100));
         } else {
             ddl.setTextColor(getResources().getColor(R.color.grey));
         }
