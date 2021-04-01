@@ -1,4 +1,4 @@
-# Pet
+  # Pet
 Group project for Solution Challenge 2021.
 Group member:
 - 🧑Chris Li (Sihan Li)
@@ -6,8 +6,11 @@ Group member:
 - 🧑Liam Xue (Yiping Xue)
 - 👧Linda Wang
 
-# New Features (this branch)
-- 
+# Guidance
+- To run the code correctly, you can do in two ways:
+  - Open the whole project in Android Studio, and just simply runs the project, the simulator will do its job and the app should be running correctly.
+  - Or, go to 
+
 
 # Todo
 - Beautify Calendar
