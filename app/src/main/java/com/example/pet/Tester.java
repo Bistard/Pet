@@ -19,14 +19,12 @@ public class Tester {
     3 -- work
      */
 
-    static public User makeCustomUser() {
-        final int today = 20210331;
-
+    static public User makeEmptyUser(){
         Tester.deleteAllJSON();
         User user = User.Initialize();
 
         user.isFirstTime = false;
-        user.longTermGoal = "Graduate with laifu & waifu";
+        user.longTermGoal = "Graduate University";
         user.longTermGoalStart = 20200901;
         user.longTermGoalEnd = 20240430;  // YYYYMMDD
         user.addPet("Bary");
@@ -34,6 +32,14 @@ public class Tester {
         User.goalList = new ArrayList<>();
         user.nextGoalID = 0;
         User.taskList = new ArrayList<>();
+
+        return user;
+    }
+
+    static public User makeCustomUser() {
+        final int today = 20210331;
+
+        User user = makeEmptyUser();
 
         Goal goal1 = user.addGoal("Survive the First Semester", "Please Uni don't fail me in my first semester!!!", 2020, 9, 1, 2020, 12, 20, 0);
         Task t = user.addTask("Reading", "", 2020, 9, 1, "Daily", goal1);
@@ -59,6 +65,13 @@ public class Tester {
 
 
         Goal goal2 = user.addGoal("Lose Weight", "Reduce my body weight to 10kg", 2020, 9, 1, 2021, 8, 31, 2);
+        t = user.addTask("Jogging", "", 2020, 9, 3, 2021, 4, 20, "Weekly", goal2);
+        t = t.parent;
+        for (int i = 0; i < t.finished.size(); i++) {
+            if (t.recurringDates.get(i) < today) {
+                t.finished.set(i, 1);
+            }
+        }
         t = user.addTask("Go to GYM", "", 2020, 11, 8, 2021, 4, 20, "Weekly", goal2);
         t = t.parent;
         for (int i = 0; i < t.finished.size(); i++) {
@@ -100,7 +113,7 @@ public class Tester {
         }
 
 
-        Goal goal3 = user.addGoal("Survive First Year", "target: grade of 90", 2021, 1, 11, 2021, 4, 30, 0);
+        Goal goal3 = user.addGoal("Survive First Year", "target: grade of 80", 2021, 1, 11, 2021, 4, 30, 0);
         t = user.addTask("Reading", "", 2021, 1, 16, "Bi-weekly", goal3);
         t = t.parent;
         for (int i = 0; i < t.finished.size(); i++) {
@@ -155,20 +168,4 @@ public class Tester {
         return user;
     }
 
-    static public User makeEmptyUser(){
-        Tester.deleteAllJSON();
-        User user = User.Initialize();
-
-        user.isFirstTime = false;
-        user.longTermGoal = "goal";
-        user.longTermGoalStart = 20200901;
-        user.longTermGoalEnd = 20240430;  // YYYYMMDD
-        user.addPet("Snail");
-
-        User.goalList = new ArrayList<>();
-        user.nextGoalID = 0;
-        User.taskList = new ArrayList<>();
-
-        return user;
-    }
 }
