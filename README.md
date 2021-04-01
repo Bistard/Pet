@@ -7,7 +7,7 @@ Group member:
 - 👧Linda Wang
 
 # New Features (this branch)
-- 
+- New UI for calendar
 
 # Todo
 - Beautify Calendar
