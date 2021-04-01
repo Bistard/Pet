@@ -19,7 +19,7 @@ Group member:
   - need to show all goals, with proper message
 - CustomUser profile to showcase the app is needed
   - can be edited in Tester.java
-- More reasonable Tester.java
+- (✔) More reasonable Tester.java
 - Home Activity
   - (✔) upcoming task: show DDL
   - upcoming task: ripple effect on task itself
@@ -43,5 +43,4 @@ Group member:
     - may be ignored
   - (✔) adding task will encounter an error when selecting what goals belongs to
 - Todo Fragment
-  - unfinished show more render empty spaces
   - (✔)Date display formatting
