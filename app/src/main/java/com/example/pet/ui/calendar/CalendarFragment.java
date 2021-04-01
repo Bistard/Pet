@@ -141,7 +141,11 @@ public class CalendarFragment extends Fragment {
         for (int color : colors) {
             TextView tv = new TextView(getContext());
             tv.setBackground(getResources().getDrawable(TASK_ROUND_ICON[color]));
-            tv.setText("  ");
+            tv.setText("");
+            LinearLayout.LayoutParams paramsDOT = new LinearLayout.LayoutParams(12, 12);
+            paramsDOT.leftMargin = 5;
+            tv.setLayoutParams(paramsDOT);
+
             parentLayout.addView(tv);
         }
     }
