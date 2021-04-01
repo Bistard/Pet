@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddGoalActivity"
+    android:background="@color/white">
+
+    <ImageButton
+        android:id="@+id/returnGoal"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:background="@color/black_50_transparent"
+        android:minWidth="30dp"
+        android:minHeight="30dp"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025"
+        app:srcCompat="@drawable/ic_baseline_keyboard_arrow_left_24" />
+
+    <TextView
+        android:id="@+id/addGoalTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create New Goal"
+        android:textColor="@color/dark_green"
+        android:textSize="28sp"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/returnGoal"
+        app:layout_constraintVertical_bias="0.019" />
+
+    <TextView
+        android:id="@+id/addGoalTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Goal Name"
+        android:textColor="@color/dark_green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addGoalTitle"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <EditText
+        android:id="@+id/addGoalName"
+        android:layout_width="371dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="464dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+
+        android:hint="Goal Name"
+        android:textColor="#96989E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addGoalTextView3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:textColor="@color/dark_green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addGoalName"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <EditText
+        android:id="@+id/addGoalDescription"
+        android:hint="Description"
+
+        android:layout_width="371dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+
+        android:textColor="#96989E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Category"
+        android:textColor="@color/dark_green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addGoalDescription"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/addCategory"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:ems="10"
+
+        android:textColor="#96989E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Date"
+        android:textColor="@color/dark_green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addCategory"
+        app:layout_constraintVertical_bias="0.086" />
+
+    <Button
+        android:id="@+id/addGoalStartTime"
+        android:layout_width="130dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="none"
+        android:hint="Start Date"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.0"
+        android:onClick="openStartDataPicker"/>
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/startDateButton"-->
+<!--        android:layout_width="49dp"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:background="@drawable/roundcorner"-->
+<!--        android:backgroundTint="@color/dark_green"-->
+<!--        android:onClick="openStartDataPicker"-->
+<!--        android:padding="5dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        android:tint="@color/white"-->
+
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/addGoalStartTime"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/textView5"-->
+<!--        app:layout_constraintVertical_bias="0.039"-->
+<!--        app:srcCompat="@drawable/ic_baseline_date_range_24" />-->
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="End Date"
+        android:textColor="@color/dark_green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.417"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/addCategory"
+        app:layout_constraintVertical_bias="0.086" />
+
+    <Button
+        android:id="@+id/addGoalDeadline"
+        android:layout_width="130dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="none"
+        android:onClick="openEndDataPicker"
+        android:hint="End Date"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.424"
+        app:layout_constraintStart_toEndOf="@+id/addGoalStartTime"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/finishCreateGoal"
+        android:layout_width="wrap_content"
+        android:minWidth="200dp"
+        android:layout_height="wrap_content"
+
+        android:text="Create Goal"
+        android:textColor="@color/white"
+        android:background="@drawable/basic_button_style"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.959" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

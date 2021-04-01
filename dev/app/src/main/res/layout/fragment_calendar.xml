@@ -1,0 +1,1616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.calendar.CalendarFragment"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/calendar_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@drawable/fragment_home_gradient">
+
+        <ImageButton
+            android:id="@+id/calendar_top_left_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+
+            android:src="@drawable/ic_baseline_keyboard_arrow_left_24" />
+
+        <TextView
+            android:id="@+id/calendar_top_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+
+            android:text="MONTH YYYY"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+
+        <ImageButton
+            android:id="@+id/calendar_top_right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+
+            android:scaleX="-1"
+            android:src="@drawable/ic_baseline_keyboard_arrow_left_24" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/calendar_table_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/calendar_background_round_corner"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendar_top_layout">
+
+        <TableLayout
+            android:id="@+id/calendar_table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:stretchColumns="*">
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="0"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:text="SUN"
+                        android:fontFamily="@font/roboto_light"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:text="MON"
+                        android:fontFamily="@font/roboto_light"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:text="TUE"
+                        android:fontFamily="@font/roboto_light"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="3"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:text="WED"
+                        android:fontFamily="@font/roboto_light"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="4"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:text="THU"
+                        android:fontFamily="@font/roboto_light"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:text="FRI"
+                        android:fontFamily="@font/roboto_light"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="6"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:text="SAT"
+                        android:fontFamily="@font/roboto_light"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="0"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_00"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_00"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="00"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical"/>
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_00"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_01"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_01"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="01"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_01"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="2"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_02"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_02"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="02"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_02"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="3"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_03"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_03"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="03"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_03"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="4"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_04"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_04"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="04"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_04"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="5"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_05"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_05"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="05"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_05"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="6"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_06"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_06"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="06"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_06"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="0"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_10"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="10"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_10"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_11"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="11"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_11"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="2"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_12"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="12"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_12"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="3"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_13"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="13"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_13"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="4"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_14"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="14"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_14"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="5"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_15"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="15"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_15"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="6"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_16"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="16"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_16"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="0"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_20"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="20"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_20"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_21"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="21"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_21"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="2"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_22"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_22"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="22"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_22"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="3"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_23"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="23"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_23"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="4"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_24"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="24"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_24"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="5"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_25"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_25"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="25"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_25"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="6"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_26"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_26"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="26"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_26"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="0"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_30"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_30"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="30"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_30"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_31"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_31"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="31"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_31"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="2"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_32"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_32"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="32"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_32"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="3"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_33"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_33"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="33"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_33"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="4"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_34"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_34"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="34"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_34"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="5"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_35"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_35"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="35"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_35"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="6"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_36"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_36"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="36"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_36"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="0"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_40"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_40"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="40"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_40"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_41"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_41"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="41"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_41"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="2"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_42"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_42"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="42"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_42"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="3"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_43"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_43"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="43"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_43"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="4"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_44"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_44"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="44"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_44"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="5"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_45"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_45"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="45"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_45"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_column="6"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_table_text_frame_46"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calendar_table_text_46"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="46"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:id="@+id/calendar_table_task_46"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <!-- tasks will be displayed here -->
+                            <!-- bu la bu la bu la -->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/calendar_info_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/calendar_table_frame"
+        app:layout_constraintTop_toBottomOf="@+id/calendar_table_frame"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/calendar_info_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/calendar_bottom_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="Day"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintStart_toStartOf="@+id/calendar_table"
+                app:layout_constraintTop_toBottomOf="@+id/calendar_table" />
+
+            <TextView
+                android:id="@+id/calendar_bottom_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="month"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintStart_toStartOf="@+id/calendar_table"
+                app:layout_constraintTop_toBottomOf="@+id/calendar_table" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/calendar_bottom_tasks_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="# tasks in total"
+            android:textSize="20sp"
+            android:fontFamily="@font/roboto_light"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:layout_marginEnd="10dp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/calendar_bottom_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="65dp"
+        android:background="@color/white"
+
+        app:layout_constraintTop_toBottomOf="@+id/calendar_info_display"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/calendar_bottom_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical" />
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
