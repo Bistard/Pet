@@ -165,7 +165,9 @@ public class TodoFragment extends Fragment {
 
             LinearLayout theLayout = makeInnerLayout(linearLayout);
             makeEmptyLine(theLayout, 30);
-            if (theTasksSize != 0) {
+            if (theTasksSize == 0) {
+                makeTextView("You have nothing left to do!", theLayout);
+            } else{
                 int i = MAX_LINE_PER_DAY;
                 for (Task t : theTasks) {
                     if (i == 0) {

@@ -43,11 +43,14 @@ public class HomeActivity extends AppCompatActivity {
 
         // TODO: test only
         //custom user
-        Tester.deleteAllJSON();
-        User user = Tester.makeCustomUser();
+//        Tester.deleteAllJSON();
+
+//        User user = Tester.makeCustomUser();
+
+//        User user = Tester.makeEmptyUser();
 
         //new user
-//        User user = User.Initialize();
+        User user = User.Initialize();
 
 
 

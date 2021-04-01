@@ -77,7 +77,7 @@ public class Pet {
                 throw new NullPointerException("No overdue tasks today");
             }
         }
-        if (phrase.contains("$$UNFINISHED TASK$$") || phrase.contains("$$NUMBER OF ALL UNFINISHED$$")) {
+        if (phrase.contains("$$UNFINISHED TASK$$") || phrase.contains("$$NUMBER OF UNFINISHED$$")) {
             if (unfinished.size() > 0) {
                 phrase = phrase.replaceAll("\\$\\$UNFINISHED TASK\\$\\$", unfinished.get(rand.nextInt(unfinished.size())).name())
                         .replaceAll("\\$\\$NUMBER OF UNFINISHED\\$\\$", "" + (unfinished.size() + overdue.size()));
